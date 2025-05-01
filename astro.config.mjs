@@ -38,7 +38,7 @@ const locales = disable_language
 
 // https://astro.build/config
 export default defineConfig({
-  site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
+  site: config.site.base_url ? config.site.base_url : "https://dev-web.remedium.ai",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   i18n: {
     locales: locales,
