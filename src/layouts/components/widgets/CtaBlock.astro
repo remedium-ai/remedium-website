@@ -1,0 +1,69 @@
+---
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import BtnText from "../buttons/BtnText.astro";
+import OptimizedImage from "../utilities/OptimizedImage.astro";
+import { toSentenceCase } from "@/lib/utils/textConverter";
+import { getLocaleUrlCTM } from "@/lib/utils/languageParser.ts";
+
+interface Props {
+  class?: string;
+}
+
+const contentEntry = await getEntryCTM(
+  "widgets",
+  "cta-block",
+  Astro.currentLocale,
+);
+
+const { class: className } = Astro.props;
+const {
+  enable,
+  title,
+  description,
+  cta_btn,
+  image,
+  image_overlay,
+  content_bg_shape,
+} = contentEntry?.data || {};
+---
+
+{
+  enable && (
+    <div class:list={[className]}>
+      {image && (
+        <div class="relative">
+          <OptimizedImage
+            src={image}
+            class="h-60 w-full object-cover"
+            alt={toSentenceCase("Image related to " + title)}
+          />
+          <OptimizedImage
+            src={image_overlay}
+            class="absolute inset-0 !h-full w-full object-cover"
+            alt={"shape"}
+          />
+        </div>
+      )}
+      <div class="bg-primary relative px-4 pt-5 pb-6 text-white">
+        <div class="relative z-10 space-y-6">
+          {title && <h3 class="text-h4 text-inherit">{title}</h3>}
+          {description && <p class="text-inherit">{description}</p>}
+          {cta_btn && (
+            <BtnText
+              class="!border-white text-white"
+              title={title}
+              slug={getLocaleUrlCTM(cta_btn.url, Astro.currentLocale)}
+              label={cta_btn.label}
+            />
+          )}
+        </div>
+
+        <OptimizedImage
+          src={content_bg_shape}
+          class="absolute inset-0 !h-full !max-h-full w-full !max-w-full object-cover"
+          alt={"shape"}
+        />
+      </div>
+    </div>
+  )
+}

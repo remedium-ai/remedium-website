@@ -1,0 +1,185 @@
+---
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import overrideObjects from "@/lib/utils/overrideObjects.ts";
+import { markdownify } from "@/lib/utils/textConverter";
+import AccordionList from "@/layouts/components/widgets/AccordionList.astro";
+import type { FAQCategory, FAQItem, Section } from "@/types";
+import BtnText from "../buttons/BtnText.astro";
+import { getLocaleUrlCTM } from "@/lib/utils/languageParser.ts";
+
+// Type for this section data
+type faq_section_type = Section & {
+  list?: FAQCategory[];
+  section_layout?: "vertical" | "horizontal";
+  minimal_faq_layout?: boolean;
+  faq_layout_only?: boolean;
+  show_categories?: boolean;
+};
+type Props = {
+  content?: faq_section_type;
+};
+
+// Fetching the default content for the this section
+let default_content = (await getEntryCTM("faq", "-index", Astro.currentLocale))
+  ?.data as faq_section_type;
+
+// Enables content customization (e.g., title, description) with a fallback to 'default_content' if not provided.
+// The 'content' prop should match the structure of 'default_content'.
+// Allows using this section with different content across multiple pages.
+// If 'content' is missing, 'default_content' will be used.
+let actual_content = overrideObjects(
+  { ...default_content },
+  Astro.props.content,
+) as faq_section_type;
+
+// Extracting required values from 'content' object
+let {
+  enable = true,
+  title,
+  subtitle,
+  cta_btn,
+  list,
+  limit,
+  section_layout,
+  faq_layout_only,
+  minimal_faq_layout,
+  show_categories,
+} = actual_content as faq_section_type;
+
+// Featured Faqs
+let featuredFaqs = [] as FAQItem[];
+list &&
+  list.map((faq: FAQCategory, faqIndex: number) => {
+    const list = faq.list.filter(
+      (item) => item.featured && (faqIndex === 0 ? !item.active : true),
+    );
+    featuredFaqs.push(...list);
+  });
+
+// Sort featuredFaqs by active status
+featuredFaqs.sort(
+  (a: FAQItem, b: FAQItem) => Number(b.active) - Number(a.active),
+);
+
+// Limit the number of items to be displayed
+list = limit && list ? list.slice(0, limit as number) : list;
+
+// IF services group is not enabled then only show first category faqs
+if (!show_categories) {
+  list = list?.slice(0, 1);
+}
+---
+
+{
+  enable && (
+    <section>
+      <div class="container">
+        <div
+          class:list={[
+            "grid place-items-start gap-12 md:gap-16",
+            !faq_layout_only && section_layout === "horizontal"
+              ? "lg:grid-cols-2"
+              : "lg:grid-cols-1",
+          ]}>
+          {!faq_layout_only && (
+            <div
+              class:list={[
+                "lg:max-w-2xl",
+                section_layout === "vertical"
+                  ? "mx-auto text-center"
+                  : "lg:sticky lg:top-40",
+              ]}>
+              <div data-aos="fade-up-sm">
+                {subtitle && (
+                  <span
+                    set:html={markdownify(subtitle)}
+                    class="bg-primary/5 border-secondary text-primary mb-2.5 inline-block rounded-full border px-5 py-px"
+                  />
+                )}
+                {title && (
+                  <h2
+                    class="text-h3 text-inherit"
+                    set:html={markdownify(title)}
+                  />
+                )}
+              </div>
+
+              {cta_btn && cta_btn.enable && (
+                <div data-aos="fade-up-sm" data-aos-delay="250">
+                  <BtnText
+                    title={title}
+                    label={cta_btn.label}
+                    slug={getLocaleUrlCTM(cta_btn.url, Astro.currentLocale)}
+                    class="text-base-sm mt-8 capitalize md:text-base"
+                  />
+                </div>
+              )}
+            </div>
+          )}
+          {list && list.length > 0 && (
+            <div
+              data-aos="fade-up-sm"
+              data-aos-delay="300"
+              class:list={[
+                "w-full",
+                { "mx-auto w-full max-w-5xl": section_layout === "vertical" },
+                {
+                  "bg-theme-light rounded-3xl p-2.5 sm:p-7 lg:p-14":
+                    !minimal_faq_layout,
+                },
+              ]}>
+              {show_categories && (
+                <nav
+                  role="tablist"
+                  aria-label="Tabs"
+                  aria-orientation="horizontal"
+                  class:list={[
+                    show_categories &&
+                      "mb-8 flex flex-wrap gap-x-1 border-b pb-8",
+                  ]}>
+                  {list.map((button: FAQCategory, index: number) => (
+                    <button
+                      role="tab"
+                      type="button"
+                      set:html={button.label}
+                      id={"tab-item-" + (index + 1)}
+                      data-hs-tab={"#tab-" + (index + 1)}
+                      aria-controls={"tab-" + (index + 1)}
+                      aria-selected={index === 0 ? "true" : "false"}
+                      class:list={[
+                        "hs-tab-active:bg-white rounded-md px-6 py-3.5 text-lg/none",
+                        { active: index === 0 },
+                      ]}
+                    />
+                  ))}
+                </nav>
+              )}
+              {
+                <div
+                  class:list={[
+                    !minimal_faq_layout && "mt-3 rounded-lg bg-white p-6",
+                  ]}>
+                  {list.map((tab: FAQCategory, index: number) => (
+                    <AccordionList
+                      role="tabpanel"
+                      content={tab.list}
+                      class={index === 0 ? "block" : "hidden"}
+                      id={"tab-" + (index + 1)}
+                      tabIndex={"group-" + (index + 1)}
+                      aria-labelledby={"tab-item-" + (index + 1)}
+                    />
+                  ))}
+                </div>
+              }
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<script>
+  import "@preline/tabs";
+  import "@preline/accordion";
+</script>

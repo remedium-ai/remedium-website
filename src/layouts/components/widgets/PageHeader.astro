@@ -1,0 +1,34 @@
+---
+import { humanize } from "@/lib/utils/textConverter";
+import Breadcrumbs from "@/layouts/components/widgets/Breadcrumbs.astro";
+
+interface Props {
+  title?: string;
+  paddingBottom?: boolean;
+  hiddenPaths?: string[];
+}
+
+const { title, hiddenPaths, paddingBottom = false } = Astro.props;
+---
+
+<section>
+  <div
+    class:list={[
+      "container flex flex-col items-center justify-center gap-y-5 text-center",
+      { "pb-8 md:pb-16": paddingBottom },
+    ]}>
+    {
+      title && (
+        <h1 data-aos="fade-up-sm" class="text-h2">
+          {humanize(title)}
+        </h1>
+      )
+    }
+    <Breadcrumbs
+      data-aos="fade-up-sm"
+      data-aos-delay="200"
+      hidden_paths={hiddenPaths}
+      class="border bg-white px-6 py-2.5 sm:rounded-full"
+    />
+  </div>
+</section>

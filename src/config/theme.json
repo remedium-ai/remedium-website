@@ -1,0 +1,73 @@
+{
+  "colors": {
+    "default": {
+      "theme_color": {
+        "primary": "#1f58eb",
+        "secondary": "#BCD4FF",
+        "accent": "#E4EA8C",
+        "body": "#fff",
+        "border": "#E5E5E5",
+        "theme_dark": "#101E43",
+        "theme_light": "#F9FBFF"
+      },
+      "text_color": {
+        "default": "#2E2E2E",
+        "dark": "#000E30",
+        "light": "#565555"
+      }
+    }
+  },
+  "fonts": {
+    "font_family": [
+      {
+        "name": "DM Sans",
+        "src": [
+          {
+            "style": "normal",
+            "weight": "400"
+          },
+          {
+            "style": "normal",
+            "weight": "500"
+          },
+          {
+            "style": "normal",
+            "weight": "600"
+          },
+          {
+            "style": "normal",
+            "weight": "700"
+          }
+        ],
+        "preload": false,
+        "provider": "google-fonts",
+        "display": "swap",
+        "cssVariable": "font-primary",
+        "fallback": "sans-serif",
+        "locallyHosted": true,
+        "__comment": "set locallyHosted: true if you want to download google fonts and hosted them locally automatically"
+      },
+      {
+        "name": "Syne",
+        "src": [
+          {
+            "style": "normal",
+            "weight": "700"
+          }
+        ],
+        "preload": false,
+        "display": "swap",
+        "cssVariable": "font-secondary",
+        "provider": "google-fonts",
+        "fallback": "sans-serif",
+        "locallyHosted": true,
+        "__comment": "set locallyHosted: true if you want to download google fonts and hosted them locally automatically"
+      }
+    ],
+    "font_size": {
+      "base": "16",
+      "type_scale": "1.29",
+      "line_height": "1.8"
+    }
+  }
+}

@@ -1,0 +1,229 @@
+---
+import CallToAction from "@/components/sections/CallToAction.astro";
+import Social from "@/components/social/Social.astro";
+import Base from "@/layouts/Base.astro";
+import { getCollectionCTM } from "@/lib/contentParser.astro";
+import dateFormat from "@/lib/utils/dateFormat";
+import { markdownify } from "@/lib/utils/textConverter";
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import {
+  getLocaleUrlCTM,
+  supportedLanguages,
+  useTranslations,
+} from "@/lib/utils/languageParser.ts";
+import parseTomlToJson from "@/lib/utils/parseTomlToJson";
+
+export async function getStaticPaths() {
+  const paths = await Promise.all(
+    supportedLanguages.map(async (lang) => {
+      const config = parseTomlToJson("./src/config/config.toml");
+      const { default_language, show_default_lang_in_url } =
+        config.settings.multilingual;
+      const careerIndex = await getEntryCTM(
+        "career",
+        "-index",
+        lang.languageCode,
+      );
+
+      let career = await getCollectionCTM("career", lang.languageCode);
+
+      // If `draft` is true in `index.md`, exclude all pages for the collection in production
+      if (careerIndex?.data.draft && import.meta.env.PROD) {
+        return [];
+      }
+
+      return career.map((entry) => ({
+        params: {
+          lang:
+            lang.languageCode === default_language && !show_default_lang_in_url
+              ? undefined
+              : lang.languageCode,
+          single: entry.data?.custom_slug || entry.slug.split("/").pop(),
+        },
+        props: {
+          career: entry,
+        },
+      }));
+    }),
+  );
+
+  return paths.flat();
+}
+
+const t = await useTranslations(Astro.currentLocale as string);
+const entry = await getEntryCTM("career", "-index", Astro.currentLocale);
+
+const { career } = Astro.props;
+const { title, description, categories, type, location, deadline, apply_link } =
+  career.data;
+
+const { Content } = await career.render();
+const { apply_block, benefits, social } = entry?.data;
+---
+
+<Base {...entry?.data}>
+  {/* Career Meta Info */}
+  <section
+    data-aos="fade-in"
+    class="has-light-shape after:bg-theme-light relative after:absolute after:inset-x-0 after:bottom-0 after:-z-20 after:h-screen after:w-full">
+    <div class="container">
+      <div class="max-w-3xl pb-16 md:pb-32">
+        {
+          categories && categories.length > 0 && (
+            <ul class="flex gap-2">
+              {categories.map((category: string) => (
+                <li
+                  class="mb-2 inline-block"
+                  set:html={markdownify(category)}
+                />
+              ))}
+            </ul>
+          )
+        }
+        {title && <h1 class="text-h3" set:html={markdownify(title)} />}
+        <div class="mt-6 flex flex-wrap gap-x-10 gap-y-5">
+          {
+            location && (
+              <div class="flex flex-col gap-y-4">
+                <p class="font-primary text-sm tracking-[.12em] opacity-60">
+                  {t("career.location")}
+                </p>
+                <p class="text-sm" set:html={location} />
+              </div>
+            )
+          }
+          {
+            type && (
+              <div class="flex flex-col gap-y-4">
+                <p class="font-primary text-sm tracking-[.12em] opacity-60">
+                  {t("career.job_type")}
+                </p>
+                <p class="text-sm" set:html={type} />
+              </div>
+            )
+          }
+          {
+            deadline && (
+              <div class="flex flex-col gap-y-4">
+                <p class="font-primary text-sm tracking-[.12em] opacity-60">
+                  {t("career.deadline")}
+                </p>
+                <p class="text-sm" set:html={dateFormat(deadline)} />
+              </div>
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Career Details */}
+  <section data-aos="fade-in" data-aos-delay="200">
+    <div class="container">
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:place-items-start">
+        {
+          Content && (
+            <article class="prose-styles lg:col-span-2 lg:pe-16 xl:pe-32">
+              <Content />
+            </article>
+          )
+        }
+        <aside
+          class="sticky-sidebar flex flex-col gap-y-12 lg:sticky lg:top-32 lg:z-10 lg:-mt-56">
+          {
+            apply_block && (
+              <div class="box-shadow-primary order-3 space-y-8 rounded-lg bg-white p-8 lg:order-none">
+                {apply_block.title && (
+                  <p set:html={markdownify(apply_block.title)} />
+                )}
+                {apply_block.cta_btn && (
+                  <a
+                    {...{
+                      // Set `rel` attribute for external urls or use provided value
+                      rel: apply_link?.startsWith("http")
+                        ? apply_block.cta_btn.rel || "noopener noreferrer"
+                        : apply_block.cta_btn.rel || undefined,
+
+                      // Set `target` to "_blank" for external urls unless otherwise specified
+                      target: apply_link?.startsWith("http")
+                        ? apply_block.cta_btn.target || "_blank"
+                        : apply_block.cta_btn.target || undefined,
+                    }}
+                    class="btn btn-primary has-text-flip-animation"
+                    data-content={apply_block.cta_btn.label}
+                    href={
+                      apply_link.startsWith("http")
+                        ? apply_link
+                        : getLocaleUrlCTM(apply_link, Astro.currentLocale)
+                    }>
+                    {apply_block.cta_btn.label}
+                  </a>
+                )}
+                {apply_block.note && (
+                  <p class="text-sm" set:html={markdownify(apply_block.note)} />
+                )}
+              </div>
+            )
+          }
+          {
+            benefits && benefits.enable && (
+              <div class="prose-styles">
+                {benefits.title && (
+                  <h3
+                    class="text-h5 mb-4 font-medium"
+                    set:html={markdownify(benefits.title)}
+                  />
+                )}
+                {benefits.list && (
+                  <ul class="space-y-2">
+                    {benefits.list.map((item: string) => (
+                      <li set:html={markdownify(item)} />
+                    ))}
+                  </ul>
+                )}
+              </div>
+            )
+          }
+          {
+            social && social.enable && (
+              <div>
+                {social.title && (
+                  <h3
+                    class="text-h5 mb-4 font-medium"
+                    set:html={markdownify(social.title)}
+                  />
+                )}
+                {social.list && (
+                  <Social
+                    class="gap-3"
+                    link_type="share"
+                    layout="modern"
+                    size="sm"
+                    title={title}
+                    description={description}
+                    slug={career.slug}
+                    list={social.list}
+                  />
+                )}
+              </div>
+            )
+          }
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
+</Base>
+
+<script>
+  import { stickySidebar } from "@/plugins/sticky-sidebar.js";
+
+  const sidebar = document.querySelector(".sticky-sidebar");
+  if (sidebar) {
+    new stickySidebar(sidebar, {
+      offsetTop: 132,
+      offsetBottom: 20,
+    });
+  }
+</script>

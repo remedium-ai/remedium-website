@@ -1,0 +1,20 @@
+---
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import Base from "@/layouts/Base.astro";
+---
+
+<Base status={404} title="Page Not Found" disable_tagline={true}>
+  <section class="py-8 md:py-16">
+    <div class="container">
+      <div class="flex flex-col items-center gap-y-10">
+        <OptimizedImage
+          width={500}
+          class="max-w-full sm:max-w-lg"
+          src="/images/404.svg"
+          alt="404"
+        />
+        <h1 class="text-h2-md md:text-h1 text-center">Page Not Found</h1>
+      </div>
+    </div>
+  </section>
+</Base>

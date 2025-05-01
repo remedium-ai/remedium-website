@@ -1,0 +1,140 @@
+---
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import overrideObjects from "@/lib/utils/overrideObjects.ts";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import type { FeatureList, Section, StatsBlock } from "@/types";
+import CreativeStatsBlock from "@/layouts/components/widgets/CreativeStatsBlock.astro";
+import { getLocaleUrlCTM } from "@/lib/utils/languageParser.ts";
+
+// Type for this section data
+type achievements_section_type = Section & {
+  cta_shape_one?: string;
+  cta_shape_two?: string;
+  stats_block: StatsBlock;
+  feature_list: FeatureList[];
+};
+type Props = {
+  content?: achievements_section_type;
+};
+
+// Fetching the default content for the this section
+let default_content = (
+  await getEntryCTM("sections", "achievements", Astro.currentLocale)
+)?.data as achievements_section_type;
+
+// Enables content customization (e.g., title, description) with a fallback to 'default_content' if not provided.
+// The 'content' prop should match the structure of 'default_content'.
+// Allows using this section with different content across multiple pages.
+// If 'content' is missing, 'default_content' will be used.
+let actual_content = overrideObjects(
+  { ...default_content },
+  Astro.props.content,
+) as achievements_section_type;
+
+// Extracting required values from 'content' object
+let {
+  enable = true,
+  title,
+  subtitle,
+  description,
+  cta_btn,
+  stats_block,
+  feature_list,
+} = actual_content as achievements_section_type;
+---
+
+{
+  enable && (
+    <section>
+      <div class="bg-theme-light relative py-12 md:py-20">
+        <div class="container grid gap-x-10 gap-y-10 overflow-hidden md:gap-y-20 lg:grid-cols-2 lg:place-items-center">
+          <div class="lg:max-w-2xl">
+            <div data-aos="fade-up-sm">
+              {subtitle && (
+                <span
+                  class="bg-primary/5 border-secondary text-primary mb-2.5 inline-block rounded-full border px-5 py-px"
+                  set:html={markdownify(subtitle)}
+                />
+              )}
+              {title && (
+                <h2
+                  class="text-h3 text-inherit"
+                  set:html={markdownify(title)}
+                />
+              )}
+            </div>
+            {description && (
+              <div
+                data-aos="fade-up-sm"
+                data-aos-delay="200"
+                class="mt-6"
+                set:html={markdownify(description, true)}
+              />
+            )}
+            {feature_list && (
+              <div class="divide-border-default/35 mt-8 divide-y md:mt-12">
+                {feature_list.map((item, index) => (
+                  <div
+                    data-aos="fade-up-sm"
+                    data-aos-offset="0"
+                    data-aos-delay={index * 150 + 150}
+                    class="mt-5 flex items-center justify-start gap-x-6 py-1.5 pt-5">
+                    {item.icon && (
+                      <div class="group-hover/item:bg-primary bg-primary/5 flex h-14 w-14 shrink-0 items-center justify-center rounded-lg transition duration-300">
+                        <OptimizedImage
+                          inlineSvg={true}
+                          src={item.icon || ""}
+                          class="match-brand-color h-7 w-7 transition"
+                        />
+                      </div>
+                    )}
+                    <div>
+                      {item.title && (
+                        <h3 class="text-h5 mb-px" set:html={item.title} />
+                      )}
+                      {item.description && (
+                        <p class="text-sm">{item.description}</p>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+            {cta_btn && cta_btn.enable && (
+              <a
+                {...{
+                  // Set `rel` attribute for external urls or use provided value
+                  rel: cta_btn.url?.startsWith("http")
+                    ? cta_btn.rel || "noopener noreferrer"
+                    : cta_btn.rel || undefined,
+
+                  // Set `target` to "_blank" for external urls unless otherwise specified
+                  target: cta_btn.url?.startsWith("http")
+                    ? cta_btn.target || "_blank"
+                    : cta_btn.target || undefined,
+                }}
+                class="relative mt-8 flex items-center"
+                href={getLocaleUrlCTM(cta_btn.url, Astro.currentLocale)}>
+                <span
+                  class="btn btn-outline btn-outline-primary has-text-flip-animation"
+                  data-content={cta_btn.label}>
+                  {cta_btn.label}
+                </span>
+                <span class="icon">
+                  <OptimizedImage
+                    alt="icon"
+                    inlineSvg={true}
+                    class="h-4 w-4 text-white"
+                    src="/images/icons/svg/arrow-top-right.svg"
+                  />
+                </span>
+              </a>
+            )}
+          </div>
+          <CreativeStatsBlock content={stats_block} data-aos="fade-left-sm" />
+        </div>
+      </div>
+    </section>
+  )
+}

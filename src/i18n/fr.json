@@ -1,0 +1,41 @@
+{
+  "common": {
+    "read_more": "Lire la suite",
+    "read_more_about": "En savoir plus sur",
+    "learn_more_about": "En savoir plus",
+    "email_placeholder": "Adresse e-mail",
+    "monthly_plan": "Mensuel",
+    "pagination_next": "Suivant",
+    "pagination_previous": "Pr c dent"
+  },
+  "widgets": {
+    "post_search_title": "Rechercher un article",
+    "post_search_form_placeholder": "Rechercher...",
+    "categories_title": "Catégorie",
+    "recent_posts_title": "Articles récents"
+  },
+  "career": {
+    "location": "Emplacement",
+    "deadline": "Date de clôture des candidatures",
+    "job_type": "Type de poste"
+  },
+  "blog": {
+    "written_by": "Rédigé par",
+    "published_on": "Publié le",
+    "category": "Catégorie"
+  },
+  "navigation": {
+    "button_label": "Commencez à utiliser"
+  },
+  "subscription": {
+    "label": "Abonnez-vous à notre newsletter pour obtenir les dernières mises"
+  },
+  "footer": {
+    "quick_links": "Liens rapides",
+    "legal": "Juridique",
+    "resources": "Ressources",
+    "description": "Looka est une entreprise de design et de technologie basée à San Francisco, fondée en 2016. Leur mission est de démocratiser le design en rendant les outils de branding professionnels accessibles à tous.",
+    "copyright": "Droits d'auteur {{ year }} / Tous droits réservés par Looka / Construit avec amour [Astro Themes](https://getastrothemes.com/)",
+    "_comment": "We kindly appreciate it if you retain the theme copyright. Thank you for supporting Getastrothemes!"
+  }
+}

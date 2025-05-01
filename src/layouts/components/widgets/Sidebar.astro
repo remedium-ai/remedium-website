@@ -1,0 +1,63 @@
+---
+import Search from "./Search.astro";
+import CtaBlock from "./CtaBlock.astro";
+import Categories from "./Categories.astro";
+import RecentPosts from "./RecentPosts.astro";
+import RelatedPortfolios from "./RelatedPortfolios.astro";
+
+const { sidebar, boxShadow, ...rest } = Astro.props;
+
+const {
+  widgets: widgetList = ["Search", "Categories", "RecentPosts", "CtaBlock"],
+} = sidebar;
+const widgets = [
+  {
+    name: "RelatedPortfolios",
+    Component: RelatedPortfolios,
+    props: sidebar?.props?.relatedPortfolios,
+  },
+  { name: "Search", Component: Search, props: sidebar?.props?.search },
+  {
+    name: "Categories",
+    Component: Categories,
+    props: sidebar?.props?.categories,
+  },
+  {
+    name: "RecentPosts",
+    Component: RecentPosts,
+    props: sidebar?.props?.recentPosts,
+  },
+  { name: "CtaBlock", Component: CtaBlock, props: sidebar?.props?.ctaBlock },
+];
+---
+
+<div
+  {...rest}
+  class:list={[
+    "lg:col-span-4",
+    sidebar?.sticky
+      ? "sticky-sidebar lg:sticky"
+      : "space-y-8 lg:bg-white lg:p-5",
+    boxShadow && !sidebar?.sticky && "lg:box-shadow-primary",
+    sidebar?.position === "right" ? "order-2" : "order-2 lg:order-1",
+  ]}>
+  {
+    sidebar?.sticky ? (
+      <div
+        class:list={[
+          "space-y-8 lg:bg-white lg:p-5",
+          boxShadow && "lg:box-shadow-primary",
+        ]}>
+        {widgets
+          .filter(({ name }) => widgetList.includes(name))
+          .map(({ Component, props }) => (
+            <Component {...props} />
+          ))}
+      </div>
+    ) : (
+      widgets
+        .filter(({ name }) => widgetList.includes(name))
+        .map(({ Component, props }) => <Component {...props} />)
+    )
+  }
+</div>

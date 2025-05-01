@@ -1,0 +1,66 @@
+---
+import { absoluteUrl } from "@/lib/utils/absoluteUrl";
+import JsonLdGenerator from "@/lib/utils/JsonLdGenerator";
+import { supportedLanguages } from "@/lib/utils/languageParser";
+import parseTomlToJson from "@/lib/utils/parseTomlToJson";
+
+const config = parseTomlToJson("./src/config/config.toml");
+const { content } = Astro.props;
+
+let {
+  title = config.site.title,
+  meta_title = title,
+  description = config.site.description,
+  meta_description = description,
+  image = config.opengraph.image,
+  tagline_separator = " - ",
+  disable_tagline,
+  canonical,
+  lang,
+  author = config.seo.author,
+  structuredData,
+} = content;
+
+title =
+  !disable_tagline && meta_title
+    ? meta_title
+    : title
+      ? title
+      : config.site.title;
+
+// Add tagline & separator to title
+// prettier-ignore
+const alternateLangs =  config.settings.multilingual.enable ? supportedLanguages : []
+title += config.site.tagline ? tagline_separator + config.site.tagline : "";
+description = meta_description ? meta_description : description;
+canonical = canonical ? canonical : Astro.url.href;
+lang = Astro.currentLocale;
+image = absoluteUrl(image, Astro);
+
+// Generate JSON-LD dynamically
+const jsonLdData = JsonLdGenerator(
+  {
+    ...content,
+    ...structuredData,
+    title,
+    description,
+    image,
+    canonical,
+    config,
+    author,
+    lang,
+    alternateLangs,
+  },
+  Astro,
+);
+---
+
+<!-- JSON-LD -->{
+  content ? (
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(jsonLdData, null, 2)}
+    />
+  ) : null
+}

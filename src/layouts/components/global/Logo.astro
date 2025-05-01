@@ -1,0 +1,90 @@
+---
+import theme from "@/config/theme.json";
+import { getLocaleUrlCTM } from "@/lib/utils/languageParser.ts";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import { markdownify, toSentenceCase } from "@/lib/utils/textConverter";
+
+import parseTomlToJson from "@/lib/utils/parseTomlToJson";
+const config = parseTomlToJson("./src/config/config.toml");
+
+const getNumber = (value: string) => {
+  const base = Number(theme.fonts.font_size.base);
+  const updatedValue = value.replace("px", "").replace("rem", "");
+
+  // Remove 'px' or 'rem' from string
+  let valueAsNumber = Number(updatedValue);
+
+  // Convert rem to px if needed
+  if (value.includes("rem")) {
+    return (valueAsNumber = Number(updatedValue) * base);
+  }
+
+  return valueAsNumber;
+};
+
+type Props = {
+  src?: string;
+  class?: string;
+};
+
+let { src, class: className } = Astro.props;
+
+let {
+  logo,
+  logo_width = "29px",
+  logo_height = "29px",
+  logo_text,
+  logo_alternate,
+  title,
+}: {
+  logo: string;
+  logo_alternate: string;
+  logo_width: string;
+  logo_height: string;
+  logo_text: string;
+  title: string;
+} = config.site;
+---
+
+<a
+  href={getLocaleUrlCTM("/", Astro.currentLocale)}
+  class:list={["logo-wrapper", className]}>
+  {
+    src || logo_alternate || logo ? (
+      <>
+        <OptimizedImage
+          src={src ? src : logo}
+          class="logo"
+          width={getNumber(logo_width)}
+          height={getNumber(logo_height)}
+          alt={toSentenceCase("Brand logo of " + title)}
+          style={{
+            height: getNumber(logo_height) + "px",
+            width: getNumber(logo_width) + "px",
+          }}
+        />
+        {logo_alternate && (
+          <OptimizedImage
+            src={logo_alternate}
+            class="logo-alternate"
+            width={getNumber(logo_width)}
+            height={getNumber(logo_height)}
+            alt={toSentenceCase("Brand logo of " + title)}
+            style={{
+              height: logo_height,
+              width: logo_width,
+            }}
+          />
+        )}
+
+        {logo_text && (
+          <span class="logo-text" set:html={markdownify(logo_text)} />
+        )}
+      </>
+    ) : logo_text ? (
+      logo_text
+    ) : (
+      title
+    )
+  }
+</a>

@@ -1,0 +1,143 @@
+/* ===================================*/
+/* Button Style */
+/* ===================================*/
+
+.btn {
+  @apply inline-block overflow-y-hidden whitespace-nowrap rounded-full px-5 py-2 transition duration-300 md:px-7 lg:py-2.5;
+}
+.btn-md {
+  @apply px-8 py-3 md:text-lg;
+}
+
+.btn-primary {
+  @apply bg-primary text-white ring-4 ring-transparent hover:ring-primary/25;
+}
+.btn-text-primary {
+  @apply border-b-primary text-primary;
+}
+
+.btn-text {
+  @apply rounded-none border-b p-0 pb-1.5;
+}
+.btn-text-white {
+  @apply border-b-white text-white;
+}
+
+.btn-outline-primary {
+  @apply border-primary bg-white text-primary;
+}
+.btn-outline-transparent {
+  @apply border-white bg-transparent text-white;
+}
+
+.btn-outline {
+  @apply border font-medium text-white;
+  &.has-hover-ring-animation {
+    @apply ring-4 ring-transparent hover:ring-primary/25;
+  }
+
+  & ~ .icon {
+    @apply flex h-12 w-12 items-center justify-center rounded-full bg-white text-dark;
+
+    svg path {
+      @apply [fill-color:currentColor] #{!important};
+    }
+  }
+
+  &.btn-md ~ .icon {
+    @apply h-14 w-14;
+  }
+}
+
+*[class*="btn-outline-primary"] ~ .icon {
+  @apply bg-primary;
+}
+*[class*="btn-outline-transparent"] ~ .icon {
+  @apply bg-white;
+}
+
+/* Button Animation */
+.has-text-flip-animation {
+  /* Base styles */
+  @apply relative text-transparent;
+
+  /* Hover effect to swap text */
+  @apply hover:before:-top-1/2 hover:before:transform-none hover:before:opacity-0;
+  @apply hover:after:top-1/2 hover:after:-translate-y-1/2 hover:after:opacity-100;
+
+  /* Before & After common styles */
+  &::before,
+  &::after {
+    @apply pointer-events-none absolute inset-x-0 text-center !transition-[opacity,top,transform] !duration-[.35s] !ease-in-out content-[attr(data-content)];
+  }
+
+  /* Button Variants */
+  &[class*="btn-primary"]::before,
+  &[class*="btn-primary"]::after {
+    @extend .btn;
+    @extend .btn-primary;
+  }
+
+  /* Button Variants */
+  &[class*="btn-outline-transparent"]::before,
+  &[class*="btn-outline-transparent"]::after {
+    @extend .btn;
+    @extend .btn-outline-transparent;
+  }
+
+  /* Button Variants */
+  &[class*="btn-outline-primary"]::before,
+  &[class*="btn-outline-primary"]::after {
+    @extend .btn;
+    @extend .btn-outline-primary;
+  }
+
+  /* Button Sizes */
+  &[class*="btn-md"]::before,
+  &[class*="btn-md"]::after {
+    @extend .btn-md;
+  }
+
+  /* Initial state for before/after elements */
+  &::before {
+    @apply top-1/2 -translate-y-1/2;
+  }
+
+  &::after {
+    @apply top-1/2 opacity-0;
+  }
+}
+
+.has-icon-moving-animation {
+  /* @apply overflow-hidden; */
+  &:hover .icon {
+    &.icon-before {
+      @apply -top-full left-full;
+    }
+
+    &.icon-after {
+      @apply left-0 top-0;
+    }
+  }
+
+  .icons-wrapper {
+    @apply relative overflow-hidden;
+  }
+
+  .icon {
+    @apply transition-[top,_left] duration-500 ease-in-out;
+
+    &.icon-before,
+    &.icon-after {
+      @apply absolute inset-0 size-full;
+    }
+
+    &.icon-before {
+      @apply top-0;
+    }
+
+    &.icon-after {
+      @apply -left-full top-full;
+    }
+  }
+}

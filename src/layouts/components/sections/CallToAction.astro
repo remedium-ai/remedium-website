@@ -1,0 +1,205 @@
+---
+import type { Section, StatsBlock } from "@/types";
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import overrideObjects from "@/lib/utils/overrideObjects.ts";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import AnimatedNumber from "@/layouts/components/widgets/AnimatedNumber.astro";
+import CreativeStatsBlock from "@/layouts/components/widgets/CreativeStatsBlock.astro";
+import { getLocaleUrlCTM } from "@/lib/utils/languageParser.ts";
+
+// Type for this section data
+type cta_section_type = Section & {
+  cta_shape_one?: string;
+  cta_shape_two?: string;
+  stats_block: StatsBlock;
+  right_content: "image" | "stats";
+  image_block: {
+    enable: boolean;
+    default: boolean;
+    image: string;
+    experience: {
+      label: string;
+      value: string;
+    };
+  };
+};
+
+type Props = {
+  content?: cta_section_type;
+};
+
+// Fetching the default content for the this section
+let default_content = (
+  await getEntryCTM("sections", "call-to-action", Astro.currentLocale)
+)?.data as cta_section_type;
+
+// Enables content customization (e.g., title, description) with a fallback to 'default_content' if not provided.
+// The 'content' prop should match the structure of 'default_content'.
+// Allows using this section with different content across multiple pages.
+// If 'content' is missing, 'default_content' will be used.
+let actual_content = overrideObjects(
+  { ...default_content },
+  Astro.props.content,
+) as cta_section_type;
+
+// Extracting required values from 'content' object
+let {
+  enable = true,
+  title,
+  subtitle,
+  description,
+  cta_btn,
+  stats_block,
+  image_block,
+  right_content,
+  cta_shape_one,
+  cta_shape_two,
+} = actual_content as cta_section_type;
+---
+
+{
+  enable && (
+    <section class="mt-auto overflow-hidden">
+      <div
+        class:list={[
+          "bg-theme-light relative",
+          { "py-12 md:py-20": right_content === "stats" },
+        ]}>
+        {cta_shape_one && (
+          <div class="pointer-events-none absolute top-0 right-0 z-10 h-40 w-28 opacity-30 md:opacity-100 lg:left-0">
+            <OptimizedImage
+              inlineSvg={true}
+              class="match-brand-color text-primary h-full w-full origin-bottom-right object-cover"
+              src={cta_shape_one}
+              alt="pattern"
+            />
+          </div>
+        )}
+        {cta_shape_two && (
+          <div class="pointer-events-none absolute right-0 bottom-0 z-10 h-40 w-44 opacity-30 max-lg:hidden md:opacity-100">
+            <OptimizedImage
+              inlineSvg={true}
+              class="match-brand-color text-primary h-full w-full origin-bottom-right object-cover"
+              src={cta_shape_two}
+              alt="pattern"
+            />
+          </div>
+        )}
+        <div class="container grid gap-x-10 gap-y-10 md:gap-y-20 lg:grid-cols-2 lg:place-items-center">
+          <div
+            class:list={[
+              "lg:max-w-2xl",
+              { "pt-12 md:pt-20 lg:pt-0": right_content === "image" },
+            ]}>
+            <div data-aos="fade-up-sm" data-aos-offset="0">
+              {subtitle && (
+                <span
+                  class="bg-primary/5 border-secondary text-primary mb-2.5 inline-block rounded-full border px-5 py-px"
+                  set:html={markdownify(subtitle)}
+                />
+              )}
+              {title && (
+                <h2
+                  class="text-h3 text-inherit"
+                  set:html={markdownify(title)}
+                />
+              )}
+            </div>
+            {description && (
+              <div
+                data-aos="fade-up-sm"
+                data-aos-offset="0"
+                data-aos-delay="200"
+                class="mt-6"
+                set:html={markdownify(description, true)}
+              />
+            )}
+            {cta_btn && cta_btn.enable && (
+              <div
+                data-aos="fade-up-sm"
+                data-aos-offset="0"
+                data-aos-delay="300">
+                <a
+                  {...{
+                    // Set `rel` attribute for external urls or use provided value
+                    rel: cta_btn.url?.startsWith("http")
+                      ? cta_btn.rel || "noopener noreferrer"
+                      : cta_btn.rel || undefined,
+
+                    // Set `target` to "_blank" for external urls unless otherwise specified
+                    target: cta_btn.url?.startsWith("http")
+                      ? cta_btn.target || "_blank"
+                      : cta_btn.target || undefined,
+                  }}
+                  class="relative mt-8 flex items-center"
+                  href={getLocaleUrlCTM(cta_btn.url, Astro.currentLocale)}>
+                  <span
+                    class="btn btn-outline btn-outline-primary has-text-flip-animation"
+                    data-content={cta_btn.label}>
+                    {cta_btn.label}
+                  </span>
+                  <span class="icon">
+                    <OptimizedImage
+                      alt="icon"
+                      inlineSvg={true}
+                      class="h-4 w-4 text-white"
+                      src="/images/icons/svg/arrow-top-right.svg"
+                    />
+                  </span>
+                </a>
+              </div>
+            )}
+          </div>
+          {right_content === "image" ? (
+            <div class="has-animated-number relative lg:pt-20">
+              <div class="relative z-10 mx-auto w-fit" data-aos="fade-up-sm">
+                <OptimizedImage
+                  class="max-w-full md:max-w-lg"
+                  src={image_block.image}
+                  alt={title || "About Us"}
+                />
+                {image_block.experience && (
+                  <div class="bg-primary absolute bottom-16 left-5 md:-left-20">
+                    {
+                      <div class="py-2 ps-5 text-white">
+                        <div class="relative flex items-stretch">
+                          <AnimatedNumber
+                            class="text-h2 leading-tight font-bold text-inherit md:text-6xl"
+                            content={image_block.experience}
+                          />
+                          {image_block.experience.label && (
+                            <sup
+                              class="font-secondary top-0 -left-6 text-sm font-bold tracking-wider text-inherit"
+                              set:html={markdownify(
+                                image_block.experience.label,
+                              )}
+                            />
+                          )}
+                        </div>
+                        <OptimizedImage
+                          class="pointer-events-none absolute inset-0 h-full w-full"
+                          src={"/images/call-to-action/stats-block-bg.svg"}
+                          alt={title || "About Us"}
+                        />
+                      </div>
+                    }
+                  </div>
+                )}
+              </div>
+              {/* background shape */}
+              <div class="bg-primary pointer-events-none absolute top-[calc(50%_-_42px)] left-1/2 h-[35.875rem] w-[35.875rem] -translate-x-1/2 rounded-full opacity-80" />
+            </div>
+          ) : (
+            right_content === "stats" && (
+              <CreativeStatsBlock
+                content={stats_block}
+                data-aos="fade-down-sm"
+              />
+            )
+          )}
+        </div>
+      </div>
+    </section>
+  )
+}

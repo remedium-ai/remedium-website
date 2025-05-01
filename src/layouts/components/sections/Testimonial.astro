@@ -1,0 +1,156 @@
+---
+import Marquee from "@/components/widgets/Marquee.astro";
+import theme from "@/config/theme.json";
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import overrideObjects from "@/lib/utils/overrideObjects.ts";
+import type { MarqueeConfig, Section } from "@/types";
+import { markdownify } from "@/lib/utils/textConverter";
+import TestimonialCard from "@/layouts/components/cards/TestimonialCard.astro";
+import OptimizedImage from "../utilities/OptimizedImage.astro";
+import { getLocaleUrlCTM } from "@/lib/utils/languageParser.ts";
+
+// Type for this section data
+export type testimonial_section_type = Section & {
+  marquee: MarqueeConfig;
+  list: {
+    enable: boolean;
+    rating: number;
+    content: string;
+    source: {
+      logo: string;
+      url: string;
+    };
+    customer: {
+      image: string;
+      name: string;
+      role: string;
+      company: {
+        logo: string;
+        name: string;
+      };
+    };
+  }[];
+};
+type Props = {
+  content?: testimonial_section_type;
+};
+
+// Fetching the default content for the this section
+let default_content = (
+  await getEntryCTM("sections", "testimonial", Astro.currentLocale)
+)?.data as testimonial_section_type;
+
+// Enables content customization (e.g., title, description) with a fallback to 'default_content' if not provided.
+// The 'content' prop should match the structure of 'default_content'.
+// Allows using this section with different content across multiple pages.
+// If 'content' is missing, 'default_content' will be used.
+let actual_content = overrideObjects(
+  { ...default_content },
+  Astro.props.content,
+) as testimonial_section_type;
+
+// Extracting required values from 'content' object
+let {
+  enable = true,
+  title,
+  subtitle,
+  cta_btn,
+  list,
+  marquee,
+} = actual_content as testimonial_section_type;
+---
+
+{
+  enable && (
+    <section class="overflow-hidden">
+      <div class="bg-theme-light py-16 md:py-28">
+        <div class="container overflow-x-hidden">
+          <div
+            data-aos="fade-right-sm"
+            class="flex flex-wrap items-center justify-between gap-6 lg:flex-nowrap">
+            <div class="lg:max-w-2xl">
+              {subtitle && (
+                <span
+                  class="bg-primary/5 border-secondary text-primary mb-2.5 inline-block rounded-full border px-5 py-px"
+                  set:html={markdownify(subtitle)}
+                />
+              )}
+              {title && (
+                <h2
+                  class="text-h3 text-inherit"
+                  set:html={markdownify(title)}
+                />
+              )}
+            </div>
+            {cta_btn && cta_btn.enable && (
+              <div data-aos="fade-right-sm" data-aos-delay="200">
+                <a
+                  {...{
+                    // Set `rel` attribute for external urls or use provided value
+                    rel: cta_btn.url?.startsWith("http")
+                      ? cta_btn.rel || "noopener noreferrer"
+                      : cta_btn.rel || undefined,
+
+                    // Set `target` to "_blank" for external urls unless otherwise specified
+                    target: cta_btn.url?.startsWith("http")
+                      ? cta_btn.target || "_blank"
+                      : cta_btn.target || undefined,
+                  }}
+                  class="relative flex items-center"
+                  href={getLocaleUrlCTM(cta_btn.url, Astro.currentLocale)}>
+                  <span
+                    class="btn btn-outline btn-outline-primary has-text-flip-animation"
+                    data-content={cta_btn.label}>
+                    {cta_btn.label}
+                  </span>
+                  <span class="icon">
+                    <OptimizedImage
+                      alt="icon"
+                      inlineSvg={true}
+                      class="h-4 w-4 text-white"
+                      src="/images/icons/svg/arrow-top-right.svg"
+                    />
+                  </span>
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
+        <div class="relative" data-aos="fade-up-sm" data-aos-delay="300">
+          <div
+            class="testimonial-gradient-bg"
+            style={{
+              "--accent-color": theme.colors.default.theme_color.accent,
+            }}
+            aria-hidden="true"
+          />
+          <div class="relative mt-12 flex overflow-x-hidden md:mt-16">
+            <Marquee
+              class="items-stretch"
+              marqueeElements={list.length}
+              marqueePauseOnHover={marquee.pause_on_hover}
+              marqueeReverse={marquee.reverse}
+              marqueeDuration={marquee.duration}
+              marqueeElementWidth={marquee.element_width}
+              marqueeElementWidthResponsive={
+                marquee.element_width_in_small_devices
+              }>
+              {list.map((item) => (
+                <div class="min-w-[var(--marquee-element-width-responsive)] px-4 md:min-w-[var(--marquee-element-width)]">
+                  <TestimonialCard class="min-h-full" content={item} />
+                </div>
+              ))}
+              {list.map((item) => (
+                <div
+                  class="min-w-[var(--marquee-element-width-responsive)] px-4 md:min-w-[var(--marquee-element-width)]"
+                  aria-hidden="true">
+                  <TestimonialCard class="min-h-full" content={item} />
+                </div>
+              ))}
+            </Marquee>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

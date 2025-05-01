@@ -1,0 +1,126 @@
+---
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import overrideObjects from "@/lib/utils/overrideObjects.ts";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import type { Section } from "@/types";
+import StatsWrapper from "@/shortcodes/StatsWrapper.astro";
+import StatsItem from "@/shortcodes/StatsItem.astro";
+import BtnText from "../buttons/BtnText.astro";
+import { getLocaleUrlCTM } from "@/lib/utils/languageParser.ts";
+
+// Type for this section data
+export type join_us_section_type = Section & {
+  gallery: {
+    enable: boolean;
+    list: {
+      type: "image" | "stats";
+      src?: string;
+      alt?: string;
+      list?: {
+        prepend_value: string;
+        value: string;
+        append_value: string;
+        description: string;
+        icon: string;
+      }[];
+    }[];
+  };
+};
+
+type Props = {
+  content?: join_us_section_type;
+};
+
+// Fetching the default content for the this section
+let default_content = (
+  await getEntryCTM("sections", "join-us", Astro.currentLocale)
+)?.data as join_us_section_type;
+
+// Enables content customization (e.g., title, description) with a fallback to 'default_content' if not provided.
+// The 'content' prop should match the structure of 'default_content'.
+// Allows using this section with different content across multiple pages.
+// If 'content' is missing, 'default_content' will be used.
+let actual_content = overrideObjects(
+  { ...default_content },
+  Astro.props.content,
+) as join_us_section_type;
+
+// Extracting required values from 'content' object
+let {
+  enable = true,
+  title,
+  subtitle,
+  description,
+  gallery,
+  cta_btn,
+} = actual_content as join_us_section_type;
+---
+
+{
+  enable && (
+    <section>
+      <div class="container flex flex-col justify-start gap-12 md:gap-16">
+        {title && (
+          <div class="flex flex-col flex-wrap gap-6 overflow-x-hidden md:flex-nowrap lg:flex-row lg:items-center lg:justify-between">
+            <div data-aos="fade-right-sm">
+              {subtitle && (
+                <span
+                  class="bg-primary/5 border-secondary text-primary mb-2.5 inline-block rounded-full border px-5 py-px"
+                  set:html={markdownify(subtitle)}
+                />
+              )}
+              <h2 class="text-h3 max-w-lg" set:html={markdownify(title)} />
+            </div>
+            <div
+              data-aos="fade-right-sm"
+              data-aos-delay="200"
+              class="space-y-4 lg:max-w-lg xl:lg:max-w-2xl">
+              {description && <p set:html={markdownify(description)} />}
+              {cta_btn?.enable && (
+                <BtnText
+                  title={title}
+                  label={cta_btn.label}
+                  slug={getLocaleUrlCTM(cta_btn.url, Astro.currentLocale)}
+                  class="text-base-sm mt-8 capitalize md:text-base"
+                />
+              )}
+            </div>
+          </div>
+        )}
+        {gallery && gallery.enable && (
+          <div
+            data-aos="fade-up-sm"
+            data-aos-delay="300"
+            class:list={["grid grid-cols-1 gap-6 md:grid-cols-12"]}>
+            {gallery.list.map((item, index) => (
+              <div
+                class:list={[
+                  index % 2 === 0
+                    ? "col-span-6 xl:col-span-7"
+                    : "col-span-6 xl:col-span-5",
+                  { "xl:row-span-2": item.type === "image" && index % 2 !== 0 },
+                  { "md:col-span-12": item.type === "stats" },
+                ]}>
+                {item.type === "image" && item.src !== undefined && (
+                  <OptimizedImage
+                    src={item.src}
+                    alt={item.alt}
+                    class="!h-60 !max-h-full w-full object-cover sm:!h-80 md:!h-full"
+                  />
+                )}
+                {item.type === "stats" && item.list && (
+                  <StatsWrapper>
+                    {item.list.map((stats_item) => (
+                      <StatsItem content={stats_item} />
+                    ))}
+                  </StatsWrapper>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}

@@ -1,0 +1,86 @@
+---
+import ReactIcon from "@/helpers/ReactIcons.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import type { FAQItem } from "@/types";
+
+interface Props {
+  content: FAQItem[];
+  class?: string;
+  [key: string]: any;
+}
+
+const { content: list, ...rest } = Astro.props;
+---
+
+<div {...rest}>
+  <div class="hs-accordion-group divide-y">
+    {
+      list.map((item, index) => {
+        const uniqueId = rest.tabIndex
+          ? rest.tabIndex + "-" + (index + 1)
+          : index + 1;
+
+        return (
+          <div
+            class:list={[
+              "hs-accordion hs-accordion-active:opacity-100 opacity-70",
+              "[&:last-of-type_.hs-accordion-content>div]:pt-4",
+              "[&:last-of-type_.hs-accordion-toggle]:pb-0",
+              "[&:first-of-type_.hs-accordion-toggle]:pt-0",
+              item.active && "active",
+            ]}
+            id={"faq-" + uniqueId}>
+            <button
+              aria-expanded={item.active ? "true" : "false"}
+              class="hs-accordion-toggle text-dark flex w-full items-center justify-between py-4 text-start text-lg"
+              aria-controls={"faq-content-" + uniqueId}>
+              <span set:html={item.title} />
+              <span class="hs-accordion-active:rotate-180 transition duration-300">
+                <ReactIcon icon="RxArrowTopRight" class="text-dark text-xl" />
+              </span>
+            </button>
+            <div
+              role="region"
+              id={"faq-content-" + uniqueId}
+              aria-labelledby={"faq-" + uniqueId}
+              class:list={[
+                "hs-accordion-content overflow-hidden transition-[height] duration-300",
+                !item.active && "hidden",
+              ]}>
+              <div class="prose-styles pb-4">
+                <div
+                  class="bg-theme-light rounded-md px-4 py-4 [&>*:first-child]:mt-0 [&>*:last-child]:mb-0"
+                  set:html={markdownify(item.content, true)}
+                />
+              </div>
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</div>
+
+<script>
+  // Recalculate AOS Elements positions after accordion is opened
+  // @ts-nocheck
+  import AOS from "aos";
+  import HSAccordion from "preline/src/plugins/accordion";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const accordions = document.querySelectorAll(".hs-accordion");
+
+    accordions.forEach((accordion) => {
+      setTimeout(() => {
+        const { element } = HSAccordion.getInstance(
+          `#${accordion.getAttribute("id")}`,
+          true,
+        );
+
+        element.on("open", () => {
+          AOS.refresh();
+        });
+      }, 1000);
+    });
+  });
+</script>

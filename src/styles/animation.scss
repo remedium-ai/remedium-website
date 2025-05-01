@@ -1,0 +1,84 @@
+/* AOS Animations */
+/* --------------------------------- */
+[data-aos] {
+  opacity: 1;
+  transform: translateY(0);
+  transition: none;
+  will-change: transform;
+}
+
+[data-aos="fade-up-sm"] {
+  transform: translate3d(0, 30px, 0);
+}
+
+[data-aos="fade-down-sm"] {
+  transform: translate3d(0, -30px, 0);
+}
+
+[data-aos="fade-right-sm"] {
+  transform: translate3d(-30px, 0, 0);
+}
+
+[data-aos="fade-left-sm"] {
+  transform: translate3d(30px, 0, 0);
+}
+
+[data-aos="fade-up-sm"] {
+  transform: translate3d(0, 30px, 0);
+}
+
+[data-aos="fade-down-sm"] {
+  transform: translate3d(0, -30px, 0);
+}
+
+[data-aos="fade-right-sm"] {
+  transform: translate3d(-30px, 0, 0);
+}
+
+[data-aos="fade-left-sm"] {
+  transform: translate3d(30px, 0, 0);
+}
+
+/* Kenburns*/
+/* --------------------------------- */
+.kenburns {
+  animation-duration: 20s;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-fill-mode: both;
+}
+
+.swiper-slide-active .kenburns-top {
+  animation-name: kenburns-top;
+}
+
+@keyframes kenburns-top {
+  0% {
+    transform: scale(1) translateY(0);
+    transform-origin: 50% 16%;
+  }
+
+  100% {
+    transform: scale(1.08) translateY(-0.9375rem);
+    transform-origin: top;
+  }
+}
+
+/* Slider */
+#swiper-banner-content {
+  --delay: 0ms;
+  --duration: 0ms;
+  --transition-property: all;
+
+  .anim {
+    opacity: 0;
+  }
+
+  .anim-fade-up {
+    transform: translate3d(0, 20px, 0);
+    transition: var(--transition-property) var(--duration) ease-out var(--delay);
+  }
+  .swiper-slide-active .anim-fade-up {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}

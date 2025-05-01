@@ -1,0 +1,123 @@
+---
+/**
+ * Example Usage
+
+  <Testimonial
+    customer_image="/images/customers/avatar/1.jpg"
+    customer_name="Sarah Jones"
+    customer_role="CEO, Founder"
+    customer_company_logo="/images/customers/company-logo/acme.png"
+    customer_company_name="Acme Inc."
+  >
+    Our partnership with Looka demonstrates the power of a well-executed customer
+    engagement strategy. By integrating advanced technologies and data-driven
+    insights, we helped them achieve a more personalized, consistent, and
+    rewarding customer experience. At Looka, we are committed to helping
+    businesses like Oloyon revolutionize their customer engagement and drive
+    long-term success.
+  </Testimonial>
+
+ */
+import { markdownify } from "@/lib/utils/textConverter";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import ReactIcon from "@/helpers/ReactIcons.astro";
+
+interface Props {
+  class?: string;
+  customer_image?: string;
+  customer_name?: string;
+  customer_role?: string;
+  customer_company_logo?: string;
+  customer_company_name?: string;
+}
+
+const {
+  class: className,
+  customer_image,
+  customer_name,
+  customer_role,
+  customer_company_logo,
+  customer_company_name,
+} = Astro.props;
+
+let rating = new Array(5).fill(null);
+---
+
+<div
+  class:list={[
+    "testimonial-component bg-theme-light not-prose relative flex w-full p-6 " +
+      className,
+  ]}>
+  <OptimizedImage
+    inlineSvg={true}
+    class="text-primary/35 pointer-events-none absolute top-0 left-0 h-56 w-48"
+    width={119}
+    height={224}
+    src="/images/shapes/review-pattern.svg"
+    perspective="none"
+    alt="pattern"
+  />
+  <div class="flex flex-col justify-between space-y-8">
+    <div class="space-y-8 md:space-y-16">
+      {
+        customer_company_name && (
+          <div class="flex flex-wrap-reverse items-center justify-between gap-3 opacity-70">
+            <div class="flex items-center gap-2">
+              {customer_company_logo && (
+                <OptimizedImage
+                  class="w-6"
+                  height={24}
+                  layout={"full-width"}
+                  src={customer_company_logo}
+                  alt={customer_company_name}
+                />
+              )}
+              {customer_company_name && (
+                <div
+                  class="text-dark whitespace-nowrap"
+                  set:html={markdownify(customer_company_name)}
+                />
+              )}
+            </div>
+          </div>
+        )
+      }
+      <div class="prose-styles">
+        <slot />
+      </div>
+    </div>
+    {
+      customer_name && (
+        <div class="flex flex-wrap-reverse items-center justify-between gap-x-2 gap-y-10">
+          <div class="flex items-center gap-4">
+            {customer_image && (
+              <OptimizedImage
+                class="h-12 w-12 rounded-full"
+                width={48}
+                height={48}
+                src={customer_image}
+                alt={customer_name}
+              />
+            )}
+            <div>
+              {customer_name && (
+                <div class="text-dark" set:html={markdownify(customer_name)} />
+              )}
+              {customer_role && (
+                <p
+                  class="text-light text-sm"
+                  set:html={markdownify(customer_role)}
+                />
+              )}
+            </div>
+          </div>
+          <div class="flex items-center gap-2 rounded-full bg-white px-3 py-1.5">
+            {rating.map(() => (
+              <ReactIcon icon="IoIosStar" class="text-lg text-yellow-500" />
+            ))}
+          </div>
+        </div>
+      )
+    }
+  </div>
+</div>

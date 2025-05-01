@@ -1,0 +1,147 @@
+---
+import type { Section } from "@/types";
+import buildToc from "@/lib/utils/buildToc";
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import parseTomlToJson from "@/lib/utils/parseTomlToJson";
+import { useTranslations } from "@/lib/utils/languageParser";
+import { slugifyyy } from "@/lib/utils/textConverter";
+import Sidebar from "./widgets/Sidebar.astro";
+import ContentList from "./widgets/ContentList.astro";
+import SinglePageLayout from "./SinglePageLayout.astro";
+
+const config = parseTomlToJson("./src/config/config.toml");
+const { table_of_contents } = config.settings.markup;
+
+type sidebarType = {
+  enable: boolean;
+  sticky: boolean;
+  widgets?: string[];
+  position?: "left" | "right";
+  props?: any; // Add the 'props' property to respective sidebar widgets
+};
+type contentType = Section & {
+  markdownContent?: Function;
+  currentLocale?: string;
+  masonry_image?: string;
+  ListIcons?: {
+    icon: string;
+    label: string;
+    value: string;
+  }[];
+};
+type Props = {
+  pageType?: "single" | "list"; // Default is "single"
+  sidebar?: sidebarType;
+  boxShadow?: boolean;
+  layout?: "modern" | "minimal";
+  content: contentType;
+  contentList?: any;
+};
+
+// Destructure Astro props with default values
+const {
+  pageType = "single",
+  sidebar,
+  boxShadow = true,
+  layout = "modern",
+  content,
+  contentList,
+} = Astro.props;
+
+const { author, ListIcons: listIconContent, markdownContent } = content;
+const translations = await useTranslations(Astro.currentLocale as string);
+
+let Content: any, headings, tocHeadings;
+if (markdownContent && typeof markdownContent === "function")
+  ({ Content, headings } = await markdownContent());
+
+// Get Author Details
+let authorEntry = [];
+if (author) {
+  const slug = slugifyyy(author);
+  const entry = await getEntryCTM("author", slug, Astro.currentLocale);
+  authorEntry = entry?.data || [];
+}
+
+// Generate table of contents
+if (headings) {
+  tocHeadings = buildToc(headings);
+}
+
+const sidebarEnabled = sidebar?.enable;
+---
+
+<section>
+  <div
+    class:list={[
+      "container",
+      {
+        "grid grid-cols-1 gap-x-6 gap-y-16 lg:grid-cols-12 lg:items-start":
+          sidebarEnabled,
+      },
+    ]}>
+    {/* Blog Post List */}
+    {
+      pageType === "list" && (
+        <div
+          {...(sidebarEnabled && {
+            "data-aos": "fade-up-sm",
+            "data-aos-delay": "200",
+          })}
+          class:list={[
+            boxShadow && "lg:box-shadow-primary",
+            sidebarEnabled
+              ? "has-video-modal space-y-10 lg:col-span-8 lg:bg-white lg:p-5"
+              : "grid grid-cols-1 justify-items-center space-y-12",
+            sidebarEnabled && sidebar?.position === "right"
+              ? "order-1"
+              : "order-1 lg:order-2",
+          ]}>
+          <ContentList {...contentList} />
+        </div>
+      )
+    }
+
+    {
+      sidebarEnabled && (
+        <Sidebar
+          sidebar={sidebar}
+          boxShadow={boxShadow}
+          data-aos="fade-up-sm"
+          data-aos-delay="300"
+        />
+      )
+    }
+
+    {
+      pageType === "single" && (
+        <SinglePageLayout
+          layout={layout}
+          translations={translations}
+          sidebar={sidebar}
+          style={{ boxShadow }}
+          content={{
+            ...content,
+            table_of_contents,
+            tocHeadings,
+            listIconContent,
+            author: authorEntry,
+            Content,
+          }}
+        />
+      )
+    }
+  </div>
+</section>
+
+<script>
+  import { stickySidebar } from "@/plugins/sticky-sidebar.js";
+
+  const sidebar = document.querySelector(".sticky-sidebar");
+  if (sidebar) {
+    new stickySidebar(sidebar, {
+      offsetTop: 132,
+      offsetBottom: 20,
+    });
+  }
+</script>

@@ -1,0 +1,143 @@
+---
+import { getCollectionCTM } from "@/lib/contentParser.astro";
+import type { ContentListType } from "@/types";
+import parseTomlToJson from "@/lib/utils/parseTomlToJson";
+import BlogCard from "@/components/cards/BlogCard.astro";
+import PortfolioCard from "@/components/cards/PortfolioCard.astro";
+import { recursiveCloneObject } from "@/lib/utils/objectFunctions";
+import Pagination from "@/components/widgets/Pagination.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+
+const config = parseTomlToJson("./src/config/config.toml");
+
+type Props = {
+  class?: string;
+  hasSearch?: boolean;
+  pagination?: {
+    enable: boolean;
+    currentPage: number;
+  };
+  filter?: {
+    category?: {
+      name: string;
+      slug: string;
+    };
+  }; // show filtered content list based on provided taxonomy
+  options?: ContentListType;
+  [key: string]: any;
+};
+
+const { class: className, pagination, filter, options, ...rest } = Astro.props;
+
+const {
+  content,
+  layout,
+  limit = false,
+  gap = "gap-6",
+  columns = 3,
+} = options || {};
+
+// Get content list based on content value
+let list = [] as any[];
+
+if (content === "portfolio") {
+  list = await getCollectionCTM(
+    config.settings.portfolio_folder,
+    Astro.currentLocale,
+  );
+} else if (content === "blog") {
+  list = await getCollectionCTM(
+    config.settings.blog_folder,
+    Astro.currentLocale,
+  );
+}
+
+let posts = content === "blog" ? list : [];
+
+// Limit content list
+list =
+  limit && list && pagination?.enable === false
+    ? list.slice(0, limit as number)
+    : list;
+
+// Filter content list based on category (If provided)
+if (filter?.category) {
+  list = list.filter((item) =>
+    item.data.categories.includes(filter.category?.name),
+  );
+}
+
+// Sort list by date
+list = sortByDate(list);
+
+// For Blog List Pagination
+let totalPages = Math.ceil(posts?.length / config.settings.pagination);
+if (content === "blog" && pagination?.enable) {
+  const indexOfLastPost = pagination?.currentPage * config.settings.pagination;
+  const indexOfFirstPost = indexOfLastPost - config.settings.pagination;
+  list = posts.slice(indexOfFirstPost, indexOfLastPost);
+}
+---
+
+{
+  list && list.length > 0 && (
+    <>
+      <div
+        class:list={[
+          "blog-search-results",
+          className,
+          { "gap-6": gap === "gap-6" },
+          { "gap-8": gap === "gap-8" },
+          "gap-y-10",
+          {
+            "grid grid-cols-1": layout === "grid" && columns === 1,
+            "grid md:grid-cols-2": layout === "grid" && columns === 2,
+            "grid md:grid-cols-2 lg:grid-cols-3":
+              layout === "grid" && columns === 3,
+          },
+          {
+            "break-inside-avoid-column": layout === "masonry",
+            "md:columns-1": layout === "masonry" && columns === 1,
+            "md:columns-2": layout === "masonry" && columns === 2,
+            "md:columns-2 lg:columns-3": layout === "masonry" && columns === 3,
+          },
+        ]}
+        {...rest}>
+        {list.map((item) =>
+          content === "blog" ? (
+            <BlogCard
+              class:list={[
+                {
+                  "mb-6": gap === "gap-6" && layout === "masonry",
+                  "mb-8": gap === "gap-8" && layout === "masonry",
+                },
+              ]}
+              content={{ ...item.data, ...item, slug: item.slug }}
+              options={recursiveCloneObject(options)}
+            />
+          ) : content === "portfolio" ? (
+            <PortfolioCard
+              class:list={[
+                {
+                  "mb-6": gap === "gap-6" && layout === "masonry",
+                  "mb-8": gap === "gap-8" && layout === "masonry",
+                  "break-inside-avoid-column": layout === "masonry",
+                },
+              ]}
+              content={{ ...item.data, slug: item.slug, ...item }}
+              options={recursiveCloneObject(options)}
+            />
+          ) : null,
+        )}
+      </div>
+      {content === "blog" && pagination?.enable && (
+        <Pagination
+          class="pt-8"
+          collection="blog"
+          currentPage={pagination?.currentPage || 1}
+          totalPages={totalPages}
+        />
+      )}
+    </>
+  )
+}

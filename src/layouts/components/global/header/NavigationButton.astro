@@ -1,0 +1,72 @@
+---
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import { getLocaleUrlCTM } from "@/lib/utils/languageParser.ts";
+
+const { navigation_button, navigation_button_label, isDarkHeader } =
+  Astro.props;
+---
+
+{
+  isDarkHeader && (
+    <a
+      {...{
+        // Set `rel` attribute for external urls or use provided value
+        rel: navigation_button.url?.startsWith("http")
+          ? navigation_button.rel || "noopener noreferrer"
+          : navigation_button.rel || undefined,
+
+        // Set `target` to "_blank" for external urls unless otherwise specified
+        target: navigation_button.url?.startsWith("http")
+          ? navigation_button.target || "_blank"
+          : navigation_button.target || undefined,
+      }}
+      class="relative hidden items-center lg:flex"
+      href={getLocaleUrlCTM(navigation_button.url, Astro.currentLocale)}>
+      <span
+        class="btn btn-outline btn-outline-transparent has-text-flip-animation"
+        data-content={navigation_button_label}>
+        {navigation_button_label}
+      </span>
+      <span class="icon">
+        <OptimizedImage
+          alt="icon"
+          inlineSvg={true}
+          class="text-dark h-4 w-4"
+          src="/images/icons/svg/arrow-top-right.svg"
+        />
+      </span>
+    </a>
+  )
+}
+
+<a
+  {...{
+    // Set `rel` attribute for external urls or use provided value
+    rel: navigation_button.url?.startsWith("http")
+      ? navigation_button.rel || "noopener noreferrer"
+      : navigation_button.rel || undefined,
+
+    // Set `target` to "_blank" for external urls unless otherwise specified
+    target: navigation_button.url?.startsWith("http")
+      ? navigation_button.target || "_blank"
+      : navigation_button.target || undefined,
+  }}
+  class:list={[
+    "relative flex items-center",
+    { "block lg:hidden": isDarkHeader },
+  ]}
+  href={getLocaleUrlCTM(navigation_button.url, Astro.currentLocale)}>
+  <span
+    class="btn btn-outline btn-outline-primary has-text-flip-animation"
+    data-content={navigation_button_label}>
+    {navigation_button_label}
+  </span>
+  <span class="icon">
+    <OptimizedImage
+      alt="icon"
+      inlineSvg={true}
+      class="h-4 w-4 text-white"
+      src="/images/icons/svg/arrow-top-right.svg"
+    />
+  </span>
+</a>

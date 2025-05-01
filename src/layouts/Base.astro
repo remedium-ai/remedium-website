@@ -1,0 +1,94 @@
+---
+import "aos/dist/aos.css";
+import "@/styles/main.scss";import Header from "@/components/global/header/Header.astro";
+import Footer from "@/components/global/Footer.astro";
+import Head from "@/components/global/Head.astro";
+import removeEmptyKeys from "@/lib/utils/removeEmptyKeys";
+import type { JSONLDProps } from "@/lib/utils/JsonLdGenerator";
+
+type Props = JSONLDProps & {
+  className?: string;
+  fitToScreen?: boolean;
+  draft?: boolean;
+  meta_title?: string;
+  meta_description?: string;
+  robots?: string;
+  exclude_from_sitemap?: boolean;
+  custom_slug?: string;
+  canonical?: string;
+  status?: number;
+  keywords?: string[]; // Array of strings
+  disable_tagline?: boolean;
+  structuredData?: Props;
+};
+
+// destructure frontmatter
+let { className, structuredData, status, fitToScreen = true } = Astro.props;
+
+// Exclude empty key value weather it may empty string, object or array from Astro.props
+let props = removeEmptyKeys(Astro.props);
+
+// Conditionally add min-h-[102vh] class to prevent FOUC (flash of unstyled content) while fast navigation
+className =
+  status !== 404 && fitToScreen
+    ? (className ? className + " " : "") + "fit-to-screen"
+    : className;
+---
+
+<!doctype html>
+<html lang="en">
+  <Head {...props} structuredData={structuredData} />
+  <body>
+    <Header {...props} />
+    <main {...className ? { class: className } : {}}>
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      // @ts-nocheck
+      import SmoothScroll from "smoothscroll-for-websites";
+      document.addEventListener("DOMContentLoaded", async () => {
+        // AOS - https://github.com/michalsnik/aos
+        const AOS = await import("aos");
+
+        AOS.init({
+          duration: 700,
+          easing: "ease-out",
+          disable: "mobile",
+          once: true,
+        });
+
+        // Smooth Scroll - https://github.com/gblazex/smoothscroll-for-websites/wiki
+        SmoothScroll({
+          animationTime: 600, // [ms]
+          stepSize: 60, // [px]
+          touchpadSupport: true,
+        });
+
+        // Fix: Support horizontal scrolling by using the mouse wheel + shift (Needed when using smooth scrolling js library - SmoothScroll)
+        document.addEventListener(
+          "wheel",
+          (event) => {
+            // Only process when the shift key is held down
+            if (!event.shiftKey) return;
+
+            let target = event.target;
+            // Traverse up the DOM to find the nearest scrollable element
+            while (target && target !== document.body) {
+              if (target.scrollWidth > target.clientWidth) {
+                event.preventDefault();
+                target.scrollBy({
+                  left: event.deltaY * 3,
+                  behavior: "smooth",
+                });
+                break;
+              }
+              target = target.parentElement;
+            }
+          },
+          { passive: false },
+        );
+      });
+    </script>  </body>
+</html>

@@ -1,0 +1,102 @@
+---
+import Marquee from "@/components/widgets/Marquee.astro";
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import overrideObjects from "@/lib/utils/overrideObjects.ts";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import type { MarqueeConfig, Section } from "@/types";
+import { markdownify } from "@/lib/utils/textConverter";
+
+// Type for each item in the marquee list
+export type MarqueeListItem = {
+  src: string;
+  alt: string;
+};
+
+// Type for this section data
+type customers_section_type = Section & {
+  list: MarqueeListItem[];
+  marquee: MarqueeConfig;
+};
+type Props = {
+  content?: customers_section_type;
+};
+
+// Fetching the default content for the this section
+let default_content = (
+  await getEntryCTM("sections", "customers", Astro.currentLocale)
+)?.data as customers_section_type;
+
+// Enables content customization (e.g., title, description) with a fallback to 'default_content' if not provided.
+// The 'content' prop should match the structure of 'default_content'.
+// Allows using this section with different content across multiple pages.
+// If 'content' is missing, 'default_content' will be used.
+let actual_content = overrideObjects(
+  { ...default_content },
+  Astro.props.content,
+) as customers_section_type;
+
+// Extracting required values from 'content' object
+let {
+  enable = true,
+  description,
+  marquee,
+  list,
+} = actual_content as customers_section_type;
+---
+
+{
+  enable && (
+    <section class="pt-16">
+      <div class="container flex flex-col gap-6 overflow-x-hidden md:flex-row md:gap-12 lg:items-center lg:gap-24">
+        {description && (
+          <p
+            data-aos="fade-left-sm"
+            class="shrink-0 opacity-80 md:w-80"
+            set:html={markdownify(description)}
+          />
+        )}
+        <div
+          data-aos="fade-left-sm"
+          data-aos-delay="200"
+          class="relative flex items-center overflow-hidden before:absolute before:top-0 before:left-0 before:z-10 before:h-full before:w-20 before:bg-gradient-to-r before:from-white before:to-transparent after:absolute after:top-0 after:right-0 after:h-full after:w-20 after:bg-gradient-to-l after:from-white after:to-transparent before:md:w-32 after:md:w-32">
+          <Marquee
+            marqueeElements={list.length}
+            marqueePauseOnHover={marquee.pause_on_hover}
+            marqueeReverse={marquee.reverse}
+            marqueeDuration={marquee.duration}
+            marqueeElementWidth={marquee.element_width}
+            marqueeElementWidthResponsive={
+              marquee.element_width_in_small_devices
+            }>
+            {list.map((item) => (
+              <div class="min-w-[var(--marquee-element-width-responsive)] px-0 md:min-w-[var(--marquee-element-width)] md:px-4">
+                <div class="px-4">
+                  <OptimizedImage
+                    src={item.src}
+                    alt={item.alt}
+                    width={116}
+                    class="h-auto w-full"
+                  />
+                </div>
+              </div>
+            ))}
+            {list.map((item) => (
+              <div
+                class="min-w-[var(--marquee-element-width-responsive)] px-0 md:min-w-[var(--marquee-element-width)] md:px-4"
+                aria-hidden="true">
+                <div class="px-4">
+                  <OptimizedImage
+                    src={item.src}
+                    alt={item.alt}
+                    width={116}
+                    class="h-auto w-full"
+                  />
+                </div>
+              </div>
+            ))}
+          </Marquee>
+        </div>
+      </div>
+    </section>
+  )
+}

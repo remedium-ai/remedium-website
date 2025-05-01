@@ -1,0 +1,111 @@
+---
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import { getLocaleUrlCTM } from "@/lib/utils/languageParser.ts";
+import { slugifyyy } from "@/lib/utils/textConverter";
+import type { SocialLink } from "@/types";
+
+const baseURL = import.meta.env.SITE;
+
+interface BaseProps {
+  size?: "sm";
+  class?: string;
+  list: SocialLink[];
+  link_type: "share" | "follow"; // Remove the optional type; it's always defined in Props.
+  layout: "dark" | "modern" | "light" | "minimal";
+  [key: string]: any;
+}
+
+interface ShareProps extends BaseProps {
+  slug: string;
+  link_type: "share";
+  title?: string;
+  description?: string;
+  disabled?: string[];
+}
+
+interface FollowProps extends BaseProps {
+  link_type: "follow";
+}
+
+type Props = ShareProps | FollowProps;
+
+// Correctly define Astro.props to match Props
+let {
+  list,
+  size,
+  title,
+  slug,
+  disabled,
+  layout,
+  link_type,
+  description,
+  class: className,
+  ...rest
+} = Astro.props as Props; // Ensure Astro.props is typed as Props
+
+slug = slug ? getLocaleUrlCTM(slug, Astro.currentLocale) : "";
+list = link_type === "share" ? list : list.filter((social) => social.url);
+
+const shareLinks: { [key: string]: string } = {
+  facebook: `https://www.facebook.com/sharer/sharer.php?u=${slug}`,
+  twitter: `https://twitter.com/intent/tweet/?text=${title || ""}&amp;url=${slug}`,
+  linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${slug}&title=${title || ""}&summary=${slugifyyy(description) || ""}&source=${baseURL}`,
+  pinterest: `https://pinterest.com/pin/create/button/?url=${slug}&media=&description=${slugifyyy(description) || ""}`,
+};
+
+if (disabled) {
+  list = list.filter((social) => !disabled.includes(social.label));
+}
+---
+
+{
+  list && list[0] && (
+    <ul class:list={["flex flex-wrap items-center gap-4", className]} {...rest}>
+      {list.map((social) => (
+        <li>
+          <a
+            aria-label={social.label}
+            href={link_type === "share" ? shareLinks[social.label] : social.url}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            class:list={[
+              "group relative flex items-center justify-center transition duration-300",
+              link_type === "follow" ? "bg-theme-dark/5" : "bg-primary/5",
+              layout === "minimal"
+                ? "text-dark hover:scale-110"
+                : "text-primary h-12 w-12",
+              { "h-9 w-9": size === "sm" },
+              {
+                "text-primary hover:bg-primary rounded-full":
+                  layout === "modern",
+              },
+              {
+                "via-theme-dark bg-gradient-to-b from-white/[2.5%] to-transparent":
+                  layout === "dark",
+              },
+            ]}>
+            <span class="sr-only">{social.label}</span>
+            {social.icon && (
+              <OptimizedImage
+                inlineSvg={true}
+                src={social.icon}
+                class:list={[
+                  "has-inherited-colors relative z-10 transition duration-300",
+                  size === "sm" ? "h-3.5 w-3.5" : "h-4 w-4",
+                  {
+                    "text-primary group-hover:text-white": layout === "modern",
+                  },
+                  {
+                    "group-hover:text-primary h-6 w-6 text-white":
+                      layout === "dark",
+                  },
+                ]}
+                alt={social.label}
+              />
+            )}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}

@@ -1,0 +1,162 @@
+---
+import type { Section } from "@/types";
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import OptimizedImage from "../utilities/OptimizedImage.astro";
+import { getLocaleUrlCTM } from "@/lib/utils/languageParser";
+
+type OfficeInfo = {
+  enable: boolean; // Determines if the content and/or image are displayed
+  title: string; // Title of the office (e.g., "Headquarters")
+  image: string; // Path to the image; empty string if no image
+  background_image: string; // Path to the background image
+  content: string; // Multi-line string containing address, phone, email, etc.
+};
+
+// Type for service section data
+export type services_section_type = Section & {
+  list: OfficeInfo[];
+};
+type Props = {
+  content?: services_section_type;
+};
+
+// Fetching the default content for the service section
+let default_content = (
+  await getEntryCTM("sections", "office-locations", Astro.currentLocale)
+)?.data as services_section_type;
+
+// Enables content customization (e.g., title, description) with a fallback to 'default_content' if not provided.
+// The 'content' prop should match the structure of 'default_content'.
+// Allows using this section with different content across multiple pages.
+// If 'content' is missing, 'default_content' will be used.
+let actual_content = {
+  ...default_content,
+  ...Astro.props.content,
+} as services_section_type;
+
+// Extracting required values from 'content' object
+let { title, enable, cta_btn, subtitle, list } =
+  actual_content as services_section_type;
+---
+
+{
+  enable && (
+    <section>
+      <div class="container">
+        <div class:list={["flex flex-col justify-start gap-12 md:gap-16"]}>
+          <div class="flex flex-col flex-wrap justify-between gap-8 lg:flex-row lg:items-center">
+            <div class="shrink-0 lg:lg:max-w-2xl" data-aos="fade-up-sm">
+              {subtitle && (
+                <span
+                  class:list={[
+                    "bg-primary/5 border-secondary text-primary mb-2.5 inline-block rounded-full border px-5 py-px",
+                  ]}
+                  set:html={markdownify(subtitle)}
+                />
+              )}
+              {title && (
+                <h2
+                  class:list={["text-h3 text-dark"]}
+                  set:html={markdownify(title)}
+                />
+              )}
+            </div>
+            {cta_btn?.enable && (
+              <div data-aos="fade-up-sm" data-aos-delay="200">
+                <a
+                  href={getLocaleUrlCTM(cta_btn.url, Astro.currentLocale)}
+                  class="relative flex items-center"
+                  {...{
+                    // Set `rel` attribute for external URLs or use provided value
+                    rel: cta_btn.url?.startsWith("http")
+                      ? cta_btn.rel || "noopener noreferrer"
+                      : cta_btn.rel || undefined,
+
+                    // Set `target` to "_blank" for external URLs unless otherwise specified
+                    target: cta_btn.url?.startsWith("http")
+                      ? cta_btn.target || "_blank"
+                      : cta_btn.target || undefined,
+                  }}>
+                  <span
+                    class:list={[
+                      "btn btn-outline",
+                      "btn-outline-primary has-text-flip-animation",
+                    ]}
+                    data-content={cta_btn.label}>
+                    {cta_btn.label}
+                  </span>
+                  <span class="icon">
+                    <OptimizedImage
+                      alt="icon"
+                      inlineSvg={true}
+                      class="h-4 w-4 text-white"
+                      src="/images/icons/svg/arrow-top-right.svg"
+                    />
+                  </span>
+                </a>
+              </div>
+            )}
+          </div>
+          <div class="grid gap-6 lg:grid-cols-2 lg:grid-rows-2">
+            {list &&
+              list.length > 0 &&
+              list.map((item, index) => (
+                <div
+                  class:list={[
+                    "relative h-full min-h-full",
+                    {
+                      "after:bg-primary/75 after:absolute after:inset-0 after:size-full":
+                        item.enable,
+                    },
+                    {
+                      "md:row-span-2": index === 0,
+                    },
+                  ]}
+                  data-aos="fade-up-sm"
+                  data-aos-offset="0"
+                  data-aos-delay={((index % 3) + 1) * 50}>
+                  {/* background image */}
+                  <OptimizedImage
+                    width={600}
+                    class:list={[
+                      "!h-full min-h-full !w-full !max-w-full object-cover",
+                      {
+                        "absolute inset-0": item.enable,
+                      },
+                    ]}
+                    src={item.background_image}
+                    alt={item.title + " office image"}
+                  />
+
+                  {/* Content */}
+                  {item.enable && (
+                    <div class="relative z-10 space-y-5 p-6 md:p-8">
+                      {item.title && (
+                        <h3 class="text-white" set:html={item.title} />
+                      )}
+                      {item.content && (
+                        <div
+                          class="prose-styles prose-a:hover:text-white prose-p:mb-0 prose-p:mt-1.5 [&_*]:text-white"
+                          set:html={markdownify(item.content, true)}
+                        />
+                      )}
+                      {item.image && (
+                        <OptimizedImage
+                          class="!h-72 max-h-full w-full !max-w-full object-cover pt-5"
+                          width={600}
+                          height={300}
+                          src={item.image}
+                          alt={item.title + " office image"}
+                        />
+                      )}
+                    </div>
+                  )}
+                </div>
+              ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

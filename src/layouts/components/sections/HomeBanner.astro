@@ -1,0 +1,322 @@
+---
+import "swiper/css/bundle";
+import VideoModal from "@/components/widgets/VideoModal.astro";
+import overrideObjects from "@/lib/utils/overrideObjects.ts";
+import { markdownify } from "@/lib/utils/textConverter";
+import type { Button, Section, VideoConfig } from "@/types";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import ReactIcon from "@/helpers/ReactIcons.astro";
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import { getLocaleUrlCTM } from "@/lib/utils/languageParser.ts";
+
+// Type for the about section in the banner
+type BannerAbout = {
+  enable: boolean;
+  content: string;
+  video: VideoConfig;
+};
+
+// Type for each item in the slider
+type SliderItem = {
+  title: string;
+  description: string;
+  background_image: string;
+  button: Button;
+};
+
+// Type for this section data
+type home_banner_section_type = Section & {
+  info_block: BannerAbout;
+  main_block: {
+    disable_slider: boolean;
+    slides: SliderItem[];
+  };
+};
+
+type Props = {
+  content?: home_banner_section_type;
+};
+
+// Fetching the default content for the this section
+let default_content = (
+  await getEntryCTM("sections", "home-banner", Astro.currentLocale)
+)?.data as home_banner_section_type;
+
+// Enables content customization (e.g., title, description) with a fallback to 'default_content' if not provided.
+// The 'content' prop should match the structure of 'default_content'.
+// Allows using this section with different content across multiple pages.
+// If 'content' is missing, 'default_content' will be used.
+let actual_content = overrideObjects(
+  { ...default_content },
+  Astro.props.content,
+) as home_banner_section_type;
+
+// Extracting required values from 'content' object
+let { info_block, main_block } = actual_content as home_banner_section_type;
+
+let slides = main_block.slides;
+
+// If slider is disabled then show only first slide
+if (main_block.disable_slider) slides = [slides[0]];
+---
+
+<section class="banner before:z-10 after:z-10">
+  <div
+    class="swiper swiper-banner-image !absolute bottom-0 left-0 -z-10 h-[112%] w-screen max-w-full">
+    <div class="swiper-wrapper">
+      {
+        slides &&
+          slides.map((item) => (
+            <div class="swiper-slide">
+              {/* BG Image */}
+              <OptimizedImage
+                src={item.background_image}
+                alt="Banner Image"
+                class="kenburns kenburns-top !h-full !min-w-full object-cover"
+                sizes="(max-width: 640px) 200vw, (min-width: 1320px) 1320w, 100vw"
+                data-content={item.background_image}
+              />
+            </div>
+          ))
+      }
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Main Banner Content -->
+    <div class="relative z-30 pt-36 lg:pt-0">
+      <div id="swiper-banner-content" class="swiper">
+        <div class="swiper-wrapper relative">
+          {
+            slides &&
+              slides.map((item) => (
+                <div class="swiper-slide">
+                  <div class="flex max-w-3xl flex-col items-start justify-center text-white lg:min-h-[54rem] lg:pb-20">
+                    {item.title && (
+                      <div class="overflow-hidden">
+                        <h1
+                          class="anim anim-fade-up text-h2 mb-6 text-inherit capitalize [--delay:400ms] [--duration:900ms] md:text-5xl/tight"
+                          set:html={markdownify(item.title)}
+                        />
+                      </div>
+                    )}
+                    {item.description && (
+                      <div class="anim anim-fade-up overflow-hidden [--delay:600ms] [--duration:900ms]">
+                        <p
+                          class="border-l pl-5 opacity-90"
+                          set:html={markdownify(item.description)}
+                        />
+                      </div>
+                    )}
+                    {item.button && item.button.enable && (
+                      <div class="anim anim-fade-up mt-10 flex gap-5 [--delay:800ms] [--duration:900ms]">
+                        <a
+                          {...{
+                            rel: item.button.url?.startsWith("http")
+                              ? item.button.rel || "noopener noreferrer"
+                              : item.button.rel || undefined,
+                            target: item.button.url?.startsWith("http")
+                              ? item.button.target || "_blank"
+                              : item.button.target || undefined,
+                          }}
+                          class="relative flex"
+                          href={getLocaleUrlCTM(
+                            item.button.url,
+                            Astro.currentLocale,
+                          )}>
+                          <span
+                            class="btn btn-md btn-outline btn-outline-transparent has-text-flip-animation"
+                            data-content={item.button.label}>
+                            {item.button.label}
+                          </span>
+                          <span class="icon">
+                            <OptimizedImage
+                              alt="icon"
+                              inlineSvg={true}
+                              class="text-dark h-4 w-4"
+                              src="/images/icons/svg/arrow-top-right.svg"
+                            />
+                          </span>
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))
+          }
+        </div>
+      </div>
+
+      <!-- Slider Controls -->
+      {
+        !main_block.disable_slider && (
+          <div class="flex gap-16 pt-16 pb-6 lg:absolute lg:bottom-0 lg:z-40 lg:pt-20 lg:pb-12">
+            <div
+              data-aos-offset="0"
+              data-aos="fade-down-sm"
+              data-aos-duration="800"
+              data-aos-delay="600">
+              <button
+                title="Previous Slide"
+                class="banner-slider-btn-prev group/slider-control bg-secondary hover:bg-primary relative flex h-14 w-14 items-center justify-center rounded-full transition duration-300">
+                <OptimizedImage
+                  alt="icon"
+                  inlineSvg={true}
+                  src="/images/icons/svg/arrow-long-left.svg"
+                  class="text-primary group-hover/slider-control:text-secondary absolute left-1/3 h-10 w-14 transition duration-300 group-hover/slider-control:-translate-x-1"
+                />
+              </button>
+            </div>
+            <div
+              data-aos-offset="0"
+              data-aos="fade-down-sm"
+              data-aos-duration="800"
+              data-aos-delay="600">
+              <button
+                title="Next Slide"
+                class="banner-slider-btn-next group/slider-control bg-secondary hover:bg-primary relative flex h-14 w-14 rotate-180 items-center justify-center rounded-full transition duration-300">
+                <OptimizedImage
+                  alt="icon"
+                  inlineSvg={true}
+                  src="/images/icons/svg/arrow-long-left.svg"
+                  class="text-primary group-hover/slider-control:text-secondary absolute left-1/3 h-10 w-14 transition duration-300 group-hover/slider-control:-translate-x-1"
+                />
+              </button>
+            </div>
+          </div>
+        )
+      }
+    </div>
+
+    <!-- Short Information -->
+    {
+      info_block && info_block.enable && (
+        <div
+          data-aos="fade-up-sm"
+          data-aos-offset="0"
+          data-aos-delay="800"
+          data-aos-duration="600"
+          class="relative z-30 lg:absolute lg:right-0 lg:bottom-0">
+          <div class="flex flex-col gap-8 bg-white/5 p-6 text-white backdrop-blur-sm max-lg:mt-10 lg:max-w-lg lg:p-12">
+            <button
+              type="button"
+              title="Play Video"
+              aria-haspopup="dialog"
+              aria-expanded="false"
+              aria-controls={"#" + info_block.video.id}
+              data-hs-overlay={"#" + info_block.video.id}
+              data-hs-overlay-options={`{"emulateScrollbarSpace" : true}`}
+              class="video-modal-toggle bg-theme-dark flex h-16 w-16 items-center justify-center rounded-full pl-2 lg:h-20 lg:w-20">
+              <ReactIcon
+                icon="IoPlaySharp"
+                class="h-6 w-6 text-blue-200 lg:h-8 lg:w-8"
+              />
+            </button>
+            <p class="opacity-90" set:html={info_block.content} />
+          </div>
+        </div>
+      )
+    }
+  </div>
+  <VideoModal video={info_block.video} />
+</section>
+
+<script>
+  window.addEventListener("load", async function () {
+    const { Swiper } = await import("swiper");
+    const { EffectFade, Navigation, Controller, Autoplay } = await import(
+      "swiper/modules"
+    );
+
+    // Initialize banner Swiper (background)
+    const bannerImage = document.querySelector(
+      ".swiper-banner-image",
+    ) as HTMLElement;
+    const bannerContent = document.querySelector(
+      "#swiper-banner-content",
+    ) as HTMLElement;
+
+    if (bannerImage && bannerContent) {
+      const bannerImageSwiper = new Swiper(bannerImage, {
+        modules: [EffectFade, Controller],
+        speed: 800,
+        spaceBetween: 100,
+        effect: "fade",
+        fadeEffect: {
+          crossFade: true,
+        },
+        loop: true,
+      });
+
+      // Initialize content Swiper with navigation
+      const bannerContentSwiper = new Swiper(bannerContent, {
+        modules: [EffectFade, Navigation, Controller, Autoplay],
+        speed: 800,
+        spaceBetween: 100,
+        effect: "fade",
+        fadeEffect: {
+          crossFade: true,
+        },
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: true,
+        },
+        loop: true,
+      });
+
+      const bannerSliderPrev = document.querySelector(
+        ".banner-slider-btn-prev",
+      ) as HTMLElement;
+      const bannerSliderNext = document.querySelector(
+        ".banner-slider-btn-next",
+      ) as HTMLElement;
+
+      bannerSliderPrev.addEventListener("click", () => {
+        // If the last slide is active, go to the first slide
+        if (bannerContentSwiper.realIndex === 0) {
+          bannerContentSwiper.slideToLoop(
+            bannerContentSwiper.slides.length - 1,
+          );
+        } else {
+          const targetIndex = bannerContentSwiper.realIndex - 1;
+
+          // Cancel any ongoing transition instantly
+          bannerContentSwiper.setTranslate(bannerContentSwiper.getTranslate());
+
+          // Slide with normal speed
+          bannerContentSwiper.slideToLoop(
+            targetIndex,
+            bannerContentSwiper.params.speed,
+            true,
+          );
+        }
+      });
+
+      bannerSliderNext.addEventListener("click", () => {
+        // If the last slide is active, go to the first slide
+        if (
+          bannerContentSwiper.realIndex ===
+          bannerContentSwiper.slides.length - 1
+        ) {
+          bannerContentSwiper.slideToLoop(0);
+        } else {
+          // Slide to the next slide
+          const targetIndex = bannerContentSwiper.realIndex + 1;
+
+          // Cancel any ongoing transition instantly
+          bannerContentSwiper.setTranslate(bannerContentSwiper.getTranslate());
+
+          // Slide with normal speed
+          bannerContentSwiper.slideToLoop(
+            targetIndex,
+            bannerContentSwiper.params.speed,
+            true,
+          );
+        }
+      });
+
+      bannerContentSwiper.controller.control = bannerImageSwiper;
+      bannerImageSwiper.controller.control = bannerContentSwiper;
+    }
+  });
+</script>

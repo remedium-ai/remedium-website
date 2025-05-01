@@ -1,0 +1,197 @@
+---
+import type { Section } from "@/types";
+import ListCheck from "@/shortcodes/ListCheck.astro";
+import overrideObjects from "@/lib/utils/overrideObjects.ts";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import { type InferEntrySchema } from "astro:content";
+import { markdownify, toSentenceCase } from "@/lib/utils/textConverter";
+import AnimatedNumber from "@/layouts/components/widgets/AnimatedNumber.astro";
+import { getLocaleUrlCTM } from "@/lib/utils/languageParser.ts";
+
+// Type for this section data
+type service_impact_section_type = Section &
+  InferEntrySchema<"services">["impact"];
+type Props = {
+  content?: service_impact_section_type;
+};
+
+// Fetching the default content using getEntry ((await getEntryCTM("sections", "our-values", Astro.currentLocale))?.data) for the this section (If applicable)
+let default_content = {} as service_impact_section_type;
+
+// Enables content customization (e.g., title, description) with a fallback to 'default_content' if not provided.
+// The 'content' prop should match the structure of 'default_content'.
+// Allows using this section with different content across multiple pages.
+// If 'content' is missing, 'default_content' will be used.
+let actual_content = overrideObjects(
+  { ...default_content },
+  Astro.props.content,
+) as service_impact_section_type;
+
+// Extracting required values from 'content' object
+let {
+  enable = true,
+  title,
+  description,
+  list,
+  cta_btn,
+  stats_block,
+} = actual_content as service_impact_section_type;
+---
+
+{
+  enable && (
+    <section>
+      <div class="relative">
+        <div class="container grid gap-x-16 gap-y-10 overflow-hidden md:gap-y-20 lg:grid-cols-5 lg:items-center">
+          {stats_block && stats_block.enable && (
+            <div
+              class="grid min-h-full grid-cols-2 gap-6 lg:col-span-2"
+              data-aos="fade-right-sm">
+              {stats_block.lg?.map((item) => (
+                <div
+                  class:list={[
+                    "bg-theme-light relative col-span-2 flex flex-col gap-y-4 overflow-hidden p-10",
+                    {
+                      "after:absolute after:inset-0 after:-z-[09] after:bg-white/85":
+                        item.background?.type === "image-overlay" &&
+                        item.background?.image,
+                    },
+                  ]}>
+                  <OptimizedImage
+                    inlineSvg={true}
+                    class="text-primary absolute -right-8 -bottom-8 z-10 opacity-10 xl:opacity-100"
+                    width="150"
+                    src="/images/svg/arrow.svg"
+                    alt="arrow"
+                  />
+                  <div class="has-animated-number relative z-20">
+                    {item.title.value && (
+                      <AnimatedNumber
+                        class="text-primary font-secondary mb-4 inline-block text-6xl/none font-semibold md:text-7xl/none"
+                        content={item.title}
+                      />
+                    )}
+                    {item.description && (
+                      <p
+                        class="max-w-72"
+                        set:html={markdownify(item.description)}
+                      />
+                    )}
+                  </div>
+                </div>
+              ))}
+              {stats_block.sm && (
+                <div class="space-y-6">
+                  {stats_block.sm?.map((item) => (
+                    <div
+                      class:list={[
+                        "bg-theme-light has-animated-number relative col-span-2 flex flex-col gap-y-4 overflow-hidden p-5",
+                        {
+                          "after:absolute after:inset-0 after:-z-[09] after:bg-white/85":
+                            item.background?.type === "image-overlay" &&
+                            item.background?.image,
+                        },
+                      ]}>
+                      {item.title.value && (
+                        <AnimatedNumber
+                          class="text-primary font-secondary text-3xl/none font-semibold md:text-5xl/none"
+                          content={item.title}
+                        />
+                      )}
+                      {item.description && (
+                        <p
+                          class="max-w-72"
+                          set:html={markdownify(item.description)}
+                        />
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+              {stats_block.md &&
+                stats_block.md.map((item) => (
+                  <div class="has-animated-number relative flex flex-col justify-between gap-y-4 overflow-hidden p-5 after:absolute after:inset-0 after:-z-[09] after:bg-white/85">
+                    {item.title.value && (
+                      <span
+                        class="text-3xl/md:text-4xl/tight text-primary font-secondary font-semibold md:text-4xl/tight"
+                        set:html={item.title.value}
+                      />
+                    )}
+                    {item.description && (
+                      <p
+                        class="max-w-72"
+                        set:html={markdownify(item.description)}
+                      />
+                    )}
+                    {item.background?.type === "image-overlay" &&
+                      item.background?.image && (
+                        <OptimizedImage
+                          inlineSvg={true}
+                          class="absolute inset-0 -z-10 !h-full w-full object-cover"
+                          src={item.background?.image}
+                          alt={toSentenceCase("A image about " + item.title)}
+                        />
+                      )}
+                  </div>
+                ))}
+            </div>
+          )}
+          <div class="lg:col-span-3">
+            <div data-aos="fade-up-sm">
+              {title && (
+                <h2
+                  class="text-h3 text-inherit"
+                  set:html={markdownify(title)}
+                />
+              )}
+              {description && (
+                <div class="mt-6" set:html={markdownify(description, true)} />
+              )}
+            </div>
+            {list && (
+              <ListCheck
+                twoColumn={true}
+                content={list}
+                class="mt-8"
+                data-aos="fade-up-sm"
+                data-aos-delay="200"
+              />
+            )}
+            {cta_btn && cta_btn.enable && (
+              <div data-aos="fade-up-sm" data-aos-delay="300">
+                <a
+                  {...{
+                    // Set `rel` attribute for external urls or use provided value
+                    rel: cta_btn.url?.startsWith("http")
+                      ? cta_btn.rel || "noopener noreferrer"
+                      : cta_btn.rel || undefined,
+
+                    // Set `target` to "_blank" for external urls unless otherwise specified
+                    target: cta_btn.url?.startsWith("http")
+                      ? cta_btn.target || "_blank"
+                      : cta_btn.target || undefined,
+                  }}
+                  class="relative mt-8 flex items-center"
+                  href={getLocaleUrlCTM(cta_btn.url, Astro.currentLocale)}>
+                  <span
+                    class="btn btn-outline has-text-flip-animation btn-outline-primary"
+                    data-content={cta_btn.label}>
+                    {cta_btn.label}
+                  </span>
+                  <span class="icon">
+                    <OptimizedImage
+                      alt="icon"
+                      inlineSvg={true}
+                      class="h-4 w-4 text-white"
+                      src="/images/icons/svg/arrow-top-right.svg"
+                    />
+                  </span>
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

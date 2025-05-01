@@ -1,0 +1,131 @@
+---
+/**
+ * Example Usage
+
+ <StatsWrapper>
+    <StatsItem
+      icon="/images/icons/svg/success.svg"
+      title="200+"
+      description="Increased Customer Satisfaction"
+    />
+    <StatsItem
+      icon="/images/icons/svg/revenue.svg"
+      title="25+"
+      description="Enhanced Personalization"
+    />
+    <StatsItem
+      icon="/images/icons/svg/glorify.svg"
+      title="10:1"
+      description="Improved Retention"
+    />
+  </StatsWrapper>
+
+ */
+import { markdownify } from "@/lib/utils/textConverter";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import AnimatedNumber from "@/layouts/components/widgets/AnimatedNumber.astro";
+
+type StatsItem = {
+  icon?: string;
+  title?: string;
+  value?: string;
+  description?: string;
+  append_value?: string;
+  prepend_value?: string;
+};
+
+type Props = StatsItem & {
+  class?: any;
+  content?: StatsItem;
+};
+
+let {
+  icon,
+  title,
+  value,
+  content,
+  description,
+  append_value,
+  prepend_value,
+  class: className,
+} = Astro.props;
+
+const mergeObjects = (obj_one: any, obj_two: any) => {
+  const mergedObj = {} as any;
+
+  // Iterate over all keys from both objects
+  for (const key of new Set([
+    ...Object.keys(obj_one || {}),
+    ...Object.keys(obj_two || {}),
+  ])) {
+    const value1 = obj_one && obj_one[key];
+    const value2 = obj_two && obj_two[key];
+
+    // Choose the value from obj_two if it's truthy, otherwise fallback to obj_one
+    if (value2) {
+      mergedObj[key] = value2;
+    } else if (value1) {
+      mergedObj[key] = value1;
+    }
+    // Exclude keys with falsy values in both objects
+  }
+
+  return mergedObj;
+};
+
+// If you provide title, icon, description as separate props priorities them then content prop (useful when use in mdx files)
+let actual_content = mergeObjects(content, {
+  icon,
+  title,
+  value,
+  description,
+  prepend_value,
+  append_value,
+}) as StatsItem;
+---
+
+{
+  (actual_content?.value || actual_content?.description) && (
+    <div
+      class:list={[
+        "not-prose group bg-primary has-animated-number stats-item flex min-h-full flex-1 flex-col justify-between gap-12 overflow-hidden px-6 text-white",
+        "odd:pt-7",
+        "even:pt-7 even:sm:flex-col-reverse even:sm:pt-0 even:sm:pb-7",
+        className,
+      ]}>
+      <div class="space-y-2">
+        {actual_content.value && (
+          <AnimatedNumber
+            class="font-secondary inline-flex place-items-stretch gap-0 text-5xl/tight font-bold"
+            content={actual_content}
+          />
+        )}
+        {actual_content.title && (
+          <span
+            class="font-secondary inline-flex place-items-stretch gap-0 text-5xl/tight font-bold"
+            set:html={actual_content.title}
+          />
+        )}
+        {actual_content?.description && (
+          <p
+            class="opacity-80"
+            set:html={markdownify(actual_content?.description)}
+          />
+        )}
+      </div>
+      {actual_content?.icon && (
+        <OptimizedImage
+          width={200}
+          height={176}
+          src={actual_content?.icon}
+          class:list={[
+            "stats-icon !h-44 w-full !max-w-full object-cover opacity-15 brightness-[0] invert-[1]",
+            "group-odd:-mb-10 group-odd:object-top",
+            "group-even:object-top group-even:sm:-mt-10 group-even:sm:rotate-180",
+          ]}
+          alt={`icon related to ${actual_content?.description}`}
+        />
+      )}
+    </div>
+  )
+}

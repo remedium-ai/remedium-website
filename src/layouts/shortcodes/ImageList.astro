@@ -1,0 +1,40 @@
+---
+/**
+ * Example Usage
+
+  <ImageList>
+    <ImageItem
+      image_src="/images/gallery/1.jpg"
+      image_alt="example alt text"
+      video_src="LXb3EKWsInQ"
+    />
+    <ImageItem
+      image_src="/images/gallery/2.jpg"
+      image_alt="example alt text"
+      video_src="/videos/test-video.mp4"
+      video_provider="html5"
+    />
+    <ImageItem
+      width="1/2"
+      image_src="/images/gallery/3.jpg"
+      image_alt="example alt text"
+    />
+    <ImageItem
+      width="1/2"
+      image_src="/images/gallery/4.jpg"
+      image_alt="example alt text"
+    />
+  </ImageList>
+
+ */
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class:list={["image-list-component grid grid-cols-6 gap-3", className]}>
+  <slot />
+</div>

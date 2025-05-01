@@ -1,0 +1,77 @@
+---
+import {
+  getLocaleUrlCTM,
+  supportedLanguages,
+} from "@/lib/utils/languageParser.ts";
+import { plainify, removeWhitespace } from "@/lib/utils/textConverter";
+import parseTomlToJson from "@/lib/utils/parseTomlToJson";
+
+// Load the configuration
+const config = parseTomlToJson("./src/config/config.toml");
+let {
+  title,
+  meta_title,
+  description,
+  meta_description,
+  canonical,
+  keywords = config.seo.keywords,
+  disable_tagline,
+  author = config.seo.author,
+  robots = config.seo.robots,
+} = Astro.props;
+
+title = plainify(meta_title ? meta_title : title ? title : config.site.title);
+keywords = keywords.join(", ");
+
+// Add tagline & separator to title
+if (!disable_tagline) {
+  title =
+    title +
+    (config.site.tagline &&
+      (config.site.tagline_separator || " - ") + config.site.tagline);
+}
+
+description = plainify(
+  meta_description
+    ? meta_description
+    : description
+      ? description
+      : config.site.description,
+);
+
+canonical = getLocaleUrlCTM(
+  new URL(Astro.url.href, Astro.site).href,
+  Astro.currentLocale,
+);
+
+const alternateTags: Array<{ hreflang: string; href: string }> = [];
+// If multilingual is enabled, add rel alternate link tags
+if (
+  config.settings.multilingual.enable &&
+  !canonical.includes("blog/category/")
+) {
+  supportedLanguages.forEach((lang) => {
+    alternateTags.push({
+      hreflang: lang.languageCode,
+      href: getLocaleUrlCTM(Astro.url.href, lang.languageCode),
+    });
+  });
+}
+---
+
+{title && <title>{removeWhitespace(title)}</title>}
+{
+  description && (
+    <meta name="description" content={removeWhitespace(description)} />
+  )
+}
+{keywords && <meta name="keywords" content={removeWhitespace(keywords)} />}
+{author && <meta name="author" content={removeWhitespace(author)} />}
+{robots && <meta name="robots" content={removeWhitespace(robots)} />}
+{canonical && <link rel="canonical" href={canonical} item-prop="url" />}
+{
+  alternateTags &&
+    alternateTags.map((tag) => (
+      <link rel="alternate" hreflang={tag.hreflang} href={tag.href} />
+    ))
+}

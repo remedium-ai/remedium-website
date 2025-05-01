@@ -1,0 +1,117 @@
+---
+import type { Section } from "@/types";
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import { getCollectionCTM } from "@/lib/contentParser.astro";
+import CareerCard from "@/components/cards/CareerCard.astro";
+import OptimizedImage from "../utilities/OptimizedImage.astro";
+import { getLocaleUrlCTM } from "@/lib/utils/languageParser";
+
+// Type for service section data
+export type career_openings_type = Section & {
+  limit?: number | boolean;
+};
+type Props = {
+  content?: career_openings_type;
+};
+
+// Fetching the default content for the service section
+let default_content = (
+  await getEntryCTM("sections", "career-openings", Astro.currentLocale)
+)?.data as career_openings_type;
+
+// Enables content customization (e.g., title, description) with a fallback to 'default_content' if not provided.
+// The 'content' prop should match the structure of 'default_content'.
+// Allows using this section with different content across multiple pages.
+// If 'content' is missing, 'default_content' will be used.
+let actual_content = {
+  ...default_content,
+  ...Astro.props.content,
+} as career_openings_type;
+
+// Extracting required values from 'content' object
+let { limit, title, enable, cta_btn, subtitle } =
+  actual_content as career_openings_type;
+
+let career = await getCollectionCTM("career", Astro.currentLocale);
+
+// Limit the number of job post to be displayed
+career = limit ? career.slice(0, limit as number) : career;
+---
+
+{
+  enable && (
+    <section id="current-openings" class:list={["overflow-hidden"]}>
+      <div class="container">
+        <div class:list={["flex flex-col justify-start gap-12 md:gap-16"]}>
+          <div class="flex flex-col flex-wrap justify-between gap-8 lg:flex-row lg:items-center">
+            <div class="shrink-0 lg:lg:max-w-2xl" data-aos="fade-up-sm">
+              {subtitle && (
+                <span
+                  class:list={[
+                    "mb-2.5 inline-block rounded-full border px-5 py-px",
+                    "bg-primary/5 border-secondary text-primary",
+                  ]}
+                  set:html={markdownify(subtitle)}
+                />
+              )}
+              {title && (
+                <h2
+                  class:list={["text-h3 text-dark"]}
+                  set:html={markdownify(title)}
+                />
+              )}
+            </div>
+            {cta_btn?.enable && (
+              <div data-aos="fade-up-sm" data-aos-delay="200">
+                <a
+                  href={getLocaleUrlCTM(cta_btn.url, Astro.currentLocale)}
+                  class="relative flex items-center"
+                  {...{
+                    // Set `rel` attribute for external URLs or use provided value
+                    rel: cta_btn.url?.startsWith("http")
+                      ? cta_btn.rel || "noopener noreferrer"
+                      : cta_btn.rel || undefined,
+
+                    // Set `target` to "_blank" for external URLs unless otherwise specified
+                    target: cta_btn.url?.startsWith("http")
+                      ? cta_btn.target || "_blank"
+                      : cta_btn.target || undefined,
+                  }}>
+                  <span
+                    class:list={[
+                      "btn btn-outline",
+                      "btn-outline-primary has-text-flip-animation",
+                    ]}
+                    data-content={cta_btn.label}>
+                    {cta_btn.label}
+                  </span>
+                  <span class="icon">
+                    <OptimizedImage
+                      alt="icon"
+                      inlineSvg={true}
+                      class="h-4 w-4 text-white"
+                      src="/images/icons/svg/arrow-top-right.svg"
+                    />
+                  </span>
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
+        {career && (
+          <div class="relative mt-12 grid gap-6 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
+            {career.map((item, index) => (
+              <CareerCard
+                content={item.data}
+                slug={item.slug}
+                data-aos="fade-up-sm"
+                data-aos-delay={((index % 3) + 1) * 100}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}

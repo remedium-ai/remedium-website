@@ -1,0 +1,127 @@
+---
+import type { Section } from "@/types";
+import BlogCard from "@/layouts/components/cards/BlogCard.astro";
+import overrideObjects from "@/lib/utils/overrideObjects.ts";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import { getCollectionCTM } from "@/lib/contentParser.astro";
+import parseTomlToJson from "@/lib/utils/parseTomlToJson";
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+import { getLocaleUrlCTM } from "@/lib/utils/languageParser.ts";
+
+const config = parseTomlToJson("./src/config/config.toml");
+const { blog_folder }: { blog_folder: "blog" } = config.settings;
+
+// Type for this section data
+type blog_section_type = Section;
+type Props = {
+  content?: blog_section_type;
+};
+
+// Fetching the default content for the this section
+let default_content = (
+  await getEntryCTM("sections", "blog-section", Astro.currentLocale)
+)?.data as blog_section_type;
+
+// Enables content customization (e.g., title, description) with a fallback to 'default_content' if not provided.
+// The 'content' prop should match the structure of 'default_content'.
+// Allows using this section with different content across multiple pages.
+// If 'content' is missing, 'default_content' will be used.
+let actual_content = overrideObjects(
+  { ...default_content },
+  Astro.props.content,
+) as blog_section_type;
+
+// Extracting required values from 'content' object
+let {
+  enable = true,
+  title,
+  subtitle,
+  limit,
+  cta_btn,
+  bg_pattern_image,
+} = actual_content as blog_section_type;
+
+let posts = await getCollectionCTM(blog_folder, Astro.currentLocale);
+
+// Sort posts by date
+posts = sortByDate(posts);
+
+// Limit the number of items to be displayed
+posts = limit && posts ? posts.slice(0, limit as number) : posts;
+---
+
+{
+  enable && (
+    <section class="relative overflow-hidden">
+      {bg_pattern_image && (
+        <div class="pointer-events-none absolute top-0 left-0 -z-10 h-[47rem] w-full">
+          <OptimizedImage
+            class="h-full w-full object-cover md:object-left-top"
+            src={bg_pattern_image}
+            alt="pattern"
+          />
+        </div>
+      )}
+      <div class="container">
+        <div class="flex flex-wrap items-center justify-between gap-6 overflow-x-hidden lg:flex-nowrap">
+          <div class="bg-white lg:max-w-2xl" data-aos="fade-left-sm">
+            {subtitle && (
+              <span
+                class="bg-primary/5 border-secondary text-primary mb-2.5 inline-block rounded-full border px-5 py-px"
+                set:html={markdownify(subtitle)}
+              />
+            )}
+            {title && (
+              <h2 class="text-h3 text-inherit" set:html={markdownify(title)} />
+            )}
+          </div>
+          {cta_btn && cta_btn.enable && (
+            <div data-aos="fade-left-sm" data-aos-delay="200">
+              <a
+                {...{
+                  // Set `rel` attribute for external urls or use provided value
+                  rel: cta_btn.url?.startsWith("http")
+                    ? cta_btn.rel || "noopener noreferrer"
+                    : cta_btn.rel || undefined,
+
+                  // Set `target` to "_blank" for external urls unless otherwise specified
+                  target: cta_btn.url?.startsWith("http")
+                    ? cta_btn.target || "_blank"
+                    : cta_btn.target || undefined,
+                }}
+                class="relative flex items-center"
+                href={getLocaleUrlCTM(cta_btn.url, Astro.currentLocale)}>
+                <span
+                  class="btn btn-outline btn-outline-primary has-text-flip-animation"
+                  data-content={cta_btn.label}>
+                  {cta_btn.label}
+                </span>
+                <span class="icon">
+                  <OptimizedImage
+                    alt="icon"
+                    inlineSvg={true}
+                    class="h-4 w-4 text-white"
+                    src="/images/icons/svg/arrow-top-right.svg"
+                  />
+                </span>
+              </a>
+            </div>
+          )}
+        </div>
+        <div class="mt-12 grid gap-x-6 gap-y-10 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
+          {posts &&
+            posts.map((post, index) => (
+              <BlogCard
+                content={{ ...post.data, ...post }}
+                data-aos="fade-up-sm"
+                data-aos-offset="200"
+                data-aos-delay={((index % 3) + 1) * 100}
+              />
+            ))}
+        </div>
+      </div>
+    </section>
+  )
+}

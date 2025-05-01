@@ -1,0 +1,139 @@
+---
+import Logo from "@/components/global/Logo.astro";
+import LineAnimation from "@/components/widgets/LineAnimation.astro";
+import parseTomlToJson from "@/lib/utils/parseTomlToJson";
+import LanguageSwitcher from "@/layouts/components/global/header/LanguageSwitcher.astro";
+import NavigationButton from "@/layouts/components/global/header/NavigationButton.astro";
+import NavMenuItem from "@/layouts/components/global/header/MenuItem.astro";
+import NavToggleBtn from "@/layouts/components/global/header/NavToggleBtn.astro";
+import type { NavigationLink } from "@/types";
+import { useTranslations } from "@/lib/utils/languageParser.ts";
+import { filteredEnabled } from "@/lib/utils/filteredEnabled";
+
+const config = parseTomlToJson("./src/config/config.toml");
+const t = await useTranslations(Astro.currentLocale as string);
+let main = t("main") as NavigationLink[];
+main = filteredEnabled(main);
+
+// Check if the current page is the home page
+const isDarkHeader =
+  Astro.url.pathname === "/" ||
+  Astro.url.pathname === "/" + Astro.currentLocale ||
+  Astro.url.pathname === "/" + Astro.currentLocale + "/";
+
+// Check if the current page is the category filtered page
+const urlPattern = "/" + config.settings.blog_folder + "/category/";
+const isCategoryFilteredPage = Astro.url.pathname.includes(urlPattern);
+
+const { sticky_header, navigation_button } = config.settings;
+---
+
+<header
+  class:list={[
+    "header group/header transform",
+    { "sticky-header": sticky_header },
+    { "header-dark": isDarkHeader },
+  ]}>
+  <nav class="relative container">
+    <div
+      class="hs-dropdown relative flex items-center justify-between py-4 [--auto-close:inside] [--gpu-acceleration:false] [--strategy:absolute] lg:[--strategy:static]">
+      <Logo />
+
+      <ul
+        id="nav-menu"
+        class="navbar hs-dropdown-menu hs-dropdown-open:flex hs-dropdown-open:max-lg:mt-2 has-customized-scrollbar max-lg:absolute hs-dropdown-open:static max-lg:!transform-none lg:!static lg:!transform-none">
+        {main.map((menu) => <NavMenuItem menu={menu} />)}
+        {/* Navigation Button For Small Devices */}
+        {
+          navigation_button.enable && (
+            <li class="max-lg:px-4 max-lg:py-2 lg:hidden" role="menuitem">
+              {navigation_button.enable && (
+                <NavigationButton
+                  isDarkHeader={isDarkHeader}
+                  navigation_button={navigation_button}
+                  navigation_button_label={t("navigation.button_label")}
+                />
+              )}
+            </li>
+          )
+        }
+      </ul>
+
+      {/* Language Switcher For Small Devices */}
+      {
+        config.settings.multilingual.enable && !isCategoryFilteredPage && (
+          <div class="me-4 ml-auto flex lg:hidden">
+            <LanguageSwitcher />
+          </div>
+        )
+      }
+
+      {/* Navigation Button For Large Devices */}
+      {
+        (navigation_button.enable || config.settings.multilingual.enable) && (
+          <div class="hidden gap-3.5 max-lg:me-4 max-lg:ml-auto lg:flex lg:items-center">
+            {config.settings.multilingual.enable && !isCategoryFilteredPage && (
+              <LanguageSwitcher />
+            )}
+            {navigation_button.enable && (
+              <NavigationButton
+                isDarkHeader={isDarkHeader}
+                navigation_button={navigation_button}
+                navigation_button_label={t("navigation.button_label")}
+              />
+            )}
+          </div>
+        )
+      }
+      <NavToggleBtn isDarkHeader={isDarkHeader} />
+    </div>
+  </nav>
+</header>
+
+
+<script>
+  import "@/plugins/preline/dropdown";
+</script>
+<script is:inline define:vars={{ isDarkHeader }}>
+  function stickyHeader() {
+    const header = document.querySelector(".sticky-header");
+    if (!header) return;
+
+    let prevScrollPos = window.scrollY;
+    const startStickyAt = isDarkHeader ? 200 : 0; // Start adding classes after scrolling this much
+    const minScrollDiff = 50; // Minimum scroll difference to toggle classes
+
+    window.addEventListener("scroll", () => {
+      const currentScrollPos = window.scrollY;
+      const scrollDiff = Math.abs(currentScrollPos - prevScrollPos);
+
+      // Reset at top of page
+      if (currentScrollPos === 0) {
+        header.classList.remove("scroll-up", "scroll-down");
+        prevScrollPos = currentScrollPos;
+        return;
+      }
+
+      // Only apply logic if we've scrolled past the threshold
+      if (currentScrollPos > startStickyAt) {
+        if (scrollDiff >= minScrollDiff) {
+          if (currentScrollPos > prevScrollPos) {
+            // Scrolling down
+            header.classList.remove("scroll-up");
+            header.classList.add("scroll-down");
+          } else {
+            // Scrolling up
+            header.classList.remove("scroll-down");
+            header.classList.add("scroll-up");
+          }
+
+          prevScrollPos = currentScrollPos;
+        }
+      }
+    });
+  }
+
+  stickyHeader();
+</script>
+
+{Astro.url.pathname !== "/" && <LineAnimation {...Astro.props} />}

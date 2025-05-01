@@ -1,0 +1,83 @@
+---
+import { absoluteUrl } from "@/lib/utils/absoluteUrl";
+import parseTomlToJson from "@/lib/utils/parseTomlToJson";
+import { plainify, removeWhitespace } from "@/lib/utils/textConverter";
+
+// Load the configuration
+const config = parseTomlToJson("./src/config/config.toml");
+
+// Destructure optional props with default fallback to config values
+let {
+  title,
+  meta_title,
+  description,
+  meta_description,
+  disable_tagline,
+  image = config.opengraph.image,
+  twitter = config.opengraph.twitter,
+  twitter_card = config.opengraph.twitter_card,
+  og_type = config.opengraph.og_type,
+  og_locale = config.opengraph.og_locale,
+} = Astro.props;
+
+// Get the possible value for title and description and remove any line breaks and extra spaces
+title = plainify(meta_title ? meta_title : title ? title : config.site.title);
+title = removeWhitespace(title);
+
+description = plainify(
+  meta_description
+    ? meta_description
+    : description
+      ? description
+      : config.site.description,
+);
+
+description = removeWhitespace(description);
+
+// Generate the full URL for the current page
+const pageUrl = new URL(Astro.url.pathname, Astro.site);
+
+// Add tagline & separator to title
+if (!disable_tagline) {
+  title =
+    title +
+    (config.site.tagline &&
+      (config.site.tagline_separator || " - ") + config.site.tagline);
+}
+---
+
+<!-------------------------
+    Standard Open Graph
+--------------------------->{
+  image && <meta property="og:image" content={absoluteUrl(image, Astro)} />
+}
+{title && <meta property="og:title" content={removeWhitespace(title)} />}
+{
+  config.site.title && (
+    <meta
+      property="og:site_name"
+      content={removeWhitespace(config.site.title)}
+    />
+  )
+}
+{
+  description && (
+    <meta property="og:description" content={removeWhitespace(description)} />
+  )
+}
+{og_type && <meta property="og:type" content={og_type} />}
+{og_locale && <meta property="og:locale" content={og_locale} />}
+{pageUrl && <meta property="og:url" content={pageUrl} />}
+
+<!------------------------
+    Twitter Open Graph
+-------------------------->
+{twitter && <meta name="twitter:creator" content={removeWhitespace(twitter)} />}
+{title && <meta name="twitter:title" content={removeWhitespace(title)} />}
+{
+  description && (
+    <meta name="twitter:description" content={removeWhitespace(description)} />
+  )
+}
+{twitter_card && <meta name="twitter:card" content={twitter_card} />}
+{image && <meta name="twitter:image" content={absoluteUrl(image, Astro)} />}

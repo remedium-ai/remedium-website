@@ -1,0 +1,581 @@
+// content style
+.prose-styles {
+  @apply prose max-w-none;
+
+  // Typography
+  @apply prose-headings:mb-[.6em] prose-headings:mt-10 prose-headings:scroll-mt-32 prose-headings:font-bold prose-headings:text-dark;
+  @apply prose-h1:text-h1-sm;
+  @apply prose-h2:text-h2-sm;
+  @apply prose-h3:text-h3-sm;
+  @apply prose-h4:text-h4-sm;
+  @apply prose-h5:text-h5-sm;
+  @apply prose-h6:text-h6;
+  @apply prose-strong:font-medium;
+  @apply prose-pre:bg-theme-light;
+  @apply prose-a:font-normal prose-a:text-primary prose-a:underline prose-a:transition prose-a:duration-300 hover:prose-a:text-primary/80;
+  @apply prose-p:mb-3 prose-p:mt-2 prose-p:text-text-default;
+
+  @apply prose-hr:mb-[1em] prose-hr:mt-0 prose-hr:border prose-hr:border-border-default/35;
+  @apply prose-code:px-1 prose-code:text-primary;
+
+  // Image
+  @apply prose-img:max-w-full;
+
+  // Table
+  @apply prose-thead:bg-theme-light;
+  @apply prose-td:relative prose-td:z-10 prose-td:px-3 prose-td:py-[1.125rem];
+  @apply prose-th:relative prose-th:z-10 prose-th:px-4 prose-th:py-[1.125rem] prose-th:text-dark;
+  @apply prose-table:relative prose-table:overflow-hidden prose-table:before:absolute prose-table:before:left-0 prose-table:before:top-0 prose-table:before:h-full prose-table:before:w-full prose-table:before:rounded-[inherit] prose-table:before:border prose-table:before:border-border-default prose-table:before:content-[""];
+
+  // Blockquote
+  @apply prose-blockquote:border-l prose-blockquote:border-primary prose-blockquote:bg-primary/5 prose-blockquote:px-8 prose-blockquote:py-0 prose-blockquote:py-2.5 prose-blockquote:font-normal prose-blockquote:not-italic;
+
+  // Remove Quote for first and last child element inside blockquote
+  blockquote p:first-of-type {
+    @apply mt-0 before:content-[''];
+  }
+
+  blockquote p:last-of-type {
+    @apply mb-0 before:content-[''];
+  }
+
+  // Unordered & Ordered List
+  @apply prose-ol:mt-0 prose-ul:mt-0 prose-ul:list-none prose-ul:pl-0 prose-li:text-text-default/90;
+
+  ul {
+    @apply list-none prose-p:mb-0;
+
+    > li {
+      @apply after:content-[""];
+      @apply relative pl-8 after:absolute after:left-0 after:top-2.5 after:h-2 after:w-2 after:rounded-full after:bg-primary/10;
+      @apply before:content-[""];
+      @apply relative pl-[1.8em] before:absolute before:left-[5px] before:top-3 before:h-1 before:w-1 before:rounded-full before:bg-primary;
+    }
+  }
+
+  ol {
+    @apply list-none prose-li:ps-0;
+
+    &,
+    ol {
+      counter-reset: list-counter;
+    }
+
+    > li {
+      @apply relative;
+      counter-increment: list-counter;
+
+      &::before {
+        @apply text-primary;
+
+        content: counters(list-counter, ".") ". ";
+        @apply absolute right-[101%] opacity-70;
+      }
+    }
+  }
+
+  // Remove spacing for first and last child
+  & > *:first-child {
+    @apply mt-0;
+  }
+
+  & > *:last-child {
+    @apply mb-0;
+  }
+
+  > img:not(:last-child),
+  > pre:not(:last-child),
+  > .testimonial-component:not(:last-child),
+  > .styled-list:not(:last-child),
+  > .image-list-component:not(:last-child),
+  > .stats-component:not(:last-child) {
+    @apply mb-10 #{!important};
+  }
+
+  // Code
+  pre {
+    @apply mb-6 mt-0;
+    @apply rounded-none bg-theme-light #{!important};
+    @apply [&::-webkit-scrollbar-thumb]:bg-gray-200 [&::-webkit-scrollbar-track]:bg-white [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar]:w-2;
+
+    > code {
+      @apply block;
+    }
+  }
+
+  // Styled List
+  .styled-list {
+    strong {
+      @apply pe-0 #{!important};
+    }
+
+    ul {
+      @apply mb-0 gap-2;
+    }
+  }
+
+  // Stats Component
+  .stats-component {
+    @apply mt-[2.66rem];
+
+    .stats-item {
+      @apply xl:gap-20;
+    }
+
+    p {
+      @apply text-white opacity-100;
+    }
+  }
+}
+
+// Fit To Screen (Prevent Screen Flash )
+.fit-to-screen {
+  @apply flex flex-col justify-start;
+  @apply min-h-[102vh];
+}
+
+// Logo
+.logo-wrapper {
+  @apply flex items-center gap-2;
+
+  .logo {
+    @apply w-10 #{!important};
+    @apply flex w-10 items-center gap-x-4;
+  }
+
+  &.has-hover-animation {
+    @apply prose-img:transform prose-img:transition prose-img:duration-300 prose-img:ease-in;
+
+    &:hover img {
+      @apply animate-spin;
+    }
+  }
+
+  .logo-text {
+    @apply font-secondary text-2xl font-normal tracking-wider xs:text-xl/inherit;
+  }
+}
+
+// Hide alternate logo
+header {
+  .logo {
+    @apply hidden;
+  }
+
+  .logo-text {
+    @apply text-dark;
+  }
+
+  .logo-alternate {
+    @apply inline-block;
+  }
+
+  // Show main logo in home page and alternate logo in other pages
+  &.header-dark {
+    .logo {
+      @apply inline-block;
+    }
+
+    .logo-text {
+      @apply text-white;
+    }
+
+    .logo-alternate {
+      @apply hidden;
+    }
+  }
+}
+
+// Show main logo in footer
+footer {
+  .logo-text {
+    @apply text-h5 text-white;
+  }
+
+  .logo-alternate {
+    @apply hidden;
+  }
+}
+
+// form style
+.form-input,
+.hs-select input.form-input,
+.hs-select button.form-input {
+  @apply border border-transparent bg-theme-light px-4 py-3.5 text-text-default/80 placeholder:opacity-80 focus:border-primary;
+  @apply focus:shadow-none focus:ring-0 #{!important};
+
+  // Preline
+  [data-title] {
+    @apply text-text-default/80 opacity-80;
+  }
+}
+
+[type="text"]:focus,
+input:where(:not([type])):focus,
+[type="email"]:focus,
+[type="url"]:focus,
+[type="password"]:focus,
+[type="number"]:focus,
+[type="date"]:focus,
+[type="datetime-local"]:focus,
+[type="month"]:focus,
+[type="search"]:focus,
+[type="tel"]:focus,
+[type="time"]:focus,
+[type="week"]:focus,
+[multiple]:focus,
+textarea:focus,
+select:focus {
+  @apply border-primary;
+}
+
+.form-label {
+  @apply mb-2 block font-normal text-gray-700;
+}
+
+// Form Checkbox & Radio
+.form-check-wrapper {
+  @apply space-y-2;
+}
+.form-check {
+  @apply flex items-start gap-4;
+
+  .form-check-label {
+    @apply cursor-pointer leading-relaxed;
+  }
+
+  .form-radio,
+  .form-checkbox {
+    @apply shrink-0 cursor-pointer transition-colors duration-500;
+    @apply mt-1 h-4 w-4 border-0 bg-primary/15 outline-0 ring-0 ring-primary;
+    @apply focus:outline-0 focus:ring-0 focus:ring-offset-0;
+    @apply checked:ml-2 checked:mt-[9px] checked:h-2 checked:w-2 checked:bg-primary checked:bg-none checked:ring-[6px] checked:ring-primary/15;
+  }
+
+  .form-radio {
+    @apply -ml-px h-[18px] w-[18px] checked:me-[4.5px] checked:ms-[3.5px] checked:h-[9px] checked:w-[9px] checked:ring-[4.8px];
+  }
+
+  .form-checkbox {
+    @apply me-px h-[16px] w-[16px] checked:me-[6px] checked:ms-[4.4px] checked:h-[6px] checked:w-[6.5008px] checked:ring-[5px];
+  }
+}
+
+// Preline Dropdown
+[data-hs-select-dropdown] {
+  @apply p-1;
+}
+
+// Preline Dropdown Item
+[data-hs-select-dropdown] > div[data-value] {
+  @apply px-3 py-1.5 text-sm text-text-default hover:bg-primary/5 hover:text-dark focus:bg-primary/5 focus:outline-none;
+}
+
+// Preline "Search Input" Inside Dropdown
+[data-hs-select-dropdown] > div:not([data-value]) {
+  @apply p-0 focus:shadow-none focus:outline-none focus:ring-0;
+
+  input {
+    @apply px-3 py-2 placeholder:opacity-70;
+  }
+}
+
+// Preline Dropdown "Search Not Found Text"
+[data-hs-select-dropdown] > span {
+  @apply py-3 text-text-default opacity-60;
+}
+
+// Change SVG color to match brand color
+// This is used to change the color of icons in svg files to match the brand color
+// It targets the fill and stroke properties, and replaces the hex code with the currentColor css variable
+[data-icon]:not(.match-brand-color),
+.has-inherited-colors {
+  *[fill*="#"] {
+    @apply [fill:currentColor] #{!important};
+  }
+
+  *[stroke*="#"] {
+    @apply [stroke:currentColor] #{!important};
+  }
+}
+
+.match-brand-color {
+  *[fill*="#2562FF"] {
+    @apply fill-primary #{!important};
+  }
+
+  *[stroke*="#2562FF"] {
+    @apply stroke-primary #{!important};
+  }
+
+  *[stop-color="#2562FF"] {
+    stop-color: var(--color-primary) !important;
+  }
+}
+
+// marquee style
+.marquee {
+  --marquee-width: 100%;
+
+  @apply mx-auto w-[var(--marquee-width)] overflow-x-hidden;
+
+  &.marquee-pause-on-hover {
+    .marquee-content:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  .marquee-content {
+    animation: marquee var(--marquee-duration) linear infinite
+      var(--marquee-reverse);
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(
+        calc(-1 * var(--marquee-element-width) * var(--marquee-elements))
+      );
+    }
+  }
+}
+
+.testimonial-gradient-bg {
+  @apply absolute left-[calc(50%_-_37.9375rem_/_2_-_0.0313rem)] top-[calc(50%_-_37.9375rem_/_2_+_0.0313rem)] h-[37.9375rem] w-[37.9375rem] opacity-50;
+  @apply bg-[radial-gradient(50%_50%_at_50%_50%,var(--accent-color)0%,#ffffff00_100%)];
+}
+
+// banner
+.banner {
+  @apply relative pt-0;
+
+  .banner-image {
+    @apply absolute bottom-0 left-0 -z-10 h-[112%] w-screen object-cover;
+  }
+}
+
+// Animation
+.has-underline-anim {
+  background-image: linear-gradient(
+    transparent calc(100% - 0.0625rem),
+    black 0.0625rem
+  );
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.5s ease-in;
+
+  &:hover {
+    background-size: 100% 100%;
+  }
+}
+
+// Table of Contents style
+.toc {
+  --active-offset: 3.1875rem;
+
+  &.scroll-menu > ul {
+    @apply text-[0.8125rem] before:absolute before:-left-px before:top-0 before:mt-[var(--active-offset)] before:h-4 before:w-px before:bg-primary before:transition-all before:duration-300 before:ease-in [&>a]:text-primary;
+
+    a {
+      @apply text-text-default;
+    }
+  }
+
+  ul li:not(:last-child) {
+    @apply mb-1.5 pb-1.5;
+  }
+
+  &.scroll-menu a.active {
+    @apply text-primary;
+  }
+}
+
+// Clip Path For Image Overlay Clipping
+.has-clip-path {
+  clip-path: polygon(0 0, 100% 0, 100% 89%, 0% 100%);
+  overflow: hidden;
+}
+
+// Animated Video Play Button
+.has-animated-waves {
+  @apply relative z-10;
+  @apply before:-z-10 before:bg-secondary/80 after:-z-10 after:bg-secondary/80;
+
+  .icon {
+    @apply bg-secondary;
+
+    svg {
+      @apply fill-primary;
+    }
+  }
+
+  &.waves-sm {
+    &::before,
+    &::after {
+      @apply [animation:waves-sm_2s_linear_infinite];
+      @apply h-10 w-10;
+    }
+
+    @keyframes waves-sm {
+      0% {
+        transform: scale(0.2, 0.2);
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 0.9;
+      }
+
+      100% {
+        transform: scale(1.2, 1.2);
+        opacity: 0;
+      }
+    }
+  }
+
+  &.waves-white {
+    @apply bg-white;
+
+    &::before,
+    &::after {
+      @apply bg-white;
+    }
+
+    .icon {
+      @apply text-primary;
+    }
+  }
+
+  @apply before:[animation-delay:.2s] after:[animation-delay:0.5s] #{!important};
+
+  &::before,
+  &::after {
+    @apply absolute -z-10 h-40 w-40 rounded-full opacity-0 content-[""];
+    @apply [animation:waves_2s_linear_infinite];
+  }
+
+  @keyframes waves {
+    0% {
+      transform: scale(0.2, 0.2);
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 0.9;
+    }
+
+    100% {
+      transform: scale(0.9, 0.9);
+      opacity: 0;
+    }
+  }
+}
+
+// Custom List Style
+.has-list {
+  li:not(:last-child) > *:first-child,
+  & > span:not(:last-child) {
+    @apply relative;
+    @apply pr-8 after:absolute after:top-1/2 after:-translate-y-1/2;
+  }
+
+  &.has-list-dot {
+    li:not(:last-child) > *:first-child {
+      @apply relative;
+      @apply after:right-3.5 after:h-1 after:w-1 after:rounded-full after:bg-primary;
+    }
+  }
+
+  &.has-list-slash {
+    li:not(:last-child) > *:first-child,
+    > span:not(:last-child) {
+      @apply relative pr-10 after:right-4;
+      @apply after:h-[110%] after:w-px after:rotate-[28deg] after:rounded-full;
+    }
+
+    &.slash-dark > li:not(:last-child) > *:first-child {
+      @apply after:bg-dark/10;
+    }
+
+    &:not(.slash-dark) > li:not(:last-child) > *:first-child {
+      @apply after:bg-border-default/15;
+    }
+  }
+
+  &.has-list-check,
+  &.has-list-check ul {
+    li {
+      @apply relative pl-10 before:right-4;
+
+      &::before {
+        @apply absolute left-0 top-[0.075em] content-[""];
+        @apply h-6 w-6 rounded-full border border-none bg-primary bg-center bg-no-repeat shadow-lg;
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='9' viewBox='0 0 13 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 4.5L5.5 8.5L11.5 1.5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+      }
+    }
+  }
+}
+
+// Brand Text Located in Footer
+.responsive-brand-text {
+  font-size: clamp(4.5rem, 1rem + (1.5vw - 0.2rem) * 28.6567, 25rem);
+
+  // Safari resize fix
+  min-height: 0vw;
+
+  @media screen and (max-width: 103.6875rem) {
+    // 4.5rem(72px) @ 20rem(320px) increasing to 25rem(400px) @ 103.75rem(1660px)
+    font-size: clamp(
+      4.5rem,
+      1rem + (1.5vw - 0.2rem) * 28.6567,
+      calc(25vw - 100%)
+    );
+    // Where: 28.6567 = 100 * font-size_difference / viewport_width_difference
+  }
+}
+
+// Text Highlight
+.has-text-highlight > strong {
+  @apply relative inline-block text-primary;
+
+  svg {
+    @apply absolute bottom-full left-1/2 h-[2rem] w-[4.1875rem] -translate-x-1/2 content-[""];
+  }
+}
+
+// Primary Gradient Text
+.has-gradients-text,
+.odometer * {
+  @apply bg-gradient-to-b from-primary via-white via-90% to-transparent bg-clip-text text-transparent;
+}
+
+// Odometer (Number Count With Animation) Default Style Reset
+.odometer {
+  span,
+  .odometer-inside {
+    @apply inline-block #{!important};
+  }
+
+  &,
+  * {
+    @apply text-inherit #{!important};
+  }
+
+  // change default duration from default 3s to "duration"
+  // https://github.com/HubSpot/odometer/issues/91
+  &.odometer-animating-up .odometer-ribbon-inner,
+  &.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
+    -webkit-transition-duration: var(--odometer-duration, 2s) !important;
+    -moz-transition-duration: var(--odometer-duration, 2s) !important;
+    -ms-transition-duration: var(--odometer-duration, 2s) !important;
+    -o-transition-duration: var(--odometer-duration, 2s) !important;
+    transition-duration: var(--odometer-duration, 2s) !important;
+  }
+}
+
+.video-player:empty {
+  @apply h-96 bg-black;
+}

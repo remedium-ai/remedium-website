@@ -1,0 +1,80 @@
+---
+import type { Section } from "@/types";
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import overrideObjects from "@/lib/utils/overrideObjects.ts";
+import { markdownify } from "@/lib/utils/textConverter";
+import ValueCard from "@/components/cards/ValueCard.astro";
+
+// Type for this section data
+type values_section_type = Section & {
+  list: {
+    icon: string;
+    title: string;
+    description: string;
+  }[];
+};
+
+type Props = {
+  content?: values_section_type;
+};
+
+// Fetching the default content using getEntry ((await getEntryCTM("sections", "our-values", Astro.currentLocale))?.data) for the this section (If applicable)
+let default_content = (
+  await getEntryCTM("sections", "our-values", Astro.currentLocale)
+)?.data as values_section_type;
+
+// Enables content customization (e.g., title, description) with a fallback to 'default_content' if not provided.
+// The 'content' prop should match the structure of 'default_content'.
+// Allows using this section with different content across multiple pages.
+// If 'content' is missing, 'default_content' will be used.
+let actual_content = overrideObjects(
+  { ...default_content },
+  Astro.props.content,
+) as values_section_type;
+
+// Extracting required values from 'content' object
+let {
+  enable = true,
+  title,
+  description,
+  list,
+} = actual_content as values_section_type;
+---
+
+{
+  enable && (
+    <section>
+      <div class="container">
+        <div class="flex flex-wrap items-center justify-between gap-6 overflow-x-hidden lg:flex-nowrap">
+          <div class="lg:max-w-lg" data-aos="fade-right-sm">
+            {title && (
+              <h2
+                class="text-h3 has-text-highlight text-inherit"
+                set:html={markdownify(title)}
+              />
+            )}
+          </div>
+          {description && (
+            <p
+              data-aos="fade-right-sm"
+              data-aos-delay="200"
+              class="opacity-80 lg:max-w-md xl:max-w-3xl"
+              set:html={markdownify(description)}
+            />
+          )}
+        </div>
+        {list && (
+          <div class="relative mt-12 grid gap-6 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
+            {list.map((item, index) => (
+              <ValueCard
+                content={item}
+                data-aos="fade-up-sm"
+                data-aos-delay={((index % 3) + 1) * 100}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}

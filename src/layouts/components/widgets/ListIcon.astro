@@ -1,0 +1,90 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import OptimizedImage from "../utilities/OptimizedImage.astro";
+
+interface Props {
+  replace_categories?: string[];
+  remove_categories?: boolean;
+  has_blob?: boolean;
+  content?: {
+    icon: string;
+    label: string;
+    value: string;
+  }[];
+  class?: string;
+}
+
+let {
+  content: list,
+  has_blob = true,
+  remove_categories,
+  replace_categories,
+  class: className = "",
+  ...rest
+} = Astro.props;
+
+// Remove categories from list if remove_categories is true
+if (remove_categories) {
+  list = list?.filter((item: any) => !item.value.includes("categories"));
+}
+
+// Replace categories in list if replace_categories is provided
+if (replace_categories) {
+  list = list?.map((item: any) => {
+    if (typeof item.value === "object" || item.value.includes("categories")) {
+      item.value = `${replace_categories.join(" ")}`;
+    }
+    return item;
+  });
+}
+---
+
+{
+  list && (
+    <div
+      class:list={[
+        className
+          ? className
+          : "grid gap-x-8 gap-y-4 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2",
+      ]}
+      {...rest}>
+      {list.map((item: any) => (
+        <div class="flex flex-wrap items-start gap-x-1 gap-y-2">
+          <div class="flex items-start gap-4">
+            {item.icon && (
+              <div class="relative">
+                {has_blob && (
+                  <OptimizedImage
+                    inlineSvg={true}
+                    alt="shape"
+                    class="has-inherited-colors text-primary/50 h-8 w-8"
+                    src="/images/icons/svg/portfolio/blob.svg"
+                  />
+                )}
+                <OptimizedImage
+                  alt="icon"
+                  class:list={[
+                    "text-dark h-6 w-6",
+                    {
+                      "absolute -right-1 bottom-2": has_blob,
+                    },
+                  ]}
+                  src={item.icon}
+                />
+              </div>
+            )}
+            <div class="flex flex-wrap items-center gap-4 gap-y-2">
+              {item.label && (
+                <span class="text-dark font-medium" set:html={item.label} />
+              )}
+              <div
+                class="prose-a:underline"
+                set:html={markdownify(item.value, true)}
+              />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}

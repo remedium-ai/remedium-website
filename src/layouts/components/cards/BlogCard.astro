@@ -1,0 +1,229 @@
+---
+import dateFormat from "@/lib/utils/dateFormat";
+import {
+  humanize,
+  plainify,
+  slugifyyy,
+  toSentenceCase,
+} from "@/lib/utils/textConverter";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import parseTomlToJson from "@/lib/utils/parseTomlToJson";
+import BtnText from "@/components/buttons/BtnText.astro";
+import type { ContentListType, Section } from "@/types";
+import Social from "@/components/social/Social.astro";
+import socialData from "@/config/social.json";
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import {
+  getLocaleUrlCTM,
+  useTranslations,
+} from "@/lib/utils/languageParser.ts";
+
+interface Props {
+  content: Section & {
+    slug: string;
+    collection: string;
+  };
+  class?: string;
+  options?: ContentListType;
+}
+
+const t = await useTranslations(Astro.currentLocale as string);
+const config = parseTomlToJson("./src/config/config.toml");
+const { blog_folder }: { summary_length: number; blog_folder: string } =
+  config.settings;
+
+let { content, options, class: className, ...rest } = Astro.props;
+let { title, description, image, author, date, categories } = content || {};
+
+// Get author information
+let authorEntry;
+if (author) {
+  authorEntry = (
+    await getEntryCTM("author", slugifyyy(author || ""), Astro.currentLocale)
+  )?.data;
+}
+
+// Set default blog card layout if not provided
+options = {
+  ...options,
+  card: {
+    ...options?.card,
+    layout: options?.card?.layout || "classic",
+  },
+};
+
+// Format categories
+const categoriesArray = categories?.map((category: string) => ({
+  name: category,
+  slug: slugifyyy(category),
+}));
+
+let slug = getLocaleUrlCTM(
+  content.slug,
+  Astro.currentLocale,
+  content.collection,
+);
+---
+
+{
+  options?.card.layout === "horizontal" ? (
+    <article class:list={["grid gap-4 xl:grid-cols-5", className]} {...rest}>
+      <div class="after:from-primary after:via-primary/40 group relative flex items-center justify-center overflow-hidden via-20% to-transparent after:pointer-events-none after:absolute after:inset-0 after:z-10 after:bg-gradient-to-t after:transition-opacity after:duration-500 after:md:opacity-0 hover:md:after:opacity-100 xl:col-span-2">
+        <span class="bg-primary pointer-events-none absolute z-20 flex h-10 w-10 items-center justify-center rounded-full text-white transition duration-500 md:opacity-0 group-hover:md:opacity-100">
+          <OptimizedImage
+            alt="icon"
+            inlineSvg={true}
+            class="h-4 w-4 text-white"
+            width={16}
+            height={16}
+            src="/images/icons/svg/arrow-top-right.svg"
+          />
+        </span>
+        {image && (
+          <OptimizedImage
+            src={image}
+            alt={toSentenceCase("Image about " + title)}
+            class="!h-56 !max-h-full !min-w-full object-cover transition duration-500 group-hover:scale-105 md:!h-60 lg:!h-32 xl:!h-20"
+            width={480}
+            height={220}
+          />
+        )}
+        <a
+          class="absolute inset-0 z-30"
+          href={slug}
+          title={toSentenceCase(t("common.learn_more_about") + " " + title)}
+        />
+      </div>
+      <div class="flex flex-col xl:col-span-3">
+        {title && (
+          <h3 class="text-dark mb-2 text-sm font-medium">
+            <a
+              class="stretched-link text-inherit"
+              href={slug}
+              set:html={plainify(title)}
+            />
+          </h3>
+        )}
+        <span class="text-xs">{date && dateFormat(date)}</span>
+      </div>
+    </article>
+  ) : options?.card.layout === "classic" ? (
+    <article class:list={[className, "bg-white"]} {...rest}>
+      <div class="group after:from-primary after:via-primary/40 relative flex items-center justify-center overflow-hidden via-20% to-transparent after:pointer-events-none after:absolute after:inset-0 after:z-10 after:bg-gradient-to-t after:transition-opacity after:duration-500 after:md:opacity-0 hover:md:after:opacity-100">
+        <span class="bg-primary pointer-events-none absolute z-20 flex h-16 w-16 items-center justify-center rounded-full text-white transition duration-500 md:opacity-0 group-hover:md:opacity-100">
+          <OptimizedImage
+            alt="icon"
+            inlineSvg={true}
+            class="h-6 w-6 text-white"
+            width={24}
+            height={24}
+            src="/images/icons/svg/arrow-top-right.svg"
+          />
+        </span>
+        {image && (
+          <OptimizedImage
+            src={image}
+            alt={toSentenceCase("Image related to " + title)}
+            class="!h-[15.625rem] min-w-full object-cover transition duration-500 group-hover:scale-105"
+            width={600}
+            height={600}
+          />
+        )}
+        <a
+          class="absolute inset-0 z-30"
+          href={slug}
+          title={toSentenceCase("Image about " + title)}
+        />
+      </div>
+      <div>
+        <div class="font-primary mt-6 mb-2 flex flex-wrap items-center gap-x-2.5 gap-y-px border-b pb-3 text-sm">
+          <span>{date && dateFormat(date)}</span>
+          <span class="bg-primary inline-block h-[0.1875rem] w-[0.1875rem] rounded-full" />
+
+          {categoriesArray &&
+            categoriesArray.map((category: any, index: number) => (
+              <>
+                <span class="text-inherit">{humanize(category.name)}</span>
+                {index !== categoriesArray.length - 1 && (
+                  <span class="bg-primary inline-block h-[0.1875rem] w-[0.1875rem] rounded-full" />
+                )}
+              </>
+            ))}
+        </div>
+        {title && <h2 class="text-h5 mt-2 mb-4" set:html={plainify(title)} />}
+        <BtnText
+          title={title}
+          slug={slug}
+          class="text-base-sm capitalize md:text-base"
+        />
+      </div>
+    </article>
+  ) : options?.card.layout === "modern" ? (
+    <article class="relative pt-36 md:pt-72" {...rest}>
+      {image && (
+        <OptimizedImage
+          src={image}
+          alt={toSentenceCase("Image about " + title)}
+          class="absolute top-0 left-0 h-full min-h-full w-full object-cover"
+          width={810}
+          height={512}
+        />
+      )}
+      <div class="box-shadow-primary relative z-10 mx-[4%] mb-[4%] bg-white/95 p-4 sm:p-8">
+        <div class="text-primary mb-2 flex flex-wrap items-center gap-x-2.5 gap-y-px text-sm">
+          <span>{date && dateFormat(date)}</span>
+          <span class="bg-primary inline-block h-[0.1875rem] w-[0.1875rem] rounded-full" />
+          {categoriesArray &&
+            categoriesArray.map((category: any, index: number) => (
+              <>
+                <a
+                  href={getLocaleUrlCTM(
+                    `/${blog_folder}/category/${category.slug}`,
+                    Astro.currentLocale,
+                  )}
+                  class="text-inherit">
+                  {humanize(category.name)}
+                </a>
+                {index !== categoriesArray.length - 1 && (
+                  <span class="bg-primary inline-block h-[0.1875rem] w-[0.1875rem] rounded-full" />
+                )}
+              </>
+            ))}
+        </div>
+        {title && (
+          <h2 class="text-h4 md:text-h5 mb-5">
+            <a
+              class="stretched-link text-inherit"
+              href={slug}
+              set:html={plainify(title)}
+            />
+          </h2>
+        )}
+        <div class="flex flex-wrap-reverse justify-between gap-x-8 gap-y-6">
+          {author && (
+            <div class="flex items-center gap-4">
+              <OptimizedImage
+                alt={author}
+                src={authorEntry.image}
+                width={40}
+                height={40}
+                class="border-dark/15 h-10 w-10 rounded-full border-2"
+              />
+              <span set:html={"By " + author} />
+            </div>
+          )}
+          <Social
+            slug={slug}
+            title={title}
+            layout="minimal"
+            link_type="share"
+            class="opacity-70"
+            disabled={["instagram"]}
+            list={socialData.main}
+            description={description}
+          />
+        </div>
+      </div>
+    </article>
+  ) : null
+}

@@ -1,0 +1,135 @@
+---
+import type { ContentListType } from "@/types";
+import BtnText from "@/components/buttons/BtnText.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import { getLocaleUrlCTM } from "@/lib/utils/languageParser.ts";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+
+type Props = {
+  options?: ContentListType;
+  content: {
+    title: string;
+    categories: string[];
+    image: string;
+    masonry_image: string;
+    collection: string;
+    slug: string;
+  };
+  class?: string;
+};
+
+let { content, options, class: className } = Astro.props;
+let { title, slug, categories, image, masonry_image } = content || {};
+
+slug = getLocaleUrlCTM(slug, Astro.currentLocale, content.collection);
+---
+
+{
+  options?.card.layout === "classic" ? (
+    // For Classic Layout
+    <div class:list={["box-shadow-primary space-y-6 bg-white p-6", className]}>
+      {options?.layout === "masonry" ? (
+        <OptimizedImage
+          class="h-80 w-full min-w-full object-cover md:h-auto md:min-h-80"
+          src={masonry_image}
+          width={(400 * 3) / Number(options.columns || 3)}
+          alt={title}
+        />
+      ) : (
+        <OptimizedImage
+          class="h-80 w-full object-cover md:h-auto md:min-h-60"
+          width={(400 * 3) / Number(options.columns || 3)}
+          height={(240 * 3) / Number(options.columns || 3)}
+          src={image}
+          alt={title}
+        />
+      )}
+      <div>
+        {categories && categories.length > 0 && (
+          <ul class="mb-2 flex gap-2">
+            {categories.map((category: string) => (
+              <li
+                class="text-primary inline-block text-sm tracking-wider text-inherit"
+                set:html={markdownify(category)}
+              />
+            ))}
+          </ul>
+        )}
+        {title && (
+          <h3 class="text-h5/snug text-inherit opacity-90">
+            <a
+              href={slug}
+              set:html={markdownify(title)}
+              class="stretched-link text-inherit"
+            />
+          </h3>
+        )}
+        {slug && (
+          <BtnText
+            title={title}
+            slug={slug}
+            class:list={["text-base-sm mt-5 capitalize md:text-base"]}
+          />
+        )}
+      </div>
+    </div>
+  ) : options?.card.layout === "overlay" ? (
+    // For Overlay Layout
+    <div
+      class:list={[
+        "group after:from-primary after:via-primary/70 relative overflow-hidden via-20% to-transparent after:absolute after:inset-0 after:z-10 after:bg-gradient-to-t after:transition-opacity after:md:opacity-0 hover:md:after:opacity-100",
+        className,
+      ]}>
+      {options?.layout === "masonry" ? (
+        <OptimizedImage
+          class="!h-80 w-full min-w-full object-cover transition duration-500 group-hover:scale-105 md:!h-auto md:min-h-80"
+          src={masonry_image}
+          width={(400 * 3) / Number(options.columns || 3)}
+          alt={title}
+        />
+      ) : (
+        <OptimizedImage
+          class="!h-80 w-full min-w-full object-cover transition duration-500 group-hover:scale-105 md:h-auto md:min-h-80"
+          width={(400 * 3) / Number(options.columns || 3)}
+          height={(300 * 3) / Number(options.columns || 3)}
+          src={image}
+          alt={title}
+        />
+      )}
+      <div
+        class:list={[
+          "absolute left-0 z-20 w-full p-8 text-white",
+          "bottom-0 transition-all duration-300 md:-bottom-5 md:opacity-0 group-hover:md:bottom-0 group-hover:md:opacity-100",
+        ]}>
+        {categories && categories.length > 0 && (
+          <ul class="mb-1 flex gap-2">
+            {categories.map((category: string) => (
+              <li
+                class="inline-block text-sm tracking-wider text-inherit"
+                set:html={markdownify(category)}
+              />
+            ))}
+          </ul>
+        )}
+        {title && (
+          <h3 class="text-h5/snug sm:text-h4/snug text-inherit opacity-90">
+            <a
+              href={slug}
+              set:html={markdownify(title)}
+              class="stretched-link text-inherit"
+            />
+          </h3>
+        )}
+        {slug && (
+          <BtnText
+            title={title}
+            slug={slug}
+            class:list={[
+              "text-base-sm mt-5 !border-white text-white capitalize md:text-base",
+            ]}
+          />
+        )}
+      </div>
+    </div>
+  ) : null
+}

@@ -1,0 +1,43 @@
+---
+import parseTomlToJson from "@/lib/utils/parseTomlToJson";
+import Base from "@/layouts/Base.astro";
+import { generatePaths } from "@/lib/utils/languageParser.ts";
+import LayoutWrapper from "@/components/LayoutWrapper.astro";
+import PageHeader from "@/components/widgets/PageHeader.astro";
+import CallToAction from "@/components/sections/CallToAction.astro";
+import { getCollectionCTM, getEntryCTM } from "@/lib/contentParser.astro";
+
+export function getStaticPaths() {
+  return generatePaths();
+}
+
+let layout = await getEntryCTM(
+  "layouts-example",
+  "blog-list-modern",
+  Astro.currentLocale,
+);
+const config = parseTomlToJson("./src/config/config.toml");
+const { blog_folder }: { blog_folder: "blog" } = config.settings;
+
+let post = (await getCollectionCTM(blog_folder, Astro.currentLocale))[0];
+---
+
+<Base {...layout?.data}>
+  <PageHeader hiddenPaths={["Layouts example"]} {...layout.data} />
+  <LayoutWrapper
+    sidebar={{
+      enable: true,
+      sticky: true,
+      position: "right",
+      props: {
+        search: {
+          blogCardLayout: layout?.data.settings.card.layout,
+        },
+      },
+    }}
+    pageType="list"
+    content={{ ...post?.data }}
+    contentList={{ options: layout?.data.settings }}
+  />
+  <CallToAction />
+</Base>

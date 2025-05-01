@@ -1,0 +1,41 @@
+{
+  "common": {
+    "read_more": "Read More",
+    "read_more_about": "Read more about",
+    "learn_more_about": "Learn more about",
+    "email_placeholder": "Email Address",
+    "monthly_plan": "Monthly",
+    "pagination_next": "Next",
+    "pagination_previous": "Previous"
+  },
+  "widgets": {
+    "post_search_title": "Search Post",
+    "post_search_form_placeholder": "Search For ...",
+    "categories_title": "Category",
+    "recent_posts_title": "Recent Posts"
+  },
+  "career": {
+    "location": "Location",
+    "deadline": "Application Deadline",
+    "job_type": "Job Type"
+  },
+  "blog": {
+    "written_by": "Written By",
+    "published_on": "Published On",
+    "category": "Category"
+  },
+  "navigation": {
+    "button_label": "Get Started"
+  },
+  "subscription": {
+    "label": "Subscribe to our newsletter for the latest updates"
+  },
+  "footer": {
+    "quick_links": "Quick Links",
+    "legal": "Legal",
+    "resources": "Resources",
+    "description": "Looka is a San Francisco-based design and technology company founded in 2016. Their mission is to democratize design by making professional branding tools accessible to everyone.",
+    "copyright": "Copyright {{ year }} / All Rights Reserved By Looka / Built with love using [Astro Themes](https://getastrothemes.com/)",
+    "_comment": "We kindly appreciate it if you retain the theme copyright. Thank you for supporting Getastrothemes!"
+  }
+}

@@ -1,0 +1,130 @@
+---
+import Marquee from "@/components/widgets/Marquee.astro";
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import overrideObjects from "@/lib/utils/overrideObjects.ts";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import type { MarqueeConfig, Section } from "@/types";
+import { markdownify } from "@/lib/utils/textConverter";
+
+// Type for this section data
+export type about_section_type = Section & {
+  marquee?: MarqueeConfig;
+  list?: string[];
+};
+type Props = {
+  content?: about_section_type;
+};
+
+// Fetching the default content for the this section
+let default_content = (
+  await getEntryCTM("sections", "about-banner", Astro.currentLocale)
+)?.data as about_section_type;
+
+// Enables content customization (e.g., title, description) with a fallback to 'default_content' if not provided.
+// The 'content' prop should match the structure of 'default_content'.
+// Allows using this section with different content across multiple pages.
+// If 'content' is missing, 'default_content' will be used.
+let actual_content = overrideObjects(
+  { ...default_content },
+  Astro.props.content,
+) as about_section_type;
+
+// Extracting required values from 'content' object
+let {
+  enable = true,
+  title,
+  description,
+  list,
+  limit,
+  marquee,
+} = actual_content as about_section_type;
+
+// Limit the number of items to be displayed
+list = limit && list ? list.slice(0, limit as number) : list;
+
+// Dynamically add text-highlight svg image to the title
+const rawSvgs = import.meta.glob("/src/assets/images/**/*.svg", {
+  query: "raw",
+  import: "default",
+});
+const svgImage = await rawSvgs["/src/assets/images/svg/text-highlight.svg"]();
+const markdownTitle = await markdownify(title || "");
+const formattedTitle = markdownTitle.replace("<strong>", `<strong class='match-brand-color'>${svgImage}`);
+---
+
+{
+  enable && (
+    <section class="overflow-hidden">
+      <div class="container">
+        <div class="flex flex-wrap items-center justify-between gap-6 lg:flex-nowrap">
+          <div class="max-w-xl" data-aos="fade-up-sm">
+            {title && (
+              <h2
+                class="text-h3 has-text-highlight text-inherit"
+                set:html={formattedTitle}
+              />
+            )}
+          </div>
+          {description && (
+            <p
+              data-aos="fade-up-sm"
+              data-aos-delay="200"
+              set:html={markdownify(description)}
+              class="max-w-md opacity-80 xl:max-w-xl"
+            />
+          )}
+        </div>
+      </div>
+      {list && marquee && (
+        <div
+          class="relative mt-16 flex justify-center overflow-x-hidden md:mt-32"
+          data-aos="fade-up-sm"
+          data-aos-delay="300">
+          <Marquee
+            marqueeElements={list.length}
+            marqueePauseOnHover={marquee.pause_on_hover}
+            marqueeReverse={marquee.reverse}
+            marqueeDuration={marquee.duration}
+            marqueeElementWidth={marquee.element_width}
+            marqueeElementWidthResponsive={
+              marquee.element_width_in_small_devices
+            }>
+            {list.map((item, index) => (
+              <div
+                class:list={[
+                  "max-h-full min-w-[var(--marquee-element-width-responsive)] px-4 md:min-w-[var(--marquee-element-width)]",
+                ]}>
+                <OptimizedImage
+                  class:list={[
+                    "!max-h-full w-full object-cover",
+                    { "!h-[24rem] md:!h-[28rem]": index % 2 === 0 },
+                    { "!h-[20rem] md:!h-[24rem]": index % 2 !== 0 },
+                  ]}
+                  src={item}
+                  alt="Image"
+                />
+              </div>
+            ))}
+            {list.map((item, index) => (
+              <div
+                class:list={[
+                  "max-h-full min-w-[var(--marquee-element-width-responsive)] px-4 md:min-w-[var(--marquee-element-width)]",
+                ]}
+                aria-hidden="true">
+                <OptimizedImage
+                  class:list={[
+                    "!max-h-full w-full object-cover",
+                    { "!h-[20rem] md:!h-[24rem]": index % 2 === 0 },
+                    { "!h-[24rem] md:!h-[28rem]": index % 2 !== 0 },
+                  ]}
+                  src={item}
+                  alt="Image"
+                />
+              </div>
+            ))}
+          </Marquee>
+        </div>
+      )}
+    </section>
+  )
+}

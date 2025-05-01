@@ -1,0 +1,64 @@
+---
+import dateFormat from "@/lib/utils/dateFormat";
+import { markdownify } from "@/lib/utils/textConverter";
+import OptimizedImage from "../utilities/OptimizedImage.astro";
+
+const { translations: t, author, date, categories } = Astro.props.content;
+---
+
+<div class="flex flex-wrap gap-x-10 gap-y-5">
+  {
+    author?.title && (
+      <div class="flex flex-col gap-y-4">
+        <p class="font-primary text-sm tracking-[.12em] opacity-60">
+          {t("blog.written_by")}
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {author?.image && (
+            <OptimizedImage
+              width={20}
+              height={20}
+              src={author.image}
+              alt={author.title || "author image"}
+              class="h-5 w-5 rounded-full"
+            />
+          )}
+          <div class="text-start">
+            {author.title && (
+              <p class="text-sm" set:html={markdownify(author.title)} />
+            )}
+          </div>
+        </div>
+      </div>
+    )
+  }
+  {
+    date && (
+      <div class="flex flex-col gap-y-4">
+        <p class="font-primary text-sm tracking-[.12em] opacity-60">
+          {t("blog.published_on")}
+        </p>
+        <p class="text-sm font-medium" set:html={dateFormat(date)} />
+      </div>
+    )
+  }
+  {
+    categories && (
+      <div class="flex flex-col gap-y-4">
+        <p class="font-primary text-sm tracking-[.12em] opacity-60">
+          {t("blog.category")}
+        </p>
+        {categories && categories.length > 0 && (
+          <ul class="flex gap-2">
+            {categories.map((category: string) => (
+              <li
+                class="inline-block text-sm"
+                set:html={markdownify(category)}
+              />
+            ))}
+          </ul>
+        )}
+      </div>
+    )
+  }
+</div>

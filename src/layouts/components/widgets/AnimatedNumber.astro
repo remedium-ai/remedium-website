@@ -1,0 +1,108 @@
+---
+import { markdownify, toLowerCase } from "@/lib/utils/textConverter";
+import "@/plugins/odometer/odometer.min.css";
+
+interface Props {
+  class?: string;
+  animate_on?: "click" | undefined;
+  transition_time?: string;
+  child_class?: string;
+  enable?: boolean;
+  content: {
+    value?: string;
+    type?: string; // pricing tye (applicable for pricing page)
+    prepend_value?: string;
+    append_value?: string;
+  };
+}
+
+const {
+  enable = true,
+  animate_on,
+  transition_time,
+  class: className,
+  child_class: childClassName,
+  content,
+} = Astro.props;
+
+// Check number char length and give that number of zero
+const addZero = (content: string) => {
+  return "0".repeat(Number(content.length));
+};
+---
+
+<div
+  class:list={[
+    "font-secondary inline-flex place-items-stretch leading-none",
+    { "has-animated-number": enable },
+    className,
+  ]}>
+  {
+    content.prepend_value && (
+      <span
+        class:list={["prepend", childClassName]}
+        set:html={markdownify(content.prepend_value)}
+      />
+    )
+  }
+
+  <span
+    {...{
+      "data-count": content.value || undefined,
+      "data-type": content.type && toLowerCase(content.type),
+      style: { "--odometer-duration": transition_time },
+    }}
+    class:list={[{ odometer: enable }, childClassName]}
+    set:html={enable && content.value && animate_on !== "click"
+      ? addZero(content.value)
+      : content.value}
+  />
+
+  {
+    content.append_value && (
+      <span
+        class:list={["append", childClassName]}
+        set:html={markdownify(content.append_value)}
+      />
+    )
+  }
+</div>
+<script>
+  import "@/plugins/odometer/odometer.min.js";
+
+  window.addEventListener("load", async function () {
+    const { gsap } = await import("gsap");
+    const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+
+    // Ensure GSAP and ScrollTrigger are loaded
+    gsap.registerPlugin(ScrollTrigger);
+
+    /**
+     * Function to animate numbers when elements become visible
+     * @param {string} containerSelector - The selector for the container with animated numbers
+     * @param {string} numberSelector - The selector for the elements holding the numbers
+     */
+    function animateNumbers(
+      containerSelector: string = ".has-animated-number",
+      numberSelector: string = ".odometer",
+    ): void {
+      const counterContent = document.querySelectorAll(containerSelector);
+
+      counterContent.forEach((el) => {
+        ScrollTrigger.create({
+          trigger: el, // Element to trigger on
+          start: "top 80%", // When the element enters 80% of the viewport
+          once: true, // Only trigger once
+          onEnter: () => {
+            const elements = el.querySelectorAll(numberSelector);
+            elements.forEach((odometer_el) => {
+              const countNumber = odometer_el.getAttribute("data-count");
+              odometer_el.textContent = countNumber;
+            });
+          },
+        });
+      });
+    }
+    animateNumbers();
+  });
+</script>

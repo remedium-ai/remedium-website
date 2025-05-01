@@ -1,0 +1,54 @@
+---
+import ReactIcon from "@/helpers/ReactIcons.astro";
+import parseTomlToJson from "@/lib/utils/parseTomlToJson";
+import { getCollectionCTM } from "@/lib/contentParser.astro";
+import { getLocaleUrlCTM } from "@/lib/utils/languageParser.ts";
+
+interface Props {
+  currentPortfolio: any;
+  class?: string;
+}
+
+const config = parseTomlToJson("./src/config/config.toml");
+const portfolios = await getCollectionCTM(
+  config.settings.portfolio_folder as "case-studies",
+  Astro.currentLocale,
+);
+
+const { currentPortfolio } = Astro.props;
+---
+
+{
+  portfolios && portfolios.length > 0 && (
+    <div class="space-y-4">
+      <h2 class="text-h5 border-border-default/50 mb-4 border-b pb-4">
+        Other Case Studies
+      </h2>
+      <div class="space-y-2">
+        {portfolios.map((item) => {
+          const slug = getLocaleUrlCTM(
+            item.data?.custom_slug || item.slug,
+            Astro.currentLocale,
+            config.settings.portfolio_folder,
+          );
+
+          return (
+            <a
+              href={slug}
+              class:list={[
+                "hover:bg-primary text-text-default flex items-center justify-between gap-4 border px-5 py-2.5 transition duration-300 hover:text-white",
+                {
+                  "bg-primary text-white":
+                    currentPortfolio &&
+                    slug.includes(currentPortfolio.slug?.split("/")[1]),
+                },
+              ]}>
+              <span class="truncate">{item.data.title}</span>
+              <ReactIcon icon="IoIosArrowForward" class="text-xl" />
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  )
+}

@@ -1,0 +1,43 @@
+---
+import parseTomlToJson from "@/lib/utils/parseTomlToJson";
+import { getCollectionCTM } from "@/lib/contentParser.astro";
+import BlogCard from "../cards/BlogCard.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+import { useTranslations } from "@/lib/utils/languageParser";
+
+interface Props {
+  class?: string;
+}
+
+const config = parseTomlToJson("./src/config/config.toml");
+let posts = await getCollectionCTM(
+  config.settings.blog_folder as "blog",
+  Astro.currentLocale,
+);
+
+const t = await useTranslations(Astro.currentLocale as string);
+
+// Posts sorted by date
+posts = sortByDate(posts);
+
+// Limit the number of items to be displayed
+posts = posts.slice(0, 3);
+---
+
+{
+  posts && posts.length > 0 && (
+    <div class="space-y-4">
+      <h2 class="text-h5 border-border-default/50 mb-4 border-b pb-4">
+        {t("widgets.recent_posts_title")}
+      </h2>
+      <div class="space-y-3">
+        {posts.map((post) => (
+          <BlogCard
+            content={{ ...post, ...post.data, slug: post.slug }}
+            options={{ card: { layout: "horizontal" } }}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}

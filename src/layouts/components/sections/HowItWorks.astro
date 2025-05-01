@@ -1,0 +1,148 @@
+---
+import type { Section } from "@/types";
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import overrideObjects from "@/lib/utils/overrideObjects.ts";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+
+type ImageType = {
+  src: string[];
+  background: string;
+  alt: string;
+};
+
+type ListType = {
+  title: string;
+  description: string;
+  images: ImageType;
+  number: string;
+};
+
+// Type for this section data
+type howitworks_section_type = Section & {
+  list: ListType[];
+};
+type Props = {
+  content?: howitworks_section_type;
+};
+
+// Fetching the default content for the this section
+let default_content = (
+  await getEntryCTM("sections", "how-it-works", Astro.currentLocale)
+)?.data as howitworks_section_type;
+
+// Enables content customization (e.g., title, description) with a fallback to 'default_content' if not provided.
+// The 'content' prop should match the structure of 'default_content'.
+// Allows using this section with different content across multiple pages.
+// If 'content' is missing, 'default_content' will be used.
+let actual_content = overrideObjects(
+  { ...default_content },
+  Astro.props.content,
+) as howitworks_section_type;
+
+// Extracting required values from 'content' object
+let {
+  enable = true,
+  title,
+  subtitle,
+  bg_pattern_image,
+  list,
+} = actual_content as howitworks_section_type;
+---
+
+{
+  enable && (
+    <section class="relative">
+      {bg_pattern_image && (
+        <div class="pointer-events-none absolute top-0 left-0 -z-10 h-[47rem] w-full">
+          <OptimizedImage
+            class="h-full w-full object-cover md:object-left-top"
+            src={bg_pattern_image}
+            alt="pattern"
+          />
+        </div>
+      )}
+      <div class="container">
+        <div
+          data-aos="fade-up-sm"
+          class="mx-auto shrink-0 text-center lg:max-w-2xl">
+          {subtitle && (
+            <span
+              class="bg-primary/5 border-secondary text-primary mb-2.5 inline-block rounded-full border px-5 py-px"
+              set:html={markdownify(subtitle)}
+            />
+          )}
+          {title && (
+            <h2 class="text-h3 text-inherit" set:html={markdownify(title)} />
+          )}
+        </div>
+        <div
+          class="mt-12 grid space-y-10 md:mt-16"
+          data-aos="fade-up-sm"
+          data-aos-delay="400">
+          {list.map((item, index) => (
+            <div class="border-secondary grid gap-5 border bg-white md:min-h-[27.75rem] lg:sticky lg:top-[calc(6vh_+_5rem)] lg:grid-cols-12">
+              {/* Text Content */}
+              {(title || item.description) && (
+                <div
+                  class:list={[
+                    "px-8 py-10 md:flex md:flex-col md:justify-center md:px-16 md:py-16 lg:col-span-7",
+                    { "order-1": index % 2 === 0 },
+                    { "order-1 lg:order-2": index % 2 !== 0 },
+                  ]}>
+                  {item.number && (
+                    <span
+                      class="text-h2 from-primary font-secondary relative mb-5 inline-block bg-gradient-to-b via-white via-90% to-transparent bg-clip-text leading-tight font-bold text-transparent md:text-[4.0625rem]/none"
+                      set:html={markdownify(item.number)}
+                    />
+                  )}
+                  {item.title && (
+                    <h3 class="text-h4 mb-8" set:html={item.title} />
+                  )}
+                  {item.description && (
+                    <div
+                      class="prose-styles"
+                      set:html={markdownify(item.description, true)}
+                    />
+                  )}
+                </div>
+              )}
+
+              {/* Images */}
+              <div
+                class:list={[
+                  "relative overflow-hidden px-10 lg:col-span-5",
+                  // Right Side Images
+                  {
+                    "order-2": index % 2 === 0,
+                  },
+                  // Left Side Images
+                  {
+                    "order-2 lg:order-1": index % 2 !== 0,
+                  },
+                ]}>
+                {/* Background Image */}
+                {item.images.background && (
+                  <OptimizedImage
+                    src={item.images.background}
+                    preserveAspectRatio="none"
+                    class="has-inherited-colors text-primary inset-0 -z-10 h-full min-h-[250px] w-full min-w-full object-cover opacity-50 lg:absolute lg:min-h-full"
+                  />
+                )}
+                {item.images &&
+                  item.images.src.map((image) => (
+                    <OptimizedImage
+                      class="translate-centered absolute h-full w-full object-contain"
+                      src={image}
+                      height={444}
+                      alt={item.images.alt}
+                    />
+                  ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

@@ -1,0 +1,87 @@
+---
+import ReactIcon from "@/helpers/ReactIcons.astro";
+import parseTomlToJson from "@/lib/utils/parseTomlToJson";
+import { getCollectionCTM } from "@/lib/contentParser.astro";
+import { getTaxonomy } from "@/lib/taxonomyParser.astro";
+import {
+  getLocaleUrlCTM,
+  useTranslations,
+} from "@/lib/utils/languageParser.ts";
+
+interface Category {
+  name: string;
+  slug: string;
+  count: number;
+}
+
+interface Props {
+  class?: string;
+}
+
+const config = parseTomlToJson("./src/config/config.toml");
+const posts = await getCollectionCTM(
+  config.settings.blog_folder as "blog",
+  Astro.currentLocale,
+);
+
+let categories = (await getTaxonomy(
+  config.settings.blog_folder as "blog",
+  "categories",
+  Astro.currentLocale as string,
+)) as Category[];
+
+categories = categories.map((category) => {
+  const count = posts.filter((post) =>
+    post.data.categories.includes(category.name),
+  ).length;
+
+  const slug = getLocaleUrlCTM(
+    category.slug,
+    Astro.currentLocale,
+    `/${config.settings.blog_folder}/category`,
+  );
+
+  return {
+    ...category,
+    count,
+    slug,
+  };
+});
+
+const t = await useTranslations(Astro.currentLocale as string);
+
+// Sort categories by count
+categories = categories.sort((a, b) => b.count - a.count);
+---
+
+{
+  categories && categories.length > 0 && (
+    <div class="space-y-4">
+      <h2 class="text-h5 border-border-default/50 mb-4 border-b pb-4">
+        {t("widgets.categories_title")}
+      </h2>
+      <div>
+        {categories.map((category) => (
+          <div class="group/category relative flex items-center gap-4 py-1 first:pt-0 last:pb-0">
+            <span class="group-hover/category:text-primary inline-block transition duration-300 group-hover/category:translate-x-1">
+              <ReactIcon icon="IoIosArrowForward" />
+            </span>
+            <span
+              class="group-hover/category:text-primary truncate transition duration-300"
+              set:html={category.name}
+            />
+            <a
+              href={category.slug}
+              class="absolute inset-0"
+              title={`Filter posts by ${category.name}`}
+            />
+            <div
+              class="bg-theme-light group-hover/category:bg-primary/10 group-hover/category:text-primary ml-auto flex h-9 w-9 items-center justify-center rounded-full text-sm transition duration-300"
+              set:html={category.count}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}

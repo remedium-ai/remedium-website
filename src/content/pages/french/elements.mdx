@@ -1,0 +1,424 @@
+---
+title: "Elements"
+date: 2022-06-06
+draft: false
+---
+
+## Mise en Forme du Texte [.text-h4]
+
+### Texte en Gras [.text-h5]
+
+Pour mettre du texte en gras, utilisez `**` ou `__` autour du mot ou de la phrase :  
+**Exemple** : **Ce texte est en gras** ou **Ce texte est en gras**
+
+### Texte en Italique [.text-h5]
+
+Pour mettre du texte en italique, utilisez `*` ou `_` autour du mot ou de la phrase :  
+**Exemple** : _Ce texte est en italique_ ou _Ce texte est en italique_
+
+### Texte Souligné [.text-h5]
+
+Pour souligner du texte, utilisez les balises HTML `<u>` :
+
+**Exemple** :
+
+`<u>Ce texte est souligné</u>`
+
+**Résultat** :
+
+<u>Ce texte est souligné</u>
+
+### Texte Barré [.text-h5]
+
+Pour barrer du texte, utilisez `~~` autour du mot ou de la phrase :  
+**Exemple** : ~~Ce texte est barré~~
+
+## Bouton [.text-h4]
+
+```jsx
+<Button label="Exemple de Bouton" url="/" />
+<Button variant="outline" label="Avec Lien Externe" url="https://astro.build" />
+<Button variant="text" label="Exemple de Bouton" url="/" />
+```
+
+> Le code ci-dessus génère les boutons suivants
+
+<Button label="Exemple de Bouton" url="/" />
+<Button variant="outline" label="Avec Lien Externe" url="https://astro.build" />
+<Button variant="text" label="Exemple de Bouton" url="/" />
+
+## Accordéon [.text-h4]
+
+```jsx
+<Accordion
+  label="Étiquette Exemple Accordéon 01"
+  group="accordion-01"
+  expanded="true"
+>
+  Nous proposons une large gamme de services incluant le développement web, le
+  branding et le marketing digital pour aider les entreprises à croître et
+  réussir. * **Essentiel** : Atelier ciblé pour identifier les valeurs
+  fondamentales et l'USP. * **Croissance** : Atelier approfondi pour établir une
+  identité de marque claire et différenciée. * **Entreprise** : Stratégie
+  complète de positionnement de marque couvrant tous les aspects de votre
+  marque.
+</Accordion>
+```
+
+> Le code ci-dessus génère les accordéons suivants
+
+<Accordion label="Exemple d'Accordéon 01" group="accordion-01" expanded="true">
+
+Nous proposons une large gamme de services incluant le développement web, le branding et le marketing digital pour aider les entreprises à croître et réussir.
+
+- **Essentiel** : Atelier ciblé pour identifier les valeurs fondamentales et l'USP.
+- **Croissance** : Atelier approfondi pour établir une identité de marque claire et différenciée.
+- **Entreprise** : Stratégie complète de positionnement de marque couvrant tous les aspects de votre marque.
+
+</Accordion>
+
+<Accordion label="Exemple d'Accordéon 02" group="accordion-01" expanded="false">
+
+Nous proposons une large gamme de services incluant le développement web, le branding et le marketing digital pour aider les entreprises à croître et réussir.
+
+- **Essentiel** : Atelier ciblé pour identifier les valeurs fondamentales et l'USP.
+- **Croissance** : Atelier approfondi pour établir une identité de marque claire et différenciée.
+- **Entreprise** : Stratégie complète de positionnement de marque couvrant tous les aspects de votre marque.
+
+</Accordion>
+
+## Onglets [.text-h4]
+
+```jsx
+<Tabs>
+  <Tab name="Vue d'ensemble">
+    **Comment pouvons-nous vous aider ?** Nous proposons des consultations
+    personnalisées pour vous aider à atteindre vos objectifs personnels et
+    professionnels. Choisissez un onglet ci-dessous pour explorer nos services.
+    - Coaching Personnel - Conseil en Carrière - Résolution de Conflits -
+    Conseils de Vie
+  </Tab>
+</Tabs>
+```
+
+> Le code ci-dessus génère les onglets suivants
+
+<Tabs>
+  <Tab name="Vue d'ensemble">
+    **Comment pouvons-nous vous aider ?**
+
+    Nous proposons des consultations personnalisées pour vous aider à atteindre vos objectifs personnels et professionnels. Choisissez un onglet ci-dessous pour explorer nos services.
+
+    - Coaching Personnel
+    - Conseil en Carrière
+    - Résolution de Conflits
+    - Conseils de Vie
+
+  </Tab>
+
+  <Tab name="Coaching">
+    **Coaching Personnel : Libérez Votre Potentiel**
+
+    Obtenez un coaching personnalisé pour surmonter les défis et fixer des objectifs significatifs. Nous nous concentrons sur :
+    - Renforcement de la Confiance
+    - Intelligence Émotionnelle
+    - Surmonter la Procrastination
+
+  </Tab>
+
+  <Tab name="Conseil">
+    **Conseil en Carrière : Trouvez Votre Chemin**
+
+    Besoin d'aide pour votre carrière ? Nous offrons :
+    - Orientation de Carrière
+    - Préparation CV et Entretien
+    - Informations sur le Marché de l'Emploi
+
+  </Tab>
+
+  <Tab name="Résolution">
+    **Résolution de Conflits : Renforcez Vos Relations**
+
+    Résolvez les conflits efficacement avec :
+    - Services de Médiation
+    - Stratégies de Communication
+    - Techniques de Gestion de la Colère
+
+  </Tab>
+</Tabs>
+
+## Vidéo YouTube [.text-h4]
+
+<VideoInline src="LXb3EKWsInQ" provider="youtube" />
+
+## Vidéo Personnalisée [.text-h4]
+
+<VideoInline
+  src="/videos/test-video.mp4"
+  provider="html5"
+  poster="/images/video-thumbnail.jpg"
+/>
+
+## Avertissement [.text-h4]
+
+<Notice type="info" title="Information">
+  Ceci est un message informatif.
+</Notice>
+
+<Notice type="warning">Ceci est un message d'avertissement sans titre.</Notice>
+
+<Notice type="success" title="Succès !">
+  Vos modifications ont été enregistrées avec succès.
+</Notice>
+
+<Notice type="error" title="Erreur !">
+  Quelque chose a mal tourné. Veuillez réessayer.
+</Notice>
+
+## Citation [.text-h4]
+
+Pour créer une citation, commencez la ligne par un `>` :  
+**Exemple** :
+
+> Ceci est une citation.  
+> Elle s'étend sur plusieurs lignes.
+>
+> _Auteur_
+
+## Code [.text-h4]
+
+Pour formater du code en ligne, utilisez les accents graves (\`):  
+**Exemple** : `Ceci est un code en ligne`
+
+Pour les blocs de code multi-lignes, utilisez trois accents graves (\`\`\`):  
+**Exemple** :
+
+```jsx
+<a
+  {...{
+    // Définir l'attribut `rel` pour les URLs externes ou utiliser la valeur fournie
+    rel: cta_btn.url?.startsWith("http")
+      ? cta_btn.rel || "noopener noreferrer"
+      : cta_btn.rel || undefined,
+
+    // Définir `target` sur "_blank" pour les URLs externes sauf indication contraire
+    target: cta_btn.url?.startsWith("http")
+      ? cta_btn.target || "_blank"
+      : cta_btn.target || undefined,
+  }}
+  class="relative flex items-center"
+  href={getLocaleUrlCTM(cta_btn.url, Astro.currentLocale)}
+>
+  <span
+    class="btn btn-outline btn-outline-primary has-text-flip-animation"
+    data-content={cta_btn.label}
+  >
+    {cta_btn.label}
+  </span>
+  <span class="icon">
+    <OptimizedImage
+      alt="icône"
+      inlineSvg={true}
+      class="h-4 w-4 text-white"
+      src="/images/icons/svg/arrow-top-right.svg"
+    />
+  </span>
+</a>
+```
+
+## Règle Horizontale [.text-h4]
+
+Pour créer une règle horizontale, utilisez trois tirets (`---`), astérisques (`***`), ou underscores (`___`) sur une nouvelle ligne :  
+**Exemple** :
+
+---
+
+## Titres [.text-h4]
+
+Créez des titres en ajoutant des `#` avant votre texte. Ajoutez une classe personnalisée entre crochets `[.class-name]`.  
+**Exemple** :
+
+```txt
+# Titre 1 [.custom-class .another-class]
+## Titre 2 [.custom-class .another-class4]
+### Titre 3 [.custom-class .another-class]
+#### Titre 4 [.custom-class .another-class]
+##### Titre 5 [.custom-class .another-class] [.text-h4]
+###### Titre 6 [.custom-class .another-class] [.text-h5]
+```
+
+## Tableau [.text-h4]
+
+Créez des tableaux en utilisant des pipes (`|`) et des tirets (`-`) :
+
+**Exemple** :
+
+| Colonne 1 | Colonne 2 | Colonne 3 |
+| --------- | --------- | --------- |
+| Donnée 1  | Donnée 2  | Donnée 3  |
+| Donnée 4  | Donnée 5  | Donnée 6  |
+
+## Images [.text-h4]
+
+Image locale : ![texte alternatif](/images/gallery/1.jpg)
+
+## Composants [.text-h4]
+
+### Liste Stylée [.text-h5]
+
+```md
+<ListCheck>
+
+- **Interactions Incohérentes avec les Clients** : Les clients ont rencontré des niveaux de qualité de service variables selon les canaux.
+- **Manque de Personnalisation** : Une intégration limitée des données a conduit à une communication générique et uniforme.
+- **Rétention des Clients** : Difficulté à retenir les clients en raison d'un suivi et d'une interaction insuffisants.
+
+</ListCheck>
+```
+
+> Le code ci-dessus génère la liste stylée suivante :
+
+<ListCheck>
+
+- **Interactions Incohérentes avec les Clients** : Les clients ont rencontré des niveaux de qualité de service variables selon les canaux.
+- **Manque de Personnalisation** : Une intégration limitée des données a conduit à une communication générique et uniforme.
+- **Rétention des Clients** : Difficulté à retenir les clients en raison d'un suivi et d'une interaction insuffisants.
+
+</ListCheck>
+
+### Carte d'Informations [.text-h5]
+
+```jsx
+<StatsWrapper>
+  <StatsItem
+    icon="/images/icons/svg/success.svg"
+    title="200+"
+    description="Satisfaction Client Accrue"
+  />
+  <StatsItem
+    icon="/images/icons/svg/revenue.svg"
+    title="25+"
+    description="Personnalisation Améliorée"
+  />
+  <StatsItem
+    icon="/images/icons/svg/glorify.svg"
+    title="10:1"
+    description="Rétention Améliorée"
+  />
+</StatsWrapper>
+```
+
+> Le code ci-dessus génère le bloc stylé suivant :
+
+<StatsWrapper>
+
+<StatsItem
+  icon="/images/icons/svg/success.svg"
+  title="200+"
+  description="Satisfaction Client Accrue"
+/>
+<StatsItem
+  icon="/images/icons/svg/revenue.svg"
+  title="25+"
+  description="Personnalisation Améliorée"
+/>
+<StatsItem
+  icon="/images/icons/svg/glorify.svg"
+  title="10:1"
+  description="Rétention Améliorée"
+/>
+
+</StatsWrapper>
+
+### Liste d'Images avec Vidéo [.text-h5]
+
+```jsx
+<ImageList>
+  <ImageItem
+    image_src="/images/gallery/1.jpg"
+    image_alt="texte alternatif exemple"
+    video_src="LXb3EKWsInQ"
+  />
+  <ImageItem
+    image_src="/images/gallery/2.jpg"
+    image_alt="texte alternatif exemple"
+    video_src="/videos/test-video.mp4"
+    video_provider="html5"
+  />
+  <ImageItem
+    width="1/2"
+    image_src="/images/gallery/3.jpg"
+    image_alt="texte alternatif exemple"
+  />
+  <ImageItem
+    width="1/2"
+    image_src="/images/gallery/4.jpg"
+    image_alt="texte alternatif exemple"
+  />
+</ImageList>
+```
+
+> Le code ci-dessus génère les images suivantes :
+
+<ImageList>
+
+<ImageItem
+  image_src="/images/gallery/1.jpg"
+  image_alt="texte alternatif exemple"
+  video_src="LXb3EKWsInQ"
+/>
+<ImageItem
+  image_src="/images/gallery/2.jpg"
+  image_alt="texte alternatif exemple"
+  video_src="/videos/test-video.mp4"
+  video_provider="html5"
+/>
+<ImageItem
+  width="1/2"
+  image_src="/images/gallery/3.jpg"
+  image_alt="texte alternatif exemple"
+/>
+<ImageItem
+  width="1/2"
+  image_src="/images/gallery/4.jpg"
+  image_alt="texte alternatif exemple"
+/>
+
+</ImageList>
+
+### Témoignage [.text-h5]
+
+```jsx
+<Testimonial
+  customer_image="/images/customers/avatar/1.jpg"
+  customer_name="Sarah Jones"
+  customer_role="PDG, Fondatrice"
+  customer_company_logo="/images/customers/company-logo/acme.png"
+  customer_company_name="Acme Inc."
+>
+  Notre collaboration avec Looka démontre la puissance d'une stratégie
+  d'engagement client bien exécutée. En intégrant des technologies avancées et
+  des analyses basées sur les données, nous les avons aidés à offrir une
+  expérience client plus personnalisée, cohérente et enrichissante. Chez Looka,
+  nous nous engageons à aider des entreprises comme Oloyon à révolutionner leur
+  engagement client et à assurer leur succès à long terme.
+</Testimonial>
+```
+
+> Le code ci-dessus génère les images suivantes :
+
+<Testimonial
+customer_image = "/images/customers/avatar/1.jpg"
+customer_name = "Sarah Jones"
+customer_role = "PDG, Fondatrice"
+customer_company_logo = "/images/customers/company-logo/acme.png"
+customer_company_name = "Acme Inc." >
+
+Notre collaboration avec Looka démontre la puissance d'une stratégie
+d'engagement client bien exécutée. En intégrant des technologies avancées
+et des analyses basées sur les données, nous les avons aidés à offrir une
+expérience client plus personnalisée, cohérente et enrichissante. Chez Looka,
+nous nous engageons à aider des entreprises comme Oloyon à révolutionner
+leur engagement client et à assurer leur succès à long terme.
+
+</Testimonial>

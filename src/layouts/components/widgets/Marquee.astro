@@ -1,0 +1,28 @@
+---
+interface Props {
+  class?: string; // Class of the marquee
+  marqueeElements: number; // Number of elements
+  marqueeElementWidth: string; // Width of the marquee
+  marqueeElementWidthResponsive: string; // Width of the marquee
+  marqueePauseOnHover?: boolean; // Duration of the marquee
+  marqueeReverse?: "reverse" | "" | undefined; // Duration of the marquee
+  marqueeDuration?: string; // Duration of the marquee
+}
+
+let {
+  marqueeElements,
+  marqueeElementWidth,
+  marqueeElementWidthResponsive,
+  marqueePauseOnHover = false,
+  marqueeDuration = "50s",
+  marqueeReverse = "",
+} = Astro.props;
+---
+
+<div
+  class:list={["marquee", { "marquee-pause-on-hover": marqueePauseOnHover }]}
+  style={`--marquee-elements:${marqueeElements};--marquee-element-width-responsive:calc(${marqueeElementWidthResponsive} / var(--marquee-elements) * ${marqueeElements});--marquee-element-width:calc(${marqueeElementWidth} / var(--marquee-elements) * ${marqueeElements});${"--marquee-duration:" + marqueeDuration};--marquee-reverse:${marqueeReverse};`}>
+  <div class:list={["marquee-content flex items-center", Astro.props.class]}>
+    <slot />
+  </div>
+</div>
