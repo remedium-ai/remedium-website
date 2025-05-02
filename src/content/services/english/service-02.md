@@ -1,19 +1,19 @@
 ---
-title: "Competitive Analysis"
-description: "Understand your competitors' strengths and weaknesses."
+title: "Clinical Research Training"
+description: "Comprehensive training programs for clinical research professionals."
 
 image: "/images/services/2.jpg"
-icon: "/images/icons/svg/services/leader-board.svg"
+icon: "/images/icons/svg/services/insights.svg"
 
 # Short intro about this service
 intro:
   enable: true
   image: "" # set value to override default service image
-  title: "Unify Your Voice. Stand Out From The Crowd. Drive Brand Recognition."
-  description: "In today's competitive market, a strong brand is your most valuable asset. We help you craft a clear and compelling brand positioning and messaging strategy that sets you apart from the competition and resonates deeply with your target audience."
+  title: "Empowering Clinical Research Professionals"
+  description: "Our comprehensive training programs equip clinical research professionals with the knowledge and skills needed to excel in their roles. From GCP certification to advanced data management techniques, we provide practical, hands-on training that makes a difference."
   cta_btn:
     enable: true
-    label: "Get A Free Consultation"
+    label: "View Training Programs"
     url: "/contact"
     rel: ""
     target: ""
@@ -21,57 +21,56 @@ intro:
 # How This Service Help Customer
 details:
   enable: true
-  title: "Unleash the Power of Brand Positioning"
-  description: "We help you unlock the power of your customer data to gain a deeper understanding of who your customers are, what motivates them, and how they interact with your brand. Through sophisticated analytics and proven methodologies"
-  # Check "services/-index.md" file for animation settings of below list
+  title: "Comprehensive Training Solutions"
+  description: "We offer a range of training programs designed to meet the needs of clinical research professionals at all levels."
   list:
     - enable: true
       image: "/images/services/service-details/1.jpg"
-      title: "Brand Discovery Workshop"
-      description: "Through collaborative workshops, we'll uncover your brand's core values, target audience."
+      title: "GCP Training"
+      description: "Comprehensive Good Clinical Practice training for research professionals."
       cta_btn:
         enable: true
-        label: "Start Now"
+        label: "Learn More"
         url: "/contact"
         rel: ""
         target: ""
     - enable: true
       image: "/images/services/service-details/2.jpg"
-      title: "Competitive Analysis"
-      description: "We'll analyze your competitors' positioning to differentiate your brand."
+      title: "Protocol Training"
+      description: "In-depth training on protocol development and implementation."
       cta_btn:
         enable: true
-        label: "Start Now"
+        label: "Learn More"
         url: "/contact"
         rel: ""
         target: ""
     - enable: true
       image: "/images/services/service-details/3.jpg"
-      title: "Brand Positioning Statement"
-      description: "We'll develop a concise statement that captures the essence of your brand."
+      title: "Data Management"
+      description: "Training in clinical data collection, management, and analysis."
       cta_btn:
         enable: true
-        label: "Start Now"
+        label: "Learn More"
         url: "/contact"
         rel: ""
         target: ""
     - enable: true
       image: "/images/services/service-details/4.jpg"
-      title: "Messaging Framework"
-      description: "We'll create a messaging framework from your website to social media."
+      title: "Regulatory Compliance"
+      description: "Training on regulatory requirements and compliance procedures."
       cta_btn:
         enable: true
-        label: "Start Now"
+        label: "Learn More"
         url: "/contact"
         rel: ""
         target: ""
     - enable: true
       image: "/images/services/service-details/5.jpg"
-      title: "Brand Voice & Tone Guide"
-      description: "We'll define your brand voice and tone, ensuring your communication resonates."
+      title: "Site Management"
+      description: "Training for clinical site coordinators and managers."
       cta_btn:
         enable: true
-        label: "Start Now"
+        label: "Learn More"
         url: "/contact"
         rel: ""
         target: ""
@@ -79,57 +78,57 @@ details:
 # Impact of this service
 impact:
   enable: true
-  title: "The Impact of a Clear Brand Message"
-  description: "Effective messaging resonates with your customers, fostering trust and emotional connections. It's about speaking their language and understanding their needs."
+  title: "The Impact of Professional Training"
+  description: "Our training programs help organizations build competent, confident clinical research teams that deliver better results."
   list:
-    - Increased Brand Awareness
-    - Improved Marketing ROI
-    - Stronger Employee Engagement
-    - Identify customer trends
-    - Improve customer lifetime value
-    - Competitive Advantage
+    - Improved Protocol Compliance
+    - Enhanced Data Quality
+    - Reduced Training Time
+    - Better Team Performance
+    - Increased Study Efficiency
+    - Higher Retention Rates
 
   stats_block:
     enable: true
     lg:
       - background:
-          type: "light-color" # "light-color" | "image-overlay"
+          type: "light-color"
           image: ""
         title:
           prepend_value: ""
-          value: "71"
+          value: "90"
           append_value: "%"
-        description: "Studies show that consistent brand messaging can lead to a 71% increase in brand recognition"
+        description: "Training Completion Rate"
     md:
       - background:
-          type: "image-overlay" # "light-color" | ""
+          type: "image-overlay"
           image: "/images/services/service-impact-stats-bg.jpg"
         title:
           prepend_value: ""
-          value: "7 Times More"
-          append_value: ""
-        description: "Customer Retention Rate"
+          value: "85"
+          append_value: "%"
+        description: "Knowledge Retention"
     sm:
       - background:
-          type: "light-color" # "light-color" | "image-overlay"
+          type: "light-color"
           image: ""
         title:
           prepend_value: ""
-          value: "306"
+          value: "50"
           append_value: "%"
-        description: "Customer Retention Rate"
+        description: "Faster Onboarding"
       - background:
-          type: "light-color" # "light-color" | "image-overlay"
+          type: "light-color"
           image: ""
         title:
           prepend_value: ""
-          value: "500"
+          value: "75"
           append_value: "%"
-        description: "Target Your Messaging"
+        description: "Performance Improvement"
 
   cta_btn:
     enable: true
-    label: "Get A Free Consultation"
+    label: "View Training Programs"
     url: "/contact"
     rel: ""
     target: ""

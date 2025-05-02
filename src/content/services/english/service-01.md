@@ -1,6 +1,6 @@
 ---
-title: "Brand Positioning and Messaging"
-description: "Craft detailed strategic plans that align with your long-term business goals."
+title: "Clinical Research Consulting"
+description: "Expert guidance to optimize your clinical trials and research processes."
 
 image: "/images/services/1.jpg"
 icon: "/images/icons/svg/services/rank.svg"
@@ -9,11 +9,11 @@ icon: "/images/icons/svg/services/rank.svg"
 intro:
   enable: true
   image: "" # set value to override default service image
-  title: "Unify Your Voice. Stand Out From The Crowd. Drive Brand Recognition."
-  description: "In today's competitive market, a strong brand is your most valuable asset. We help you craft a clear and compelling brand positioning and messaging strategy that sets you apart from the competition and resonates deeply with your target audience."
+  title: "Expert Guidance for Clinical Research Excellence"
+  description: "Our experienced consultants provide strategic guidance to optimize your clinical trials, ensuring compliance, efficiency, and success. We help you navigate complex regulatory requirements and implement best practices in clinical research."
   cta_btn:
     enable: true
-    label: "Get A Free Consultation"
+    label: "Schedule Consultation"
     url: "/contact"
     rel: ""
     target: ""
@@ -21,57 +21,56 @@ intro:
 # How This Service Help Customer
 details:
   enable: true
-  title: "Unleash the Power of Brand Positioning"
-  description: "We help you unlock the power of your customer data to gain a deeper understanding of who your customers are, what motivates them, and how they interact with your brand. Through sophisticated analytics and proven methodologies"
-  # Check "services/-index.md" file for animation settings of below list
+  title: "Comprehensive Clinical Research Support"
+  description: "We provide end-to-end consulting services to help you streamline your clinical research processes, from protocol development to study completion."
   list:
     - enable: true
       image: "/images/services/service-details/1.jpg"
-      title: "Brand Discovery Workshop"
-      description: "Through collaborative workshops, we'll uncover your brand's core values, target audience."
+      title: "Protocol Development"
+      description: "Expert guidance in developing robust clinical trial protocols that meet regulatory requirements."
       cta_btn:
         enable: true
-        label: "Start Now"
+        label: "Learn More"
         url: "/contact"
         rel: ""
         target: ""
     - enable: true
       image: "/images/services/service-details/2.jpg"
-      title: "Competitive Analysis"
-      description: "We'll analyze your competitors' positioning to differentiate your brand."
+      title: "Regulatory Compliance"
+      description: "Ensure your clinical trials meet all regulatory requirements and industry standards."
       cta_btn:
         enable: true
-        label: "Start Now"
+        label: "Learn More"
         url: "/contact"
         rel: ""
         target: ""
     - enable: true
       image: "/images/services/service-details/3.jpg"
-      title: "Brand Positioning Statement"
-      description: "We'll develop a concise statement that captures the essence of your brand."
+      title: "Data Management"
+      description: "Optimize your data collection and management processes for better research outcomes."
       cta_btn:
         enable: true
-        label: "Start Now"
+        label: "Learn More"
         url: "/contact"
         rel: ""
         target: ""
     - enable: true
       image: "/images/services/service-details/4.jpg"
-      title: "Messaging Framework"
-      description: "We'll create a messaging framework from your website to social media."
+      title: "Quality Assurance"
+      description: "Implement comprehensive quality control measures throughout your clinical trials."
       cta_btn:
         enable: true
-        label: "Start Now"
+        label: "Learn More"
         url: "/contact"
         rel: ""
         target: ""
     - enable: true
       image: "/images/services/service-details/5.jpg"
-      title: "Brand Voice & Tone Guide"
-      description: "We'll define your brand voice and tone, ensuring your communication resonates."
+      title: "Risk Management"
+      description: "Identify and mitigate potential risks in your clinical research processes."
       cta_btn:
         enable: true
-        label: "Start Now"
+        label: "Learn More"
         url: "/contact"
         rel: ""
         target: ""
@@ -79,57 +78,57 @@ details:
 # Impact of this service
 impact:
   enable: true
-  title: "The Impact of a Clear Brand Message"
-  description: "Effective messaging resonates with your customers, fostering trust and emotional connections. It's about speaking their language and understanding their needs."
+  title: "The Impact of Expert Clinical Research Consulting"
+  description: "Our consulting services help you achieve better research outcomes, reduce costs, and accelerate your time to market."
   list:
-    - Increased Brand Awareness
-    - Improved Marketing ROI
-    - Stronger Employee Engagement
-    - Identify customer trends
-    - Improve customer lifetime value
-    - Competitive Advantage
+    - Improved Study Efficiency
+    - Enhanced Data Quality
+    - Reduced Compliance Risks
+    - Faster Study Completion
+    - Better Resource Utilization
+    - Increased Success Rates
 
   stats_block:
     enable: true
     lg:
       - background:
-          type: "light-color" # "light-color" | "image-overlay"
+          type: "light-color"
           image: ""
         title:
           prepend_value: ""
-          value: "71"
+          value: "30"
           append_value: "%"
-        description: "Studies show that consistent brand messaging can lead to a 71% increase in brand recognition"
+        description: "Average reduction in study timelines"
     md:
       - background:
-          type: "image-overlay" # "light-color" | ""
+          type: "image-overlay"
           image: "/images/services/service-impact-stats-bg.jpg"
         title:
           prepend_value: ""
-          value: "7 Times More"
-          append_value: ""
-        description: "Customer Retention Rate"
+          value: "95"
+          append_value: "%"
+        description: "Regulatory Compliance Rate"
     sm:
       - background:
-          type: "light-color" # "light-color" | "image-overlay"
+          type: "light-color"
           image: ""
         title:
           prepend_value: ""
-          value: "306"
+          value: "40"
           append_value: "%"
-        description: "Customer Retention Rate"
+        description: "Cost Reduction"
       - background:
-          type: "light-color" # "light-color" | "image-overlay"
+          type: "light-color"
           image: ""
         title:
           prepend_value: ""
-          value: "500"
+          value: "25"
           append_value: "%"
-        description: "Target Your Messaging"
+        description: "Faster Data Collection"
 
   cta_btn:
     enable: true
-    label: "Get A Free Consultation"
+    label: "Schedule Consultation"
     url: "/contact"
     rel: ""
     target: ""
