@@ -2,265 +2,62 @@
   "main": [
     {
       "enable": true,
-      "name": "Pages",
-      "hasMegaMenu": true,
-      "testimonial": {
-        "enable": true,
-        "image": "/images/customer-image.png",
-        "content": "Looka strategic planning helped us streamline operations and unlock new market opportunities. We've seen a remarkable 25% increase in revenue within the last year."
-      },
-      "services": {
-        "enable": true,
-        "name": "SERVICES"
-      },
-      "menus": [
-        {
-          "name": "REGULAR PAGES",
-          "enable": true,
-          "children": [
-            {
-              "name": "",
-              "enable": true,
-              "children": [
-                {
-                  "enable": true,
-                  "name": "Services",
-                  "url": "/services/"
-                },
-                {
-                  "enable": true,
-                  "name": "Services Single",
-                  "url": "/services/service-01/"
-                },
-                {
-                  "enable": true,
-                  "name": "Case Studies",
-                  "url": "/case-studies/"
-                },
-                {
-                  "enable": true,
-                  "name": "Case Studies Single",
-                  "url": "/case-studies/case-studies-01/"
-                },
-                {
-                  "enable": true,
-                  "name": "Career",
-                  "url": "/career/"
-                },
-                {
-                  "enable": true,
-                  "name": "Career Single",
-                  "url": "/career/job-01/"
-                }
-              ]
-            },
-            {
-              "name": "",
-              "enable": true,
-              "children": [
-                {
-                  "enable": true,
-                  "name": "About",
-                  "url": "/about/"
-                },
-                {
-                  "enable": true,
-                  "name": "Faq",
-                  "url": "/faq"
-                },
-                {
-                  "enable": true,
-                  "name": "Team",
-                  "url": "/team"
-                },
-                {
-                  "enable": true,
-                  "name": "Pricing",
-                  "url": "/pricing/",
-                  "badge": {
-                    "enable": true,
-                    "label": "NEW",
-                    "color": "primary",
-                    "_color_comment": "color expected value - primary, info, success, danger",
-                    "type": "text"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "BLOG",
-          "enable": true,
-          "children": [
-            {
-              "name": "LIST",
-              "enable": true,
-              "children": [
-                {
-                  "enable": true,
-                  "name": "Classic",
-                  "url": "/blog/"
-                },
-                {
-                  "enable": true,
-                  "name": "Modern",
-                  "url": "/layouts-example/blog-list-modern/"
-                }
-              ]
-            },
-            {
-              "name": "SINGLE",
-              "enable": true,
-              "children": [
-                {
-                  "enable": true,
-                  "name": "Minimal",
-                  "url": "/layouts-example/blog-single-minimal/"
-                },
-                {
-                  "enable": true,
-                  "name": "Modern",
-                  "url": "/blog/post-1/"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "PORTFOLIO LAYOUTS",
-          "enable": true,
-          "children": [
-            {
-              "name": "LIST",
-              "enable": true,
-              "children": [
-                {
-                  "enable": true,
-                  "name": "Classic & Masonry",
-                  "url": "/layouts-example/portfolio-classic-masonry"
-                },
-                {
-                  "enable": true,
-                  "name": "Overlay & Masonry",
-                  "url": "/layouts-example/portfolio-overlay-masonry"
-                }
-              ]
-            },
-            {
-              "name": "SINGLE",
-              "enable": true,
-              "children": [
-                {
-                  "enable": true,
-                  "name": "Modern",
-                  "url": "/layouts-example/portfolio-single-modern/"
-                },
-                {
-                  "enable": true,
-                  "name": "Modern With Sidebar",
-                  "url": "/case-studies/case-studies-01/"
-                }
-              ]
-            }
-          ]
-        }
-      ]
+      "name": "Home",
+      "url": "/"
     },
     {
       "enable": true,
-      "name": "Dropdown",
+      "name": "Business Case",
+      "url": "/business-case/"
+    },
+    {
+      "enable": true,
+      "name": "Products",
       "hasChildren": true,
       "children": [
         {
           "enable": true,
-          "name": "Example 01",
-          "url": "/"
+          "name": "eCRF",
+          "url": "/products/ecrf/"
         },
         {
           "enable": true,
-          "name": "Example 01",
-          "url": "/"
+          "name": "Dashboard",
+          "url": "/products/dashboard/"
         },
         {
           "enable": true,
-          "name": "Example 01",
-          "hasChildren": true,
-          "children": [
-            {
-              "enable": true,
-              "name": "Example 02",
-              "url": "/"
-            },
-            {
-              "enable": true,
-              "name": "Example 02",
-              "hasChildren": true,
-              "children": [
-                {
-                  "enable": true,
-                  "name": "Example 03",
-                  "url": "/"
-                },
-                {
-                  "enable": true,
-                  "name": "Example 03",
-                  "url": "/"
-                },
-                {
-                  "enable": true,
-                  "name": "Example 03",
-                  "url": "/"
-                },
-                {
-                  "enable": true,
-                  "name": "Example 03",
-                  "url": "/"
-                },
-                {
-                  "enable": true,
-                  "name": "Example 03",
-                  "url": "/"
-                }
-              ]
-            },
-            {
-              "enable": true,
-              "name": "Example 02",
-              "url": "/"
-            }
-          ]
-        },
-        {
-          "enable": true,
-          "name": "Example 01",
-          "url": "/"
+          "name": "eLearning",
+          "url": "/products/elearning/"
         }
       ]
     },
     {
       "enable": true,
-      "name": "Elements",
-      "url": "/elements/",
-      "badge": {
-        "enable": true,
-        "label": "NEW",
-        "color": "primary",
-        "_color_comment": "color expected value - primary, info, success, danger",
-        "type": "text"
-      }
+      "name": "Services",
+      "hasChildren": true,
+      "children": [
+        {
+          "enable": true,
+          "name": "Consulting",
+          "url": "/services/consulting/"
+        },
+        {
+          "enable": true,
+          "name": "Training",
+          "url": "/services/training/"
+        }
+      ]
     },
     {
       "enable": true,
       "name": "Contact",
-      "url": "/contact/",
-      "badge": {
-        "enable": true,
-        "label": "NEW",
-        "color": "danger",
-        "_color_comment": "color expected value - primary, info, success, danger",
-        "type": "dot"
-      }
+      "url": "/contact/"
+    },
+    {
+      "enable": true,
+      "name": "About us",
+      "url": "/about/"
     }
   ],
   "footer_menu": [
