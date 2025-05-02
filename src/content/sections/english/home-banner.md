@@ -4,10 +4,10 @@ enable: true # Control the visibility of this section across all pages where it 
 info_block:
   enable: true
   content: |
-    Our team of seasoned consultants provides actionable insights and innovative strategies to help your business thrive in today's competitive landscape
+    ReMedium AI transforms clinical research and healthcare education through innovative digital solutions. Our platform streamlines clinical trials and enhances medical training.
 
   video:
-    src: "bTqVqk7FSmY" # Locally hosted video path (ex: /videos/test-video.mp4), or a YouTube/Vimeo video ID (ex: youtube id - LXb3EKWsInQ, vimeo id - 1003013057)
+    src: "YOUR_VIDEO_ID" # Replace with your video ID
     type: "" # If video is stored locally in `public/videos`, set to video file type (e.g., "video/mp4")
     provider: "youtube" # Options: "youtube", "vimeo", or "html5"
     poster: "/images/video-thumbnail.jpg" # Path to thumbnail image for the video
@@ -17,31 +17,31 @@ info_block:
 main_block:
   disable_slider: false # if this is true then slider will be disabled and only first slide from below will be shown
   slides:
-    - title: "Innovative Solutions for Sustainable Success"
-      description: "You can use this slider as a static banner or as a slider. <br/> Corporate performance and ensure long-term success"
+    - title: "Revolutionizing Clinical Research"
+      description: "Streamline your clinical trials with our advanced eCRF platform. <br/> Enhance data collection, improve compliance, and accelerate research timelines."
       background_image: "/images/banner/1.jpg"
       button:
         enable: true
-        label: "Request a Consultation"
-        url: "/contact"
+        label: "Learn More"
+        url: "/products/ecrf"
         rel: ""
         target: ""
-    - title: "Strategic Solutions for Dynamic Business Growth"
-      description: "You can use this slider as a static banner or as a slider. <br/> Corporate performance and ensure long-term success"
+    - title: "Intelligent Clinical Dashboards"
+      description: "Gain real-time insights into your clinical trials. <br/> Make data-driven decisions with our comprehensive analytics platform."
       background_image: "/images/banner/2.jpg"
       button:
         enable: true
-        label: "Get A Quote"
-        url: "/contact"
+        label: "Explore Dashboard"
+        url: "/products/dashboard"
         rel: ""
         target: ""
-    - title: "Transforming Challenges into Opportunities"
-      description: "You can use this slider as a static banner or as a slider. <br/> Corporate performance and ensure long-term success"
+    - title: "Advanced eLearning Solutions"
+      description: "Transform healthcare education with our interactive eLearning platform. <br/> Deliver engaging, effective training for medical professionals."
       background_image: "/images/banner/3.jpg"
       button:
         enable: true
-        label: "Get Started Now"
-        url: "/contact"
+        label: "Discover eLearning"
+        url: "/products/elearning"
         rel: ""
         target: ""
 ---
