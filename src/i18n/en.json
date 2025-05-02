@@ -25,7 +25,13 @@
     "category": "Category"
   },
   "navigation": {
-    "button_label": "Get Started"
+    "button_label": "Get Started",
+    "home": "Home",
+    "about": "About",
+    "services": "Solutions",
+    "case-studies": "Case Studies",
+    "blog": "Blog",
+    "contact": "Contact"
   },
   "subscription": {
     "label": "Subscribe to our newsletter for the latest updates"
@@ -34,8 +40,8 @@
     "quick_links": "Quick Links",
     "legal": "Legal",
     "resources": "Products",
-    "description": "ReMedium AI is a leading provider of innovative solutions for clinical research and healthcare education. Our mission is to transform the way clinical trials are conducted and medical knowledge is shared.",
-    "copyright": "Copyright {{ year }} / All Rights Reserved By ReMedium AI",
+    "description": "ReMedium AI is revolutionizing clinical research and healthcare education through innovative digital solutions. Our platform streamlines clinical trials and enhances medical training, making healthcare more efficient and accessible.",
+    "copyright": "© 2024 ReMedium AI. All rights reserved.",
     "footer_menu_quick_link": [
       {
         "enable": true,
@@ -86,6 +92,50 @@
         "name": "Terms & Conditions",
         "url": "/terms-conditions/"
       }
-    ]
+    ],
+    "services": "Solutions",
+    "case-studies": "Case Studies",
+    "contact": "Contact",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service",
+    "subscribe": "Subscribe to our newsletter",
+    "subscribe_placeholder": "Enter your email",
+    "subscribe_button": "Subscribe"
+  },
+  "home": {
+    "hero": {
+      "title": "Transforming Clinical Research and Healthcare Education",
+      "subtitle": "Innovative digital solutions for streamlined clinical trials and enhanced medical training",
+      "cta": "Get Started"
+    },
+    "services": {
+      "title": "Our Solutions",
+      "subtitle": "Comprehensive digital tools for clinical research and healthcare education"
+    },
+    "case-studies": {
+      "title": "Success Stories",
+      "subtitle": "Discover how our solutions are making a difference in healthcare"
+    },
+    "blog": {
+      "title": "Latest Insights",
+      "subtitle": "Stay updated with the latest trends in clinical research and healthcare education"
+    }
+  },
+  "about": {
+    "title": "About ReMedium AI",
+    "mission": "Our Mission",
+    "vision": "Our Vision",
+    "values": "Our Values"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have questions? We'd love to hear from you.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message"
+    }
   }
 }

@@ -1,0 +1,21 @@
+---
+title: "Our Solutions"
+subtitle: "Comprehensive digital tools for clinical research and healthcare education"
+services:
+  - title: "Clinical Research Platform"
+    description: "Streamline your clinical trials with our comprehensive eCRF platform, designed to enhance data collection and management."
+    icon: "database"
+    link: "/services/clinical-research-platform/"
+  - title: "Healthcare Education"
+    description: "Transform medical training with our interactive learning platform, featuring case studies and real-world scenarios."
+    icon: "book"
+    link: "/services/healthcare-education/"
+  - title: "Data Analytics"
+    description: "Leverage powerful analytics tools to gain insights from clinical data and improve research outcomes."
+    icon: "chart"
+    link: "/services/data-analytics/"
+  - title: "Regulatory Compliance"
+    description: "Ensure compliance with international standards and regulations through our built-in compliance tools."
+    icon: "shield"
+    link: "/services/regulatory-compliance/"
+--- 

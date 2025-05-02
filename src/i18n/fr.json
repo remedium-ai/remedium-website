@@ -25,17 +25,64 @@
     "category": "Catégorie"
   },
   "navigation": {
-    "button_label": "Commencez à utiliser"
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Solutions",
+    "case-studies": "Études de cas",
+    "blog": "Blog",
+    "contact": "Contact"
   },
   "subscription": {
     "label": "Abonnez-vous à notre newsletter pour obtenir les dernières mises"
   },
   "footer": {
+    "description": "ReMedium AI révolutionne la recherche clinique et l'éducation en santé grâce à des solutions numériques innovantes. Notre plateforme simplifie les essais cliniques et améliore la formation médicale, rendant les soins de santé plus efficaces et accessibles.",
     "quick_links": "Liens rapides",
-    "legal": "Juridique",
-    "resources": "Ressources",
-    "description": "Looka est une entreprise de design et de technologie basée à San Francisco, fondée en 2016. Leur mission est de démocratiser le design en rendant les outils de branding professionnels accessibles à tous.",
-    "copyright": "Droits d'auteur {{ year }} / Tous droits réservés par Looka / Construit avec amour [Astro Themes](https://getastrothemes.com/)",
-    "_comment": "We kindly appreciate it if you retain the theme copyright. Thank you for supporting Getastrothemes!"
+    "services": "Solutions",
+    "case-studies": "Études de cas",
+    "blog": "Blog",
+    "contact": "Contact",
+    "privacy_policy": "Politique de confidentialité",
+    "terms_of_service": "Conditions d'utilisation",
+    "subscribe": "Abonnez-vous à notre newsletter",
+    "subscribe_placeholder": "Entrez votre email",
+    "subscribe_button": "S'abonner",
+    "copyright": "© 2024 ReMedium AI. Tous droits réservés."
+  },
+  "home": {
+    "hero": {
+      "title": "Transformer la recherche clinique et l'éducation en santé",
+      "subtitle": "Solutions numériques innovantes pour des essais cliniques simplifiés et une formation médicale améliorée",
+      "cta": "Commencer"
+    },
+    "services": {
+      "title": "Nos Solutions",
+      "subtitle": "Outils numériques complets pour la recherche clinique et l'éducation en santé"
+    },
+    "case-studies": {
+      "title": "Histoires de réussite",
+      "subtitle": "Découvrez comment nos solutions font la différence dans les soins de santé"
+    },
+    "blog": {
+      "title": "Dernières actualités",
+      "subtitle": "Restez informé des dernières tendances en recherche clinique et éducation en santé"
+    }
+  },
+  "about": {
+    "title": "À propos de ReMedium AI",
+    "mission": "Notre Mission",
+    "vision": "Notre Vision",
+    "values": "Nos Valeurs"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Vous avez des questions ? Nous serions ravis d'avoir de vos nouvelles.",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "subject": "Sujet",
+      "message": "Message",
+      "submit": "Envoyer le message"
+    }
   }
 }

@@ -1,6 +1,6 @@
 ---
 enable: true
-title: "Strategic Business Solutions for Sustainable Growth"
+title: "Expert Services for Clinical Research Excellence"
 subtitle: "Our Services"
 
 # Services data comes from "/content/services"
@@ -20,5 +20,5 @@ creative_shape: # Background shape (Used in home & about page)
 cta: "link" # "link" | "slider-nav" ( Define weather call to action button should be slider control or a link )
 color_scheme: "light" # "dark" | "light"; weather to show services in light or dark color scheme
 show_services_as: "static" # "slider" | "static"; weather to show services as slider or static list
-limit: 3 # number / false Limit the number of services to be displayed (Only work if show_services_as is static)
+limit: 2 # number / false Limit the number of services to be displayed (Only work if show_services_as is static)
 ---
