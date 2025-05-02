@@ -33,9 +33,59 @@
   "footer": {
     "quick_links": "Quick Links",
     "legal": "Legal",
-    "resources": "Resources",
-    "description": "Looka is a San Francisco-based design and technology company founded in 2016. Their mission is to democratize design by making professional branding tools accessible to everyone.",
-    "copyright": "Copyright {{ year }} / All Rights Reserved By Looka / Built with love using [Astro Themes](https://getastrothemes.com/)",
-    "_comment": "We kindly appreciate it if you retain the theme copyright. Thank you for supporting Getastrothemes!"
+    "resources": "Products",
+    "description": "ReMedium AI is a leading provider of innovative solutions for clinical research and healthcare education. Our mission is to transform the way clinical trials are conducted and medical knowledge is shared.",
+    "copyright": "Copyright {{ year }} / All Rights Reserved By ReMedium AI",
+    "footer_menu_quick_link": [
+      {
+        "enable": true,
+        "name": "Home",
+        "url": "/"
+      },
+      {
+        "enable": true,
+        "name": "Business Case",
+        "url": "/business-case/"
+      },
+      {
+        "enable": true,
+        "name": "About us",
+        "url": "/about/"
+      },
+      {
+        "enable": true,
+        "name": "Contact",
+        "url": "/contact/"
+      }
+    ],
+    "footer_menu_resources": [
+      {
+        "enable": true,
+        "name": "eCRF",
+        "url": "/products/ecrf/"
+      },
+      {
+        "enable": true,
+        "name": "Dashboard",
+        "url": "/products/dashboard/"
+      },
+      {
+        "enable": true,
+        "name": "eLearning",
+        "url": "/products/elearning/"
+      }
+    ],
+    "footer_menu_legal": [
+      {
+        "enable": true,
+        "name": "Privacy Policy",
+        "url": "/privacy-policy/"
+      },
+      {
+        "enable": true,
+        "name": "Terms & Conditions",
+        "url": "/terms-conditions/"
+      }
+    ]
   }
 }
