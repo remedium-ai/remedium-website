@@ -21,21 +21,21 @@
             {
               "enable": true,
               "name": "Data Collection",
-              "url": "/products/ecrf/",
+              "url": "/services/ecrf/",
               "icon": "/src/assets/images/icons/svg/documentation.svg",
               "description": "Streamlined data collection and management for perioperative, precision care"
-            },
-            {
-              "enable": true,
+                },
+                {
+                  "enable": true,
               "name": "Dashboard",
-              "url": "/products/dashboard/",
+              "url": "/services/dashboard/",
               "icon": "/src/assets/images/icons/svg/analytics.svg",
               "description": "Real-time analytics and insights for perioperative care"
             },
             {
               "enable": true,
               "name": "Learning",
-              "url": "/products/elearning/",
+              "url": "/services/elearning/",
               "icon": "/src/assets/images/icons/svg/expertise.svg",
               "description": "Interactive learning platform for clinical excellence"
             }
@@ -51,9 +51,9 @@
               "url": "/services/consulting/",
               "icon": "/src/assets/images/icons/svg/services/insights.svg",
               "description": "Expert guidance for optimizing your clinical operations"
-            },
-            {
-              "enable": true,
+                },
+                {
+                  "enable": true,
               "name": "Training",
               "url": "/services/training/",
               "icon": "/src/assets/images/icons/svg/services/task.svg",
@@ -75,7 +75,7 @@
             {
               "enable": true,
               "name": "Perioperative Value",
-              "url": "/economics/perioperative-value/",
+              "url": "/services/perioperative-value/",
               "icon": "/src/assets/images/icons/svg/revenue.svg",
               "description": "Maximize value and efficiency in perioperative care"
             }
@@ -120,24 +120,24 @@
     {
       "enable": true,
       "name": "SBI Business Case",
-      "url": "/economics/sbi-business-case/"
+      "url": "/services/perioperative-value/"
     }
   ],
   "footer_menu_resources": [
     {
       "enable": true,
       "name": "eCRF",
-      "url": "/products/ecrf/"
+      "url": "/services/ecrf/"
     },
     {
       "enable": true,
       "name": "Dashboard",
-      "url": "/products/dashboard/"
+      "url": "/services/dashboard/"
     },
     {
       "enable": true,
       "name": "eLearning",
-      "url": "/products/elearning/"
+      "url": "/services/elearning/"
     }
   ],
   "footer_menu_legal": [

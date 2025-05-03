@@ -28,6 +28,17 @@ caseStudies:
       - "Regular security audits"
       - "Data backup and recovery"
       - "Access control management"
+faqs:
+  - question: "What data sources can be integrated into the Dashboard?"
+    answer: "The Dashboard integrates with EHRs, anesthesia records, surgical systems, and other hospital data sources for a comprehensive view."
+  - question: "Can I customize the Dashboard for my hospital's needs?"
+    answer: "Yes, the Dashboard is fully customizable. You can select KPIs, create custom views, and tailor analytics to your workflows."
+  - question: "How does the Dashboard support clinical decision-making?"
+    answer: "It provides real-time analytics, risk alerts, and outcome tracking to help clinicians make informed decisions at every stage of care."
+  - question: "Is my data secure in the Dashboard?"
+    answer: "Yes, we use advanced encryption, access controls, and regular audits to ensure data privacy and security."
+  - question: "What training and support are available for Dashboard users?"
+    answer: "We provide onboarding, user guides, and ongoing support to ensure your team gets the most out of the Dashboard."
 ---
 
 ## Overview

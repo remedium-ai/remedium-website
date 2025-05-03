@@ -1,12 +1,12 @@
 ---
 title: "Terms & Conditions"
-meta_description: "This is a example description"
+meta_description: "Terms and conditions for using ReMediumAI's services"
 draft: false
 ---
 
-**Effective Date:** July, 2022
+**Effective Date:** March, 2024
 
-Welcome to Looka ("we," "our," or "us"). By accessing or using our website, <https://www.looka.com> ("Website"), you agree to comply with and be bound by the following Terms and Conditions ("Terms"). If you do not agree with these Terms, please do not use our Website.
+Welcome to ReMediumAI ("we," "our," or "us"). By accessing or using our website, <https://www.remedium.ai> ("Website"), you agree to comply with and be bound by the following Terms and Conditions ("Terms"). If you do not agree with these Terms, please do not use our Website.
 
 ### Acceptance of Terms
 
@@ -27,11 +27,7 @@ If you create an account on our Website, you are responsible for maintaining the
 
 ### Intellectual Property
 
-All content on the Website, including but not limited to text, images, logos, and software, is the property of Looka or its licensors and is protected by copyright, trademark, and other intellectual property laws. You may not reproduce, distribute, or modify any content without prior written consent from Looka.
-
-### Purchases and Payments
-
-All purchases made on the Website are subject to our pricing and payment terms. You agree to provide accurate payment information and authorize us to charge your payment method for the agreed-upon amounts. Refunds, if applicable, will be processed according to our Refund Policy.
+All content on the Website, including but not limited to text, images, logos, and software, is the property of ReMediumAI or its licensors and is protected by copyright, trademark, and other intellectual property laws. You may not reproduce, distribute, or modify any content without prior written consent from ReMediumAI.
 
 ### Disclaimer of Warranties
 
@@ -39,7 +35,7 @@ The Website and its content are provided "as is" without warranties of any kind,
 
 ### Limitation of Liability
 
-To the fullest extent permitted by law, Looka shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Website or inability to access it. Our total liability for any claims related to the Website shall not exceed the amount paid by you, if any, to Looka.
+To the fullest extent permitted by law, ReMediumAI shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Website or inability to access it. Our total liability for any claims related to the Website shall not exceed the amount paid by you, if any, to ReMediumAI.
 
 ### Termination
 
@@ -51,7 +47,7 @@ Our Website may contain links to third-party websites. We are not responsible fo
 
 ### Governing Law
 
-These Terms are governed by and construed in accordance with the laws of the State of Imaginary, USA, without regard to its conflict of law principles. Any disputes arising under these Terms shall be resolved in the courts located in Imaginary City, USA.
+These Terms are governed by and construed in accordance with the laws of Germany, without regard to its conflict of law principles. Any disputes arising under these Terms shall be resolved in the courts located in Munich, Germany.
 
 ### Changes to Terms
 
@@ -61,9 +57,8 @@ We reserve the right to update or modify these Terms at any time without prior n
 
 If you have any questions or concerns about these Terms, please contact us at:
 
-Looka
+ReMediumAI GmbH
+Email: info@remedium.ai
+Phone: +49-177-331-2169
 
-Email: <support@looka.com>  
-Address: 123 Looka Lane, Imaginary City, IC 12345, USA
-
-Thank you for using Looka!
+Thank you for using ReMediumAI!

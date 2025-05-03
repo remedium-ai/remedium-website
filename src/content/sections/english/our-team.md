@@ -1,6 +1,6 @@
 ---
 enable: true # Control the visibility of this section across all pages where it is used
-title: "A Diverse Group of Experienced Professionals"
+title: "An Experienced Group of Health Care Professionals"
 subtitle: "Expert Team"
 
 cta_btn:

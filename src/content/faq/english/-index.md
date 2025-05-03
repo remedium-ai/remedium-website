@@ -1,6 +1,6 @@
 ---
 title: "Frequently Asked Questions"
-meta_description: "This is a example description"
+meta_description: "Answers to common questions about ReMedium, our perioperative solutions, technology, data security, and support."
 draft: false
 
 section_layout: "vertical"
@@ -9,154 +9,86 @@ show_categories: true
 minimal_faq_layout: false
 
 list:
-  - label: "General Information"
+  - label: "About ReMedium"
     list:
       - featured: true
         active: true
-        title: "What services do you offer?"
+        title: "What is ReMedium and what does it do?"
         content: |
-          We offer a wide range of services including web development, branding, and digital marketing to help businesses grow and succeed.
-
-          - Focused workshop to identify core values and USP.
-          - In-depth workshop to establish a clear and differentiated brand identity.
-            1. Focused workshop to identify core values and USP.
-            2. In-depth workshop to establish a clear and differentiated brand identity.
-            3. Comprehensive brand positioning strategy encompassing all aspects of your brand.
-          - Comprehensive brand positioning strategy encompassing all aspects of your brand.  
-            - Focused workshop to identify core values and USP.
-            - In-depth workshop to establish a clear and differentiated brand identity.
-            - Comprehensive brand positioning strategy encompassing all aspects of your brand.
+          ReMedium is a digital health platform focused on perioperative care, precision medicine, and patient-centered outcomes. We provide AI-driven solutions to optimize workflows, improve safety, and deliver measurable value for healthcare professionals and patients.
       - featured: true
         active: false
-        title: "How can I request a quote or proposal?"
+        title: "What solutions does ReMedium offer?"
         content: |
-          You can request a quote by filling out the [contact form](#) on our site or emailing us directly at [info@looka.com](#) with your project details.
+          ReMedium offers a suite of solutions for perioperative care, including:
+          - Data Collection (eCRF)
+          - Clinical Dashboards
+          - eLearning and Training
+          - Consulting Services
+          - SBI Certification
+          - Perioperative Value Assessment
       - featured: false
         active: false
-        title: "What is your turnaround time for projects?"
+        title: "Who can benefit from ReMedium's platform?"
         content: |
-          Our turnaround time depends on the project's complexity, but we typically deliver within 2-4 weeks for standard projects.
+          Our platform is designed for hospitals, surgical teams, perioperative leaders, quality managers, and healthcare organizations seeking to improve outcomes, efficiency, and patient safety.
       - featured: false
         active: false
-        title: "Do you offer custom solutions?"
+        title: "How does ReMedium use AI and data for precision medicine?"
         content: |
-          Yes, we specialize in custom solutions tailored to meet the unique needs of your business or project.
+          ReMedium leverages artificial intelligence and advanced analytics to provide personalized care pathways, risk prediction, and real-time decision support for perioperative teams.
       - featured: false
         active: false
-        title: "What industries do you cater to?"
+        title: "How secure is my data with ReMedium?"
         content: |
-          We cater to a wide range of industries including technology, healthcare, education, and retail, among others.
+          Data security is a top priority. We use industry-standard encryption, comply with GDPR and healthcare regulations, and ensure all patient data is stored securely and confidentially.
       - featured: false
         active: false
-        title: "How can I contact support?"
+        title: "How do I get started with ReMedium?"
         content: |
-          For support, please email us at [support@looka.com](#) or use the live chat feature on our website for immediate assistance.
-  - label: "Maintenance"
+          Contact us for a free consultation or demo. Our team will assess your needs and recommend the best solutions for your organization.
+      - featured: false
+        active: false
+        title: "What support and training are available?"
+        content: |
+          We provide onboarding, user training, and ongoing support for all our solutions. Our experts are available to help you maximize the value of ReMedium.
+      - featured: false
+        active: false
+        title: "Is ReMedium compliant with healthcare regulations?"
+        content: |
+          Yes, ReMedium is designed to meet the highest standards of healthcare compliance, including GDPR, HIPAA, and local regulatory requirements.
+  - label: "Technology & Integration"
     list:
       - featured: false
-        active: true
-        title: "Do you provide ongoing maintenance services?"
+        active: false
+        title: "Can ReMedium integrate with our existing hospital systems?"
         content: |
-          Yes, we offer comprehensive maintenance packages to ensure your website or application stays updated and secure.
-
-          - **Essentials**: Focused workshop to identify core values and USP.
-          - **Growth**: In-depth workshop to establish a clear and differentiated brand identity.
-          - **Enterprise**: Comprehensive brand positioning strategy encompassing all aspects of your brand.
+          Yes, our solutions are designed for interoperability and can integrate with EHRs, hospital information systems, and other digital health platforms.
       - featured: false
         active: false
-        title: "How do I report a technical issue?"
+        title: "What are the technical requirements for using ReMedium?"
         content: |
-          You can report technical issues via our [support form](#) or by emailing us at [tech@looka.com](#) with a detailed description of the problem.
-      - featured: true
+          ReMedium is cloud-based and accessible via web browser. No special hardware is required, and our team will guide you through any integration steps.
+      - featured: false
         active: false
-        title: "What is included in your maintenance plans?"
+        title: "How is data privacy maintained?"
         content: |
-          Our maintenance plans include regular updates, backups, performance checks, and security monitoring to keep your systems running smoothly.
-      - featured: true
-        active: false
-        title: "How often do you perform updates?"
-        content: |
-          Updates are performed monthly or as needed, depending on the maintenance package you select.
-      - featured: true
-        active: false
-        title: "Do you handle website hosting?"
-        content: |
-          Yes, we provide reliable hosting services as part of our maintenance plans or as a standalone service.
-      - featured: true
-        active: false
-        title: "Can I upgrade my maintenance package?"
-        content: |
-          Absolutely, you can upgrade your maintenance package at any time by contacting our support team.
-  - label: "User Information"
+          We use advanced encryption, access controls, and regular audits to ensure data privacy and security at all times.
+  - label: "Outcomes & Value"
     list:
       - featured: false
-        active: true
-        title: "How do I create an account?"
+        active: false
+        title: "What outcomes can I expect from using ReMedium?"
         content: |
-          Creating an account is easy. Simply click on the "Sign Up" button on our website and follow the instructions.
-
-          - **Essentials**: Focused workshop to identify core values and USP.
-          - **Growth**: In-depth workshop to establish a clear and differentiated brand identity.
-          - **Enterprise**: Comprehensive brand positioning strategy encompassing all aspects of your brand.
+          Our clients have achieved measurable improvements, including reduced complications, shorter hospital stays, cost savings, and higher patient satisfaction.
       - featured: false
         active: false
-        title: "Can I update my personal details?"
+        title: "How does ReMedium measure value?"
         content: |
-          Yes, you can update your personal details by logging into your account and navigating to the profile settings page.
+          We use clinical, operational, and financial metrics to track improvements and demonstrate the value of our solutions for your organization.
       - featured: false
         active: false
-        title: "How do I reset my password?"
+        title: "Can ReMedium help with change management?"
         content: |
-          To reset your password, click on the "Forgot Password" link on the login page and follow the prompts.
-      - featured: false
-        active: false
-        title: "What should I do if I suspect unauthorized access?"
-        content: |
-          If you suspect unauthorized access, immediately change your password and contact our support team for further assistance.
-      - featured: false
-        active: false
-        title: "Do you store user data securely?"
-        content: |
-          Yes, we prioritize data security and employ advanced encryption techniques to safeguard user information.
-      - featured: true
-        active: false
-        title: "Can I delete my account?"
-        content: |
-          Yes, you can request account deletion by contacting our support team. Please note that this action is irreversible.
-  - label: "Financial Information"
-    list:
-      - featured: true
-        active: true
-        title: "What payment methods do you accept?"
-        content: |
-          We accept various payment methods including credit cards, PayPal, and bank transfers for your convenience.
-
-          - **Essentials**: Focused workshop to identify core values and USP.
-          - **Growth**: In-depth workshop to establish a clear and differentiated brand identity.
-          - **Enterprise**: Comprehensive brand positioning strategy encompassing all aspects of your brand.
-      - featured: true
-        active: false
-        title: "Do you offer refunds?"
-        content: |
-          Refunds are available under specific conditions as outlined in our refund policy. Please refer to our [terms and conditions](#) for details.
-      - featured: false
-        active: false
-        title: "Is my payment information secure?"
-        content: |
-          Yes, all payment information is processed securely using industry-standard encryption and trusted payment gateways.
-      - featured: false
-        active: false
-        title: "Do you provide invoices for transactions?"
-        content: |
-          Yes, we provide detailed invoices for every transaction, which are emailed to you upon successful payment.
-      - featured: false
-        active: false
-        title: "Can I set up recurring payments?"
-        content: |
-          Yes, recurring payments can be set up for subscription-based services. Contact our billing team for assistance.
-      - featured: false
-        active: false
-        title: "What currencies do you accept?"
-        content: |
-          We primarily accept payments in USD but also support other major currencies. Contact us for specific details.
+          Yes, our consulting and training services support successful implementation and sustainable change in perioperative care.
 ---

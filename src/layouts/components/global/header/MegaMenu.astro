@@ -46,16 +46,16 @@ const has_enable_menu = menu.menus?.filter((menu) => menu.enable) || [];
     <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
       {menu.menus?.map((menu_one) => (
         <div class="flex flex-col gap-6">
-          {menu_one.name && (
+                  {menu_one.name && (
             <h3 class="text-lg font-semibold text-gray-900 border-b border-gray-200 pb-2">
               {menu_one.name}
             </h3>
-          )}
+                  )}
           {menu_one.children && (
             <ul class="space-y-4">
               {menu_one.children.map((child) => (
                 <li>
-                  <a
+                                    <a
                     href={getLocaleUrlCTM(child.url || Astro.url.origin, Astro.currentLocale)}
                     class="group flex items-start gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200"
                   >
@@ -84,17 +84,17 @@ const has_enable_menu = menu.menus?.filter((menu) => menu.enable) || [];
                 </li>
               ))}
             </ul>
-          )}
-        </div>
-      ))}
-    </div>
-  </div>
-</div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
 
 <style>
   /* Override SVG colors */
   .hs-dropdown-menu img[src*="insights.svg"],
   .hs-dropdown-menu img[src*="revenue.svg"] {
     filter: invert(39%) sepia(57%) saturate(2000%) hue-rotate(202deg) brightness(97%) contrast(96%);
-  }
+    }
 </style>

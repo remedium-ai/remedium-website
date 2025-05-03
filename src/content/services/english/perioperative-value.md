@@ -26,6 +26,17 @@ caseStudies:
       - "Week 5-6: Implementation of improvements"
       - "Week 7-8: Quality monitoring"
       - "Week 9-12: Value measurement and reporting"
+faqs:
+  - question: "How does ReMedium help maximize perioperative value?"
+    answer: "We use data-driven strategies, process optimization, and evidence-based practices to improve outcomes and efficiency."
+  - question: "What metrics are used to measure perioperative value?"
+    answer: "We track clinical, operational, and financial metrics such as complication rates, length of stay, and cost savings."
+  - question: "Can ReMedium help reduce costs and improve outcomes?"
+    answer: "Yes, our clients have achieved significant cost reductions and better patient outcomes through our value-focused programs."
+  - question: "How do I get started with a value assessment?"
+    answer: "Contact us for a value assessment. We'll analyze your current state and recommend tailored improvement strategies."
+  - question: "What support is available during implementation?"
+    answer: "Our team provides hands-on support, training, and ongoing monitoring to ensure successful implementation and sustained value."
 ---
 
 ## Overview

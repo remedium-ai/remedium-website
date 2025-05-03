@@ -54,17 +54,17 @@ let {
     src || logo_alternate || logo ? (
       <>
         {isDarkHeader ? (
-          <OptimizedImage
-            src={src ? src : logo}
-            class="logo"
-            width={getNumber(logo_width)}
-            height={getNumber(logo_height)}
-            alt={toSentenceCase("Brand logo of " + title)}
-            style={{
-              height: getNumber(logo_height) + "px",
-              width: getNumber(logo_width) + "px",
-            }}
-          />
+        <OptimizedImage
+          src={src ? src : logo}
+          class="logo"
+          width={getNumber(logo_width)}
+          height={getNumber(logo_height)}
+          alt={toSentenceCase("Brand logo of " + title)}
+          style={{
+            height: getNumber(logo_height) + "px",
+            width: getNumber(logo_width) + "px",
+          }}
+        />
         ) : (
           <OptimizedImage
             src={logo_alternate}

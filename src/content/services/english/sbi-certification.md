@@ -26,6 +26,19 @@ caseStudies:
       - "Week 5-6: Advanced analytics skills"
       - "Week 7-8: Practical application"
       - "Week 9-12: Certification assessment"
+faqs:
+  - question: "What is SBI Certification?"
+    answer: "SBI Certification recognizes expertise in perioperative business intelligence and analytics."
+  - question: "Who is eligible for SBI Certification?"
+    answer: "Healthcare professionals with experience in perioperative care, analytics, or quality improvement are eligible."
+  - question: "What is the process for certification?"
+    answer: "The process includes application, training, assessment, and final certification."
+  - question: "What are the benefits of SBI Certification?"
+    answer: "Certified professionals gain recognition, career advancement, and enhanced skills in perioperative analytics."
+  - question: "How do I prepare for SBI Certification?"
+    answer: "We provide preparatory materials, training sessions, and support to help you succeed."
+  - question: "Is SBI Certification renewable?"
+    answer: "Yes, certification is valid for a set period and can be renewed through continuing education and reassessment."
 ---
 
 ## Overview

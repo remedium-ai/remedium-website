@@ -11,18 +11,18 @@ cta_btn:
 achievements:
   enable: true
   list:
+    - value: "50"
+      prepend_value: ""
+      append_value: "%"
+      description: "Reduction of postoperative delirium (POD) through precision perioperative care"
+    - value: "1"
+      prepend_value: "€"
+      append_value: "Mio."
+      description: "Hospitals have saved over 1 million euros annually by optimizing perioperative workflows"
     - value: "20"
       prepend_value: ""
       append_value: "+"
-      description: "We have a proven track record of our team members of delivering outstanding results for over 50 health care providers"
-    - value: "40"
-      prepend_value: ""
-      append_value: "+"
-      description: "With over three decades of experience, our certified consultants bring unparalleled expertise and a proven track record of success"
-    - value: "1"
-      prepend_value: "€"
-      append_value: "M+"
-      description: "We can help our clients generate over €1 million in revenue annually, driving significant perioperative improvements"
+      description: "Our team has over two decades of experience delivering better outcomes at reduced costs"
 
 banner:
   enable: true

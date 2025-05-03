@@ -28,6 +28,17 @@ caseStudies:
       - "Regular security audits"
       - "Data backup and recovery"
       - "Access control management"
+faqs:
+  - question: "What types of courses are available on the eLearning platform?"
+    answer: "We offer courses on perioperative care, clinical best practices, technology adoption, and quality improvement."
+  - question: "How is learner progress tracked and reported?"
+    answer: "Progress is tracked automatically, with detailed reports available for both learners and administrators."
+  - question: "Can I create custom training modules?"
+    answer: "Yes, organizations can create and upload custom modules tailored to their specific needs."
+  - question: "Is the eLearning platform mobile-friendly?"
+    answer: "Yes, our platform is fully responsive and accessible on all devices, including smartphones and tablets."
+  - question: "How are certifications managed?"
+    answer: "Certificates are issued automatically upon course completion and can be tracked within the platform."
 ---
 
 ## Overview

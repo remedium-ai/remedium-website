@@ -1,13 +1,13 @@
 ---
 enable: true # Control the visibility of this section across all pages where it is used
-title: "Ready to Transform Your Business?"
-subtitle: "Business Goals"
+title: "Ready to Transform Your Care for Patients?"
+subtitle: "Improving outcomes"
 description: |
-  Partner with our team of experts to unlock your business’s full potential. Schedule your free consultation and discover how we can help you.
+  Partner with our team of experts to unlock your full potential for perioperative precision care. Ask for a free consultation and discover how we can help you.
 
 cta_btn:
   enable: true
-  label: "Get A Free Consultation"
+  label: "Get a consultation"
   url: "/contact/"
   rel: ""
   target: ""
@@ -20,26 +20,26 @@ right_content: "image" # Choose between "image" or "stats" for the content of th
 image_block:
   image: "/images/call-to-action/image.png"
   experience:
-    label: "Years of Experience"
+    label: "Safe 1 Mio. € per Year by improving care processes"
     prepend_value: ""
-    value: "12"
+    value: "1"
     append_value: "+"
 
 stats_block:
   list:
     - prepend_value: ""
-      value: "98"
+      value: "50"
       append_value: "%"
-      title: "Satisfaction Rate"
-      description: "Our clients consistently report high levels of satisfaction"
+      title: "Reduction of POD by 50% in the first year"
+      description: "Clinically proven reduction of postoperative delirium (POD) through precision perioperative care."
+    - prepend_value: "€"
+      value: "1"
+      append_value: "Mio."
+      title: "Safe 1 Mio. € per Year by improving care processes"
+      description: "Hospitals have saved over 1 million euros annually by optimizing perioperative workflows."
     - prepend_value: ""
-      value: "200"
+      value: "20"
       append_value: "+"
-      title: "Successful Projects"
-      description: "our team of consultants brings a wealth of expertise."
-    - prepend_value: ""
-      value: "25"
-      append_value: "+"
-      title: "Years of Experience"
-      description: "Our strategies have generated over $50 million."
+      title: "20+ Years Our approach has generated better outcome at lower costs."
+      description: "Our team has over two decades of experience delivering better outcomes at reduced costs."
 ---

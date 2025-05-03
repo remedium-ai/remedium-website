@@ -1,3 +1,6 @@
+# .assets4import
+.assets4import/
+
 # build output
 dist/
 .output/

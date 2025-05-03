@@ -26,6 +26,17 @@ caseStudies:
       - "Week 5-6: Advanced skills development"
       - "Week 7-8: Practical application"
       - "Week 9-12: Performance evaluation"
+faqs:
+  - question: "What training programs are offered?"
+    answer: "We offer basic, advanced, and specialized training in perioperative care, technology adoption, and quality improvement."
+  - question: "Who delivers the training?"
+    answer: "Our training is delivered by experienced clinicians, educators, and subject matter experts."
+  - question: "Is training available onsite or online?"
+    answer: "We provide both onsite and online training options to suit your organization's needs."
+  - question: "How is training effectiveness measured?"
+    answer: "We use pre- and post-training assessments, feedback surveys, and performance metrics to measure impact."
+  - question: "Can training be customized for our team?"
+    answer: "Yes, we tailor training programs to your specific clinical and operational requirements."
 ---
 
 ## Overview

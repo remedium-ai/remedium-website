@@ -18,13 +18,13 @@
               "enable": true,
               "name": "Collecte de Données",
               "url": "/products/ecrf/"
-            },
-            {
-              "enable": true,
+                },
+                {
+                  "enable": true,
               "name": "Tableau de Bord",
               "url": "/products/dashboard/"
-            },
-            {
+                },
+                {
               "enable": true,
               "name": "Apprentissage",
               "url": "/products/elearning/"
@@ -39,9 +39,9 @@
               "enable": true,
               "name": "Consultation",
               "url": "/services/consulting/"
-            },
-            {
-              "enable": true,
+                },
+                {
+                  "enable": true,
               "name": "Formation",
               "url": "/services/training/"
             },
@@ -102,7 +102,7 @@
     {
       "enable": true,
       "name": "Cas d'Affaires SBI",
-      "url": "/economics/sbi-business-case/"
+      "url": "/services/perioperative-value/"
     }
   ],
   "footer_menu_resources": [

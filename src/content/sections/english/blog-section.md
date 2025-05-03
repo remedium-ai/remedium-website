@@ -1,6 +1,6 @@
 ---
 enable: true # Control the visibility of this section across all pages where it is used
-title: "What News Do We Have Today Latest Blog"
+title: "How to Transform your Patient Care"
 subtitle: "Blog"
 bg_pattern_image: "/images/line-pattern.svg"
 
@@ -12,5 +12,5 @@ cta_btn:
   target: ""
 
 # Set the maximum number of testimonial to display in this component instance
-limit: 3 # false / number
+limit: false # / number
 ---

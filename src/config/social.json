@@ -1,7 +1,7 @@
 {
   "main": [
     {
-      "enable": true,
+      "enable": false,
       "label": "facebook",
       "icon": "/images/icons/svg/facebook.svg",
       "url": "https://www.facebook.com/looka"
@@ -13,7 +13,7 @@
       "url": "https://twitter.com/looka"
     },
     {
-      "enable": true,
+      "enable": false,
       "label": "instagram",
       "icon": "/images/icons/svg/instagram.svg",
       "url": "https://www.instagram.com/looka"

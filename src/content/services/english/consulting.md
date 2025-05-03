@@ -26,6 +26,17 @@ caseStudies:
       - "Week 5-6: Implementation planning"
       - "Week 7-8: Change management"
       - "Week 9-12: Monitoring and optimization"
+faqs:
+  - question: "What areas of perioperative care does ReMedium Consulting cover?"
+    answer: "We cover process optimization, quality improvement, change management, and digital transformation in perioperative care."
+  - question: "How is a consulting project structured?"
+    answer: "Projects typically include assessment, planning, implementation, and ongoing support phases tailored to your needs."
+  - question: "What outcomes can I expect from a consulting engagement?"
+    answer: "Clients achieve improved efficiency, reduced costs, better patient outcomes, and sustainable change."
+  - question: "How do I request a consulting proposal?"
+    answer: "Contact us for a free consultation. We'll assess your needs and provide a tailored proposal."
+  - question: "What support is available during and after the project?"
+    answer: "We provide hands-on support throughout the project and offer follow-up services to ensure lasting results."
 ---
 
 ## Overview

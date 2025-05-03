@@ -1,6 +1,6 @@
 ---
 enable: true
-title: "Discover the Office Location Best Suited for Your Success"
+title: "Our Location"
 subtitle: "Locations"
 
 cta_btn:
@@ -11,47 +11,46 @@ cta_btn:
   target: ""
 
 list:
-  - enable: true # if this false then only background image will show
+  - enable: true
     title: "Headquarters"
     image: "/images/office/1.jpg"
     background_image: "/images/office/1.jpg"
     content: |
-      123 Lowe Street,
+      Franz-Volhard-Straße 5,
+      68167 Mannheim,
+      Deutschland
 
-      Green City, State, 12345
+      Phone: +49(177) 331-1269
 
-      Phone: (123) 456-7890
+      Email: info@remedium.ai
 
-      Email: hq@looka.com
-
-      Business Hours: Monday - Friday: 9:00 AM - 6:00 PM
-  - enable: false # if this false then only background image will show
+      Business Hours: Monday - Friday: 9:00 AM - 4:00 PM
+  - enable: false
     title: "Headquarters"
     image: ""
     background_image: "/images/office/2.jpg"
     content: |
-      123 Lowe Street,
+      Franz-Volhard-Straße 5,
+      68167 Mannheim,
+      Deutschland
 
-      Green City, State, 12345
+      Phone: +49(177) 331-1269
 
-      Phone: (123) 456-7890
+      Email: info@remedium.ai
 
-      Email: hq@looka.com
-
-      Business Hours: Monday - Friday: 9:00 AM - 6:00 PM
-
-  - enable: false # if this false then only background image will show
+      Business Hours: Monday - Friday: 9:00 AM - 4:00 PM
+  - enable: false
     title: "Headquarters"
     image: ""
     background_image: "/images/office/3.jpg"
     content: |
-      123 Lowe Street,
+      Franz-Volhard-Straße 5,
+      68167 Mannheim,
+      Deutschland
 
-      Green City, State, 12345
+      Phone: +49(177) 331-1269
 
-      Phone: (123) 456-7890
+      Email: info@remedium.ai
 
-      Email: hq@looka.com
-
-      Business Hours: Monday - Friday: 9:00 AM - 6:00 PM
+      Business Hours: Monday - Friday: 9:00 AM - 4:00 PM
 ---

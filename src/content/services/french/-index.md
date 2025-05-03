@@ -64,7 +64,7 @@ services_section:
 # "FAQ" Section located in Services Single Page
 faq_section:
   enable: true # Control the visibility of this section across all services single
-  title: "Vous Avez des Questions sur l'Identité de Marque ? Nous Sommes Là pour Vous Aider"
+  title: "We've got Your most Important Questions."
   # subtitle: ""
   section_layout: "horizontal"
   minimal_faq_layout: true

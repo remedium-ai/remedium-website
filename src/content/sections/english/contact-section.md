@@ -9,27 +9,23 @@ contact_list:
   list:
     - icon: "/images/icons/svg/phone.svg"
       label: "Call us now"
-      value: "+1-202-555-0190"
+      value: "+49-177-331-2169"
     - icon: "/images/icons/svg/email.svg"
       label: "Email us"
-      value: "example@gmail.com"
-    - icon: "/images/icons/svg/whatsapp.svg"
-      label: "Chat with us"
-      value: "@example"
+      value: "info@remedium.ai"
 
 social:
   enable: true
   title: "Follow us on social media"
-  # # uncomment below list if you want to override `src/config/social.json` data
-  # list:
-  #   - enable: true
-  #     label: "facebook"
-  #     icon: "/images/icons/svg/facebook.svg"
-  #     url: "/"
+  list:
+    - enable: true
+      label: "linkedin"
+      icon: "/images/icons/svg/linkedin.svg"
+      url: "https://www.linkedin.com/company/remediumai/"
 
 # Check config.toml file for form action related settings
 form:
-  email_subject: "New form submission from looka website" # Customized email subject (applicable when anyone submit form, form submission may receive by email depend on provider)
+  email_subject: "New form submission from remedium.ai website"
   submit_button:
     label: "Submit Your Response"
   # This note will show at the end of form
@@ -67,40 +63,9 @@ form:
       placeholder: "Subject"
       name: "Subject" # This is crucial. Its indicate under which name you want to receive this field data
       required: true
+      type: "text"
       half_width: true
-      dropdown:
-        type: "" # select | search - default is select
-        search: # if type is search then it will work
-          placeholder: ""
-        items:
-          - label: "Example 01"
-            value: "Example 01"
-          - label: "Example 02"
-            value: "Example 02"
-          - label: "Example 03"
-            value: "Example 03"
-    - label: ""
-      placeholder: "Subject With Search"
-      name: "Subject With Search" # This is crucial. Its indicate under which name you want to receive this field data
-      required: true
-      half_width: true
-      dropdown:
-        type: "search" # select | search - default is select
-        search: # if type is search then it will work
-          placeholder: "Subject With Search"
-        items:
-          - label: "Lowni Saiki"
-            value: "Lowni Saiki"
-          - label: "Sikow Pow"
-            value: "Sikow Pow"
-          - label: "Kenbi Shaktun"
-            value: "Kenbi Shaktun"
-          - label: "Lorem IH2"
-            value: "Lorem IH2"
-          - label: "Aruyyo Kawn"
-            value: "Aruyyo Kawn"
-          - label: "Marong Lowbbi"
-            value: "Marong Lowbbi"
+      default_value: ""
     - label: ""
       tag: "textarea"
       default_value: ""

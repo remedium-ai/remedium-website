@@ -1,8 +1,8 @@
 ---
 enable: true # Control the visibility of this section across all pages where it is used
-title: "Expert **Consulting Services** for Sustainable Growth"
+title: "Solutions for **Sustainable Perioperative Care**"
 description: |
-  With our team of experienced consultants, we provide tailored strategies and actionable insights to help your business thrive. From startup advice to scaling solutions, we're your partners in success.
+  With our team of experienced healthcare professionals and advanced AI technology, we provide tailored solutions to optimize perioperative workflows and improve patient outcomes. 
 
 marquee:
   element_width: "25rem"

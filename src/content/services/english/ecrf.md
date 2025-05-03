@@ -28,6 +28,17 @@ caseStudies:
       - "Regular security audits"
       - "Data backup and recovery"
       - "Access control management"
+faqs:
+  - question: "What is an eCRF and how does it work in ReMedium?"
+    answer: "An eCRF (electronic Case Report Form) is a digital tool for capturing clinical trial and perioperative data. ReMedium's eCRF streamlines data entry, validation, and reporting."
+  - question: "How does ReMedium's eCRF ensure data accuracy and compliance?"
+    answer: "Our eCRF includes real-time validation, audit trails, and compliance with regulatory standards such as GCP and GDPR."
+  - question: "Can the eCRF be used for multi-center studies?"
+    answer: "Yes, ReMedium's eCRF supports multi-center and multi-user access, making it ideal for collaborative research and perioperative quality initiatives."
+  - question: "How is patient data protected in the eCRF?"
+    answer: "We use encryption, access controls, and secure cloud storage to protect all patient data."
+  - question: "What support is available for eCRF setup and use?"
+    answer: "Our team provides onboarding, training, and ongoing support for all eCRF users."
 ---
 
 ## Overview
