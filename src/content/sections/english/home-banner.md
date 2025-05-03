@@ -1,10 +1,12 @@
 ---
 enable: true # Control the visibility of this section across all pages where it is used
+title: "Welcome to ReMediumAI"
+description: "Innovative solutions for clinical care and healthcare education"
 
 info_block:
   enable: true
   content: |
-    ReMedium AI transforms clinical research and healthcare education through innovative digital solutions. Our platform streamlines clinical trials and enhances medical training.
+    ReMediumAI transforms clinical care and healthcare education through innovative digital solutions. Our platform streamlines perioperative processes and enhances medical training.
 
   video:
     src: "YOUR_VIDEO_ID" # Replace with your video ID
@@ -17,8 +19,8 @@ info_block:
 main_block:
   disable_slider: false # if this is true then slider will be disabled and only first slide from below will be shown
   slides:
-    - title: "Revolutionizing Clinical Research"
-      description: "Streamline your clinical trials with our advanced eCRF platform. <br/> Enhance data collection, improve compliance, and accelerate research timelines."
+    - title: "Revolutionizing Perioperative Care"
+      description: "Streamline your perioperative processes with our advanced digital platform. <br/> Enhance data collection, improve compliance, and accelerate clinical care outcomes."
       background_image: "/images/banner/1.jpg"
       button:
         enable: true
@@ -27,7 +29,7 @@ main_block:
         rel: ""
         target: ""
     - title: "Intelligent Clinical Dashboards"
-      description: "Gain real-time insights into your clinical trials. <br/> Make data-driven decisions with our comprehensive analytics platform."
+      description: "Gain real-time insights into your clinical care. <br/> Make data-driven decisions with our comprehensive analytics platform."
       background_image: "/images/banner/2.jpg"
       button:
         enable: true

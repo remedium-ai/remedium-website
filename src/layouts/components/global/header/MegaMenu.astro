@@ -1,5 +1,4 @@
 ---
-import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
 import { getCollectionCTM } from "@/lib/contentParser.astro";
 import type { NavigationLink } from "@/types";
 import parseTomlToJson from "@/lib/utils/parseTomlToJson";
@@ -8,6 +7,26 @@ import {
   useTranslations,
 } from "@/lib/utils/languageParser.ts";
 import { toSentenceCase } from "@/lib/utils/textConverter";
+import { Image } from "astro:assets";
+
+// Import SVG icons
+import documentationIcon from "@/assets/images/icons/svg/documentation.svg";
+import analyticsIcon from "@/assets/images/icons/svg/analytics.svg";
+import expertiseIcon from "@/assets/images/icons/svg/expertise.svg";
+import insightsIcon from "@/assets/images/icons/svg/services/insights.svg";
+import taskIcon from "@/assets/images/icons/svg/services/task.svg";
+import leaderboardIcon from "@/assets/images/icons/svg/services/leader-board.svg";
+import revenueIcon from "@/assets/images/icons/svg/revenue.svg";
+
+const iconMap = {
+  "/src/assets/images/icons/svg/documentation.svg": documentationIcon,
+  "/src/assets/images/icons/svg/analytics.svg": analyticsIcon,
+  "/src/assets/images/icons/svg/expertise.svg": expertiseIcon,
+  "/src/assets/images/icons/svg/services/insights.svg": insightsIcon,
+  "/src/assets/images/icons/svg/services/task.svg": taskIcon,
+  "/src/assets/images/icons/svg/services/leader-board.svg": leaderboardIcon,
+  "/src/assets/images/icons/svg/revenue.svg": revenueIcon,
+} as const;
 
 const config = parseTomlToJson("./src/config/config.toml");
 const menu = Astro.props.menu as NavigationLink;
@@ -23,157 +42,59 @@ const has_enable_menu = menu.menus?.filter((menu) => menu.enable) || [];
 
 <div
   class="hs-dropdown-menu mega-menu has-customized-scrollbar pointer-events-none mt-2 hidden max-h-[90vh] w-full overflow-auto overflow-x-hidden border border-border-default/40 bg-white opacity-0 transition-[opacity,margin] hs-dropdown-open:pointer-events-auto hs-dropdown-open:mt-0 hs-dropdown-open:opacity-100 max-lg:!static max-lg:!transform-none lg:fixed lg:!left-0 lg:border-border-default">
-  <div
-    class="thin-scrollbar container flex flex-col gap-10 py-4 md:grid md:grid-cols-2 lg:grid-cols-3 lg:py-0">
-    {
-      menu.menus && has_enable_menu.length > 0 && (
-        <div class="flex flex-col gap-10 text-sm lg:me-5 lg:py-8">
-          {menu.menus.map(
-            (menu_one) =>
-              menu_one.enable && (
-                <div class="flex flex-col gap-5">
-                  {menu_one.name && (
-                    <legend
-                      class="border-b border-border-default/40 pb-3 tracking-wider opacity-80"
-                      set:html={menu_one.name}
-                    />
-                  )}
-                  {menu_one.children && menu_one.children.length > 0 && (
-                    <div class="flex gap-5 max-md:flex-wrap">
-                      {menu_one.children.map(
-                        (menu_two) =>
-                          menu_two.enable && (
-                            <div class="flex flex-1 flex-col gap-4 max-md:w-full max-md:min-w-32">
-                              {menu_two.name && (
-                                <legend
-                                  class="tracking-wider opacity-40"
-                                  set:html={menu_two.name}
-                                />
-                              )}
-                              <ul class="tracking-wider text-text-default opacity-90 [&>li:not(:first-child)>a]:pt-4">
-                                {menu_two.children?.map((child) => (
-                                  <li role="menuitem">
-                                    <a
-                                      {...{
-                                        // Set `rel` attribute for external links or use provided value
-                                        rel: child.url?.startsWith("http")
-                                          ? child.rel || "noopener noreferrer"
-                                          : child.rel || undefined,
-
-                                        // Set `target` to "_blank" for external links unless otherwise specified
-                                        target: child.url?.startsWith("http")
-                                          ? child.target || "_blank"
-                                          : child.target || undefined,
-                                      }}
-                                      target={
-                                        child.url?.startsWith("http")
-                                          ? "_blank"
-                                          : undefined
-                                      }
-                                      href={getLocaleUrlCTM(
-                                        child.url || Astro.url.origin,
-                                        Astro.currentLocale,
-                                      )}
-                                      class="block text-inherit transition-opacity duration-300 hover:opacity-60">
-                                      {child.name}
-                                    </a>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          ),
-                      )}
-                    </div>
-                  )}
-                </div>
-              ),
+  <div class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+      {menu.menus?.map((menu_one) => (
+        <div class="flex flex-col gap-6">
+          {menu_one.name && (
+            <h3 class="text-lg font-semibold text-gray-900 border-b border-gray-200 pb-2">
+              {menu_one.name}
+            </h3>
           )}
-        </div>
-      )
-    }
-    {
-      menu.services && menu.services.enable && (
-        <div class="flex flex-col gap-10 text-sm lg:me-5 lg:py-8">
-          <div class="flex flex-col gap-5">
-            {menu.services.name && (
-              <legend
-                class="border-b border-border-default/40 pb-3 tracking-wider opacity-80"
-                set:html={menu.services.name}
-              />
-            )}
-            <div class="flex flex-1 flex-col gap-4">
-              <div class="space-y-4 tracking-wider">
-                {services.map((service) => (
-                  <div class="group/item after:translate-centered relative flex items-center justify-start gap-4 py-1.5 after:pointer-events-none after:absolute after:inset-0 after:h-[105%] after:w-[105%] after:rounded-md after:bg-primary/5 after:opacity-0 after:transition after:duration-300 hover:after:opacity-100">
-                    {service.data.icon && (
-                      <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/5 transition duration-300 group-hover/item:bg-primary">
-                        <OptimizedImage
-                          alt="icon"
-                          inlineSvg={true}
-                          src={service.data.icon}
-                          class="has-inherited-colors h-7 w-7 text-primary transition group-hover/item:text-white group-hover/item:duration-300"
+          {menu_one.children && (
+            <ul class="space-y-4">
+              {menu_one.children.map((child) => (
+                <li>
+                  <a
+                    href={getLocaleUrlCTM(child.url || Astro.url.origin, Astro.currentLocale)}
+                    class="group flex items-start gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                  >
+                    {child.icon && (
+                      <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gray-50 transition duration-300 group-hover:bg-gray-100">
+                        <Image
+                          src={iconMap[child.icon as keyof typeof iconMap]}
+                          alt={`${child.name} icon`}
+                          class="h-7 w-7 text-primary transition duration-300"
+                          width={28}
+                          height={28}
                         />
                       </div>
                     )}
-                    <div class="flex w-[calc(100%_-_4rem)] shrink-0 flex-col gap-1">
-                      {service.data.title && (
-                        <div set:html={service.data.title} />
-                      )}
-                      {service.data.description && (
-                        <p class="truncate opacity-60">
-                          {service.data.description}
+                    <div class="flex flex-col gap-1">
+                      <span class="font-medium text-gray-900 group-hover:text-primary transition-colors duration-200">
+                        {child.name}
+                      </span>
+                      {child.description && (
+                        <p class="text-sm text-gray-600">
+                          {child.description}
                         </p>
                       )}
                     </div>
-                    {(service.data?.custom_slug || service.slug) && (
-                      <a
-                        class="absolute inset-0 z-10 h-full w-full opacity-0"
-                        href={getLocaleUrlCTM(
-                          service.slug,
-                          Astro.currentLocale,
-                          service.collection,
-                        )}
-                        title={toSentenceCase(
-                          t("common.read_more_about") +
-                            " " +
-                            service.data.title,
-                        )}
-                        set:html={toSentenceCase(
-                          t("common.read_more_about") +
-                            " " +
-                            service.data.title,
-                        )}
-                      />
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    }
-    {
-      menu.testimonial && menu.testimonial.enable && (
-        <div class="relative hidden bg-primary/5 px-10 pb-8 pt-20 after:absolute after:left-full after:top-0 after:size-full after:w-screen after:bg-primary/5 lg:block">
-          {menu.testimonial.content && (
-            <p class="opacity-80" set:html={menu.testimonial.content} />
+                  </a>
+                </li>
+              ))}
+            </ul>
           )}
-          <OptimizedImage
-            inlineSvg={true}
-            src="/images/quote.svg"
-            class="match-brand-color mt-5 h-10 w-10"
-            alt="quote icon"
-          />
-          <div class="has-clip-path relative overflow-hidden after:absolute after:inset-0 after:bg-gradient-to-b after:from-transparent after:from-40% after:to-primary/50">
-            <OptimizedImage
-              class="mx-auto block w-[80%]"
-              src={menu.testimonial.image}
-              alt="customer"
-            />
-          </div>
         </div>
-      )
-    }
+      ))}
+    </div>
   </div>
 </div>
+
+<style>
+  /* Override SVG colors */
+  .hs-dropdown-menu img[src*="insights.svg"],
+  .hs-dropdown-menu img[src*="revenue.svg"] {
+    filter: invert(39%) sepia(57%) saturate(2000%) hue-rotate(202deg) brightness(97%) contrast(96%);
+  }
+</style>

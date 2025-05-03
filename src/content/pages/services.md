@@ -1,7 +1,41 @@
 ---
+title: "Services"
+description: "Discover ReMediumAI's comprehensive range of services for clinical research and healthcare education."
+layout: "page"
+---
+
+# Services
+
+## Why Choose ReMediumAI?
+
+---
 title: "Our Solutions"
 description: "Discover our comprehensive suite of digital tools for clinical research and healthcare education"
-layout: "services"
+pubDate: 2024-05-02
+hero:
+  title: "Our Solutions"
+  subtitle: "Comprehensive digital tools for clinical research and healthcare education"
+features:
+  - title: "Clinical Research Platform"
+    description: "Streamlined data collection, real-time monitoring, secure storage, compliance standards, and customizable workflows"
+  - title: "Healthcare Education Platform"
+    description: "Case-based learning, virtual simulations, progress tracking, collaborative tools, and mobile interface"
+  - title: "Data Analytics Suite"
+    description: "Advanced visualization, predictive analytics, real-time reporting, custom dashboards, and export capabilities"
+benefits:
+  - title: "Regulatory Compliance Tools"
+    description: "Automated compliance checks, audit trail generation, document management, version control, and training records"
+  - title: "Custom Solutions"
+    description: "Custom integrations, specialized workflows, tailored training programs, dedicated support, and ongoing maintenance"
+caseStudies:
+  - title: "Why Choose ReMedium AI?"
+    description: "Key differentiators that set us apart"
+    results:
+      - "Expertise: Decades of combined experience"
+      - "Innovation: Cutting-edge solutions"
+      - "Support: 24/7 customer success team"
+      - "Security: Enterprise-grade protection"
+      - "Scalability: Solutions that grow with you"
 ---
 
 ## Clinical Research Platform

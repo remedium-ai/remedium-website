@@ -2,265 +2,78 @@
   "main": [
     {
       "enable": true,
-      "name": "Pages",
+      "name": "Accueil",
+      "url": "/"
+    },
+    {
+      "enable": true,
+      "name": "Solutions",
       "hasMegaMenu": true,
-      "testimonial": {
-        "enable": true,
-        "image": "/images/customer-image.png",
-        "content": "Looka a aid  identifier les opportunit s de march  et  d velopper des strat gies pour am liorer notre efficacit . Nous avons vu une augmentation remarquable de 25% de notre revenu au cours de l'ann e derni re."
-      },
-      "services": {
-        "enable": true,
-        "name": "SERVICES"
-      },
       "menus": [
         {
-          "name": "PAGES R GULI RES",
           "enable": true,
+          "name": "Produits",
           "children": [
             {
-              "name": "",
               "enable": true,
-              "children": [
-                {
-                  "enable": true,
-                  "name": "Services",
-                  "url": "/services/"
-                },
-                {
-                  "enable": true,
-                  "name": "Services Single",
-                  "url": "/services/service-01/"
-                },
-                {
-                  "enable": true,
-                  "name": " tudes de cas",
-                  "url": "/case-studies/"
-                },
-                {
-                  "enable": true,
-                  "name": " tude de cas unique",
-                  "url": "/case-studies/case-studies-01/"
-                },
-                {
-                  "enable": true,
-                  "name": "Carri re",
-                  "url": "/career/"
-                },
-                {
-                  "enable": true,
-                  "name": "Carri re unique",
-                  "url": "/career/job-01/"
-                }
-              ]
+              "name": "Collecte de Données",
+              "url": "/products/ecrf/"
             },
             {
-              "name": "",
               "enable": true,
-              "children": [
-                {
-                  "enable": true,
-                  "name": " propos",
-                  "url": "/about/"
-                },
-                {
-                  "enable": true,
-                  "name": "Foires aux questions",
-                  "url": "/faq"
-                },
-                {
-                  "enable": true,
-                  "name": " quipe",
-                  "url": "/team"
-                },
-                {
-                  "enable": true,
-                  "name": "Tarifs",
-                  "url": "/pricing/",
-                  "badge": {
-                    "enable": true,
-                    "label": "NOUVEAU",
-                    "color": "primary",
-                    "_color_comment": "color expected value - primary, info, success, danger",
-                    "type": "text"
-                  }
-                }
-              ]
+              "name": "Tableau de Bord",
+              "url": "/products/dashboard/"
+            },
+            {
+              "enable": true,
+              "name": "Apprentissage",
+              "url": "/products/elearning/"
             }
           ]
         },
         {
-          "name": "BLOG",
           "enable": true,
+          "name": "Services",
           "children": [
             {
-              "name": "LISTE",
               "enable": true,
-              "children": [
-                {
-                  "enable": true,
-                  "name": "Classique",
-                  "url": "/blog/"
-                },
-                {
-                  "enable": true,
-                  "name": "Moderne",
-                  "url": "/layouts-example/blog-list-modern/"
-                }
-              ]
+              "name": "Consultation",
+              "url": "/services/consulting/"
             },
             {
-              "name": "ARTICLE UNIQUE",
               "enable": true,
-              "children": [
-                {
-                  "enable": true,
-                  "name": "Minimal",
-                  "url": "/layouts-example/blog-single-minimal/"
-                },
-                {
-                  "enable": true,
-                  "name": "Moderne",
-                  "url": "/blog/post-1/"
-                }
-              ]
+              "name": "Formation",
+              "url": "/services/training/"
+            },
+            {
+              "enable": true,
+              "name": "Certification SBI",
+              "url": "/services/sbi-certification/"
             }
           ]
         },
         {
-          "name": "LAYOUTS DE PORTFOLIO",
           "enable": true,
+          "name": "Économie",
           "children": [
             {
-              "name": "LISTE",
               "enable": true,
-              "children": [
-                {
-                  "enable": true,
-                  "name": "Classique & Ma on",
-                  "url": "/layouts-example/portfolio-classic-masonry"
-                },
-                {
-                  "enable": true,
-                  "name": "Superposition & Ma on",
-                  "url": "/layouts-example/portfolio-overlay-masonry"
-                }
-              ]
-            },
-            {
-              "name": "ARTICLE UNIQUE",
-              "enable": true,
-              "children": [
-                {
-                  "enable": true,
-                  "name": "Moderne",
-                  "url": "/layouts-example/portfolio-single-modern/"
-                },
-                {
-                  "enable": true,
-                  "name": "Moderne avec barre lat rale",
-                  "url": "/case-studies/case-studies-01/"
-                }
-              ]
+              "name": "Valeur Périopératoire",
+              "url": "/economics/perioperative-value/"
             }
           ]
         }
       ]
-    },
-    {
-      "enable": true,
-      "name": "Menu d roulant",
-      "hasChildren": true,
-      "children": [
-        {
-          "enable": true,
-          "name": "Exemple 01",
-          "url": "/"
-        },
-        {
-          "enable": true,
-          "name": "Exemple 01",
-          "url": "/"
-        },
-        {
-          "enable": true,
-          "name": "Exemple 01",
-          "hasChildren": true,
-          "children": [
-            {
-              "enable": true,
-              "name": "Exemple 02",
-              "url": "/"
-            },
-            {
-              "enable": true,
-              "name": "Exemple 02",
-              "hasChildren": true,
-              "children": [
-                {
-                  "enable": true,
-                  "name": "Exemple 03",
-                  "url": "/"
-                },
-                {
-                  "enable": true,
-                  "name": "Exemple 03",
-                  "url": "/"
-                },
-                {
-                  "enable": true,
-                  "name": "Exemple 03",
-                  "url": "/"
-                },
-                {
-                  "enable": true,
-                  "name": "Exemple 03",
-                  "url": "/"
-                },
-                {
-                  "enable": true,
-                  "name": "Exemple 03",
-                  "url": "/"
-                }
-              ]
-            },
-            {
-              "enable": true,
-              "name": "Exemple 02",
-              "url": "/"
-            }
-          ]
-        },
-        {
-          "enable": true,
-          "name": "Exemple 01",
-          "url": "/"
-        }
-      ]
-    },
-    {
-      "enable": true,
-      "name": " l ments",
-      "url": "/elements/",
-      "badge": {
-        "enable": true,
-        "label": "Nouveaut ",
-        "color": "primary",
-        "_color_comment": "color expected value - primary, info, success, danger",
-        "type": "text"
-      }
     },
     {
       "enable": true,
       "name": "Contact",
-      "url": "/contact/",
-      "badge": {
-        "enable": true,
-        "label": "Nouveaut ",
-        "color": "danger",
-        "_color_comment": "color expected value - primary, info, success, danger",
-        "type": "dot"
-      }
+      "url": "/contact/"
+    },
+    {
+      "enable": true,
+      "name": "À propos",
+      "url": "/about/"
     }
   ],
   "footer_menu": [
@@ -271,14 +84,14 @@
     },
     {
       "enable": true,
-      "name": "Politique de confidentialit ",
+      "name": "Politique de confidentialité",
       "url": "/privacy-policy/"
     }
   ],
   "footer_menu_quick_link": [
     {
       "enable": true,
-      "name": " propos de nous",
+      "name": "À propos de nous",
       "url": "/about/"
     },
     {
@@ -288,40 +101,25 @@
     },
     {
       "enable": true,
-      "name": "Tarifs",
-      "url": "/pricing/"
-    },
-    {
-      "enable": true,
-      "name": "T moignages",
-      "url": "/"
-    },
-    {
-      "enable": true,
-      "name": "Membres de l' quipe",
-      "url": "/team/"
-    },
-    {
-      "enable": true,
-      "name": "Nos services",
-      "url": "/services/"
+      "name": "Cas d'Affaires SBI",
+      "url": "/economics/sbi-business-case/"
     }
   ],
   "footer_menu_resources": [
     {
       "enable": true,
-      "name": "Blog",
-      "url": "/blog/"
+      "name": "eCRF",
+      "url": "/products/ecrf/"
     },
     {
       "enable": true,
-      "name": "Foires aux questions",
-      "url": "/faq/"
+      "name": "Tableau de Bord",
+      "url": "/products/dashboard/"
     },
     {
       "enable": true,
-      "name": " tudes de cas",
-      "url": "/case-studies/"
+      "name": "eLearning",
+      "url": "/products/elearning/"
     }
   ],
   "footer_menu_legal": [
@@ -332,7 +130,7 @@
     },
     {
       "enable": true,
-      "name": "Politique de confidentialit ",
+      "name": "Politique de confidentialité",
       "url": "/privacy-policy/"
     }
   ]

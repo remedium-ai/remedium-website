@@ -1,7 +1,33 @@
 ---
 title: "Clinical Dashboard"
 description: "Transform your clinical data into actionable insights with our powerful analytics platform"
-layout: "product"
+pubDate: 2024-05-02
+hero:
+  title: "Clinical Dashboard"
+  subtitle: "Transform your clinical data into actionable insights with our powerful analytics platform"
+features:
+  - title: "Real-time Monitoring"
+    description: "Live study progress tracking, site performance metrics, protocol compliance monitoring, risk indicators, and enrollment status"
+  - title: "Advanced Analytics"
+    description: "Custom report builder, statistical analysis tools, predictive analytics, trend identification, and comparative analysis"
+  - title: "Data Visualization"
+    description: "Interactive dashboards, custom charts and graphs, geographic mapping, timeline views, and export capabilities"
+benefits:
+  - title: "For Research Organizations"
+    description: "Improved decision-making, enhanced study oversight, better resource allocation, faster issue resolution, and increased efficiency"
+  - title: "For Study Sites"
+    description: "Real-time performance tracking, simplified reporting, better communication, enhanced compliance, and improved productivity"
+  - title: "For Sponsors"
+    description: "Comprehensive study oversight, risk mitigation, cost optimization, quality assurance, and regulatory compliance"
+caseStudies:
+  - title: "Security & Compliance"
+    description: "Comprehensive security and regulatory compliance features"
+    results:
+      - "End-to-end encryption"
+      - "Multi-factor authentication"
+      - "Regular security audits"
+      - "Data backup and recovery"
+      - "Access control management"
 ---
 
 ## Overview

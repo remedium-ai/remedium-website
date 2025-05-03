@@ -27,11 +27,12 @@
   "navigation": {
     "button_label": "Get Started",
     "home": "Home",
-    "about": "About",
-    "services": "Solutions",
-    "case-studies": "Case Studies",
-    "blog": "Blog",
-    "contact": "Contact"
+    "solutions": "Solutions",
+    "products": "Products",
+    "services": "Services",
+    "economics": "Economics",
+    "contact": "Contact",
+    "about": "About us"
   },
   "subscription": {
     "label": "Subscribe to our newsletter for the latest updates"
@@ -40,8 +41,8 @@
     "quick_links": "Quick Links",
     "legal": "Legal",
     "resources": "Products",
-    "description": "ReMedium AI is revolutionizing clinical research and healthcare education through innovative digital solutions. Our platform streamlines clinical trials and enhances medical training, making healthcare more efficient and accessible.",
-    "copyright": "© 2024 ReMedium AI. All rights reserved.",
+    "description": "ReMediumAI is revolutionizing clinical research and healthcare education through innovative digital solutions. Our platform streamlines clinical trials and enhances medical training, making healthcare more accessible and efficient.",
+    "copyright": "© 2024 ReMediumAI. All rights reserved.",
     "footer_menu_quick_link": [
       {
         "enable": true,
@@ -122,7 +123,7 @@
     }
   },
   "about": {
-    "title": "About ReMedium AI",
+    "title": "About ReMediumAI",
     "mission": "Our Mission",
     "vision": "Our Vision",
     "values": "Our Values"

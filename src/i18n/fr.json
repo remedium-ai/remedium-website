@@ -6,7 +6,7 @@
     "email_placeholder": "Adresse e-mail",
     "monthly_plan": "Mensuel",
     "pagination_next": "Suivant",
-    "pagination_previous": "Pr c dent"
+    "pagination_previous": "Précédent"
   },
   "widgets": {
     "post_search_title": "Rechercher un article",
@@ -25,29 +25,83 @@
     "category": "Catégorie"
   },
   "navigation": {
+    "button_label": "Commencer",
     "home": "Accueil",
-    "about": "À propos",
-    "services": "Solutions",
-    "case-studies": "Études de cas",
-    "blog": "Blog",
-    "contact": "Contact"
+    "solutions": "Solutions",
+    "products": "Produits",
+    "services": "Services",
+    "economics": "Économie",
+    "contact": "Contact",
+    "about": "À propos"
   },
   "subscription": {
-    "label": "Abonnez-vous à notre newsletter pour obtenir les dernières mises"
+    "label": "Abonnez-vous à notre newsletter pour obtenir les dernières mises à jour"
   },
   "footer": {
-    "description": "ReMedium AI révolutionne la recherche clinique et l'éducation en santé grâce à des solutions numériques innovantes. Notre plateforme simplifie les essais cliniques et améliore la formation médicale, rendant les soins de santé plus efficaces et accessibles.",
     "quick_links": "Liens rapides",
+    "legal": "Légal",
+    "resources": "Produits",
+    "description": "ReMediumAI révolutionne la recherche clinique et l'éducation en santé grâce à des solutions numériques innovantes. Notre plateforme simplifie les essais cliniques et améliore la formation médicale, rendant les soins de santé plus accessibles et efficaces.",
+    "copyright": "© 2024 ReMediumAI. Tous droits réservés.",
+    "footer_menu_quick_link": [
+      {
+        "enable": true,
+        "name": "Accueil",
+        "url": "/"
+      },
+      {
+        "enable": true,
+        "name": "Cas d'Affaires",
+        "url": "/business-case/"
+      },
+      {
+        "enable": true,
+        "name": "À propos",
+        "url": "/about/"
+      },
+      {
+        "enable": true,
+        "name": "Contact",
+        "url": "/contact/"
+      }
+    ],
+    "footer_menu_resources": [
+      {
+        "enable": true,
+        "name": "eCRF",
+        "url": "/products/ecrf/"
+      },
+      {
+        "enable": true,
+        "name": "Tableau de Bord",
+        "url": "/products/dashboard/"
+      },
+      {
+        "enable": true,
+        "name": "eLearning",
+        "url": "/products/elearning/"
+      }
+    ],
+    "footer_menu_legal": [
+      {
+        "enable": true,
+        "name": "Politique de confidentialité",
+        "url": "/privacy-policy/"
+      },
+      {
+        "enable": true,
+        "name": "Conditions d'utilisation",
+        "url": "/terms-conditions/"
+      }
+    ],
     "services": "Solutions",
     "case-studies": "Études de cas",
-    "blog": "Blog",
     "contact": "Contact",
     "privacy_policy": "Politique de confidentialité",
     "terms_of_service": "Conditions d'utilisation",
     "subscribe": "Abonnez-vous à notre newsletter",
     "subscribe_placeholder": "Entrez votre email",
-    "subscribe_button": "S'abonner",
-    "copyright": "© 2024 ReMedium AI. Tous droits réservés."
+    "subscribe_button": "S'abonner"
   },
   "home": {
     "hero": {
@@ -69,7 +123,7 @@
     }
   },
   "about": {
-    "title": "À propos de ReMedium AI",
+    "title": "À propos de ReMediumAI",
     "mission": "Notre Mission",
     "vision": "Notre Vision",
     "values": "Nos Valeurs"

@@ -25,9 +25,10 @@ const getNumber = (value: string) => {
 type Props = {
   src?: string;
   class?: string;
+  isDarkHeader?: boolean;
 };
 
-let { src, class: className } = Astro.props;
+let { src, class: className, isDarkHeader = false } = Astro.props;
 
 let {
   logo,
@@ -52,18 +53,19 @@ let {
   {
     src || logo_alternate || logo ? (
       <>
-        <OptimizedImage
-          src={src ? src : logo}
-          class="logo"
-          width={getNumber(logo_width)}
-          height={getNumber(logo_height)}
-          alt={toSentenceCase("Brand logo of " + title)}
-          style={{
-            height: getNumber(logo_height) + "px",
-            width: getNumber(logo_width) + "px",
-          }}
-        />
-        {logo_alternate && (
+        {isDarkHeader ? (
+          <OptimizedImage
+            src={src ? src : logo}
+            class="logo"
+            width={getNumber(logo_width)}
+            height={getNumber(logo_height)}
+            alt={toSentenceCase("Brand logo of " + title)}
+            style={{
+              height: getNumber(logo_height) + "px",
+              width: getNumber(logo_width) + "px",
+            }}
+          />
+        ) : (
           <OptimizedImage
             src={logo_alternate}
             class="logo-alternate"

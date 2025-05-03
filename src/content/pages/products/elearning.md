@@ -1,7 +1,33 @@
 ---
 title: "eLearning Platform"
 description: "Transform healthcare education with our interactive learning management system"
-layout: "product"
+pubDate: 2024-05-02
+hero:
+  title: "eLearning Platform"
+  subtitle: "Transform healthcare education with our interactive learning management system"
+features:
+  - title: "Interactive Learning"
+    description: "Engaging multimedia content, virtual patient simulations, interactive case studies, gamification elements, and mobile-responsive design"
+  - title: "Content Management"
+    description: "Course creation tools, content library, version control, multi-language support, and SCORM compliance"
+  - title: "Assessment & Tracking"
+    description: "Progress monitoring, knowledge checks, certification tracking, performance analytics, and custom reporting"
+benefits:
+  - title: "For Educational Institutions"
+    description: "60% improvement in knowledge retention, 45% reduction in training costs, 80% increase in student engagement, enhanced learning outcomes, and better resource utilization"
+  - title: "For Healthcare Organizations"
+    description: "Standardized training, reduced training time, improved compliance, better skill assessment, and cost-effective scaling"
+  - title: "For Learners"
+    description: "Flexible learning schedule, personalized learning paths, immediate feedback, engaging content, and mobile accessibility"
+caseStudies:
+  - title: "Security & Compliance"
+    description: "Comprehensive security and regulatory compliance features"
+    results:
+      - "End-to-end encryption"
+      - "Multi-factor authentication"
+      - "Regular security audits"
+      - "Data backup and recovery"
+      - "Access control management"
 ---
 
 ## Overview

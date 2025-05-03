@@ -1,7 +1,33 @@
 ---
 title: "eCRF Platform"
 description: "Streamline your clinical trials with our comprehensive Electronic Case Report Form platform"
-layout: "product"
+pubDate: 2024-05-02
+hero:
+  title: "eCRF Platform"
+  subtitle: "Streamline your clinical trials with our comprehensive Electronic Case Report Form platform"
+features:
+  - title: "Intuitive Data Entry"
+    description: "User-friendly interface, customizable forms, real-time validation, mobile-responsive design, and offline data collection"
+  - title: "Advanced Data Management"
+    description: "Secure cloud storage, version control, automated data cleaning, bulk import/export, and data reconciliation"
+  - title: "Real-time Monitoring"
+    description: "Study progress tracking, query management, protocol deviation alerts, site metrics, and risk-based monitoring"
+benefits:
+  - title: "For Research Organizations"
+    description: "40% reduction in data entry time, 95% data accuracy rate, 30% faster study completion, reduced query rates, and lower costs"
+  - title: "For Study Sites"
+    description: "Simplified data collection, reduced paperwork, faster query resolution, better performance, and improved compliance"
+  - title: "For Sponsors"
+    description: "Real-time study oversight, better risk management, faster decision-making, reduced monitoring costs, and improved data quality"
+caseStudies:
+  - title: "Security & Compliance"
+    description: "Comprehensive security and regulatory compliance features"
+    results:
+      - "End-to-end encryption"
+      - "Multi-factor authentication"
+      - "Regular security audits"
+      - "Data backup and recovery"
+      - "Access control management"
 ---
 
 ## Overview

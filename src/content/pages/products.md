@@ -1,7 +1,31 @@
 ---
 title: "Our Products"
 description: "Discover our comprehensive suite of digital solutions for clinical research and healthcare education"
-layout: "products"
+pubDate: 2024-05-02
+hero:
+  title: "Our Digital Solutions"
+  subtitle: "Comprehensive suite for clinical research and healthcare education"
+features:
+  - title: "eCRF Platform"
+    description: "Intuitive interface, real-time validation, customizable forms, secure data storage, and advanced analytics"
+  - title: "Clinical Dashboard"
+    description: "Real-time monitoring, custom reports, risk management, team collaboration, and mobile access"
+  - title: "eLearning Platform"
+    description: "Interactive modules, virtual simulations, progress tracking, assessment tools, and mobile learning"
+benefits:
+  - title: "Integration Capabilities"
+    description: "Seamless integration with EHR, CTMS, LIMS, regulatory compliance systems, and learning management systems"
+  - title: "Security & Compliance"
+    description: "End-to-end encryption, multi-factor authentication, regular security audits, data backup and recovery, and access control management"
+caseStudies:
+  - title: "Platform Benefits"
+    description: "Comprehensive benefits across all our products"
+    results:
+      - "40% reduction in data entry time"
+      - "95% data accuracy rate"
+      - "30% faster study completion"
+      - "60% improvement in knowledge retention"
+      - "45% reduction in training costs"
 ---
 
 ## eCRF Platform

@@ -1,7 +1,29 @@
 ---
 title: "Business Case"
-description: "Discover how ReMedium AI's solutions deliver measurable value to clinical research and healthcare education"
-layout: "business-case"
+description: "Discover how ReMediumAI's solutions deliver measurable value to clinical research and healthcare education"
+pubDate: 2024-05-02
+hero:
+  title: "Transform Clinical Research & Healthcare Education"
+  subtitle: "Discover how ReMediumAI's solutions deliver measurable value"
+features:
+  - title: "Clinical Research Platform"
+    description: "Electronic Case Report Forms (eCRF), real-time data monitoring, automated compliance checks, secure data management, and advanced analytics"
+  - title: "Healthcare Education Platform"
+    description: "Interactive learning modules, virtual patient simulations, progress tracking, collaborative tools, and mobile accessibility"
+benefits:
+  - title: "For Clinical Research Organizations"
+    description: "40% Reduction in trial setup time, 30% Decrease in data collection errors, 25% Faster study completion, 95% Compliance with regulatory standards, 50% Reduction in paper-based processes"
+  - title: "For Healthcare Education Institutions"
+    description: "60% Improvement in knowledge retention, 45% Reduction in training costs, 80% Increase in student engagement, 70% Faster skill acquisition, 90% Satisfaction rate among learners"
+caseStudies:
+  - title: "Implementation Success"
+    description: "Comprehensive implementation timeline and success metrics"
+    results:
+      - "Week 1-2: Initial assessment and planning"
+      - "Week 3-4: Platform setup and configuration"
+      - "Week 5-6: Staff training and onboarding"
+      - "Week 7-8: Pilot program launch"
+      - "Week 9-12: Full implementation and optimization"
 ---
 
 ## The Challenge
@@ -13,40 +35,6 @@ Clinical research and healthcare education face significant challenges in today'
 - Limited access to quality medical training resources
 - Rising costs of clinical trials and research
 - Need for real-time analytics and insights
-
-## Our Solution
-
-ReMedium AI addresses these challenges through an integrated platform that combines:
-
-### Clinical Research Platform
-- Electronic Case Report Forms (eCRF)
-- Real-time data monitoring
-- Automated compliance checks
-- Secure data management
-- Advanced analytics
-
-### Healthcare Education Platform
-- Interactive learning modules
-- Virtual patient simulations
-- Progress tracking
-- Collaborative tools
-- Mobile accessibility
-
-## Value Proposition
-
-### For Clinical Research Organizations
-- **40% Reduction** in trial setup time
-- **30% Decrease** in data collection errors
-- **25% Faster** study completion
-- **95% Compliance** with regulatory standards
-- **50% Reduction** in paper-based processes
-
-### For Healthcare Education Institutions
-- **60% Improvement** in knowledge retention
-- **45% Reduction** in training costs
-- **80% Increase** in student engagement
-- **70% Faster** skill acquisition
-- **90% Satisfaction** rate among learners
 
 ## Return on Investment
 
@@ -63,14 +51,6 @@ ReMedium AI addresses these challenges through an integrated platform that combi
 - Enhanced grant acquisition
 - Improved student outcomes
 - Expanded service offerings
-
-## Implementation Timeline
-
-1. **Week 1-2**: Initial assessment and planning
-2. **Week 3-4**: Platform setup and configuration
-3. **Week 5-6**: Staff training and onboarding
-4. **Week 7-8**: Pilot program launch
-5. **Week 9-12**: Full implementation and optimization
 
 ## Success Metrics
 

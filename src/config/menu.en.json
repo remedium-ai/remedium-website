@@ -7,45 +7,79 @@
     },
     {
       "enable": true,
-      "name": "Business Case",
-      "url": "/business-case/"
-    },
-    {
-      "enable": true,
-      "name": "Products",
-      "hasChildren": true,
-      "children": [
+      "name": "Solutions",
+      "hasMegaMenu": true,
+      "services": {
+        "enable": true,
+        "name": "SERVICES"
+      },
+      "menus": [
         {
           "enable": true,
-          "name": "eCRF",
-          "url": "/products/ecrf/"
+          "name": "Products",
+          "children": [
+            {
+              "enable": true,
+              "name": "Data Collection",
+              "url": "/products/ecrf/",
+              "icon": "/src/assets/images/icons/svg/documentation.svg",
+              "description": "Streamlined data collection and management for clinical trials"
+            },
+            {
+              "enable": true,
+              "name": "Dashboard",
+              "url": "/products/dashboard/",
+              "icon": "/src/assets/images/icons/svg/analytics.svg",
+              "description": "Real-time analytics and insights for surgical performance"
+            },
+            {
+              "enable": true,
+              "name": "Learning",
+              "url": "/products/elearning/",
+              "icon": "/src/assets/images/icons/svg/expertise.svg",
+              "description": "Interactive learning platform for surgical excellence"
+            }
+          ]
         },
         {
           "enable": true,
-          "name": "Dashboard",
-          "url": "/products/dashboard/"
+          "name": "Services",
+          "children": [
+            {
+              "enable": true,
+              "name": "Consulting",
+              "url": "/services/consulting/",
+              "icon": "/src/assets/images/icons/svg/services/insights.svg",
+              "description": "Expert guidance for optimizing your clinical operations"
+            },
+            {
+              "enable": true,
+              "name": "Training",
+              "url": "/services/training/",
+              "icon": "/src/assets/images/icons/svg/services/task.svg",
+              "description": "Comprehensive training programs for your team"
+            },
+            {
+              "enable": true,
+              "name": "SBI Certification",
+              "url": "/services/sbi-certification/",
+              "icon": "/src/assets/images/icons/svg/services/leader-board.svg",
+              "description": "Official certification for Surgical Business Intelligence"
+            }
+          ]
         },
         {
           "enable": true,
-          "name": "eLearning",
-          "url": "/products/elearning/"
-        }
-      ]
-    },
-    {
-      "enable": true,
-      "name": "Services",
-      "hasChildren": true,
-      "children": [
-        {
-          "enable": true,
-          "name": "Consulting",
-          "url": "/services/consulting/"
-        },
-        {
-          "enable": true,
-          "name": "Training",
-          "url": "/services/training/"
+          "name": "Economics",
+          "children": [
+            {
+              "enable": true,
+              "name": "Perioperative Value",
+              "url": "/economics/perioperative-value/",
+              "icon": "/src/assets/images/icons/svg/revenue.svg",
+              "description": "Maximize value and efficiency in perioperative care"
+            }
+          ]
         }
       ]
     },
@@ -85,40 +119,25 @@
     },
     {
       "enable": true,
-      "name": "Pricing",
-      "url": "/pricing/"
-    },
-    {
-      "enable": true,
-      "name": "Testimonials",
-      "url": "/"
-    },
-    {
-      "enable": true,
-      "name": "Team Members",
-      "url": "/team/"
-    },
-    {
-      "enable": true,
-      "name": "Our Services",
-      "url": "/services/"
+      "name": "SBI Business Case",
+      "url": "/economics/sbi-business-case/"
     }
   ],
   "footer_menu_resources": [
     {
       "enable": true,
-      "name": "Blog",
-      "url": "/blog/"
+      "name": "eCRF",
+      "url": "/products/ecrf/"
     },
     {
       "enable": true,
-      "name": "Faq",
-      "url": "/faq/"
+      "name": "Dashboard",
+      "url": "/products/dashboard/"
     },
     {
       "enable": true,
-      "name": "Case Studies",
-      "url": "/case-studies/"
+      "name": "eLearning",
+      "url": "/products/elearning/"
     }
   ],
   "footer_menu_legal": [

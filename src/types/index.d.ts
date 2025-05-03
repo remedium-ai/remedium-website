@@ -263,6 +263,8 @@ export interface ChildNavigationLink {
   hasChildren?: boolean;
   badge?: Badge;
   children?: ChildNavigationLink[];
+  icon?: string;
+  description?: string;
 }
 
 export interface NavigationLink extends ChildNavigationLink {

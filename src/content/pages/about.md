@@ -1,12 +1,35 @@
 ---
-title: "About ReMedium AI"
-description: "Learn about our mission to transform clinical research and healthcare education"
-layout: "about"
+title: "About ReMediumAI"
+description: "Learn about ReMediumAI's mission to revolutionize clinical research and healthcare education through innovative digital solutions."
+layout: "page"
+pubDate: 2024-05-02
+hero:
+  title: "About ReMediumAI"
+  subtitle: "Transforming clinical research and healthcare education through innovation"
+features:
+  - title: "Our Mission"
+    description: "Revolutionizing clinical research and healthcare education through innovative digital solutions"
+  - title: "Our Vision"
+    description: "Streamlined clinical research, interactive medical education, and enhanced patient care"
+benefits:
+  - title: "Our Values"
+    description: "Innovation, Excellence, Collaboration, and Integrity"
+  - title: "Our Team"
+    description: "Experienced professionals from healthcare, technology, and education sectors"
+caseStudies:
+  - title: "Team Expertise"
+    description: "Decades of combined experience in key areas"
+    results:
+      - "Clinical research"
+      - "Medical education"
+      - "Software development"
+      - "Data analytics"
+      - "Regulatory compliance"
 ---
 
-## Our Mission
+# About ReMediumAI
 
-At ReMedium AI, we are dedicated to revolutionizing clinical research and healthcare education through innovative digital solutions. Our mission is to make clinical trials more efficient and medical training more accessible, ultimately improving healthcare outcomes worldwide.
+At ReMediumAI, we are dedicated to revolutionizing clinical research and healthcare education through innovative digital solutions. Our mission is to make clinical trials more efficient and medical training more accessible, ultimately improving healthcare outcomes worldwide.
 
 ## Our Vision
 
