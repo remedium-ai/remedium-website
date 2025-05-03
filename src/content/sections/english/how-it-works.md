@@ -1,43 +1,43 @@
 ---
 enable: true # Control the visibility of this section across all pages where it is used
-title: "Unlocking Growth with Our Data-Driven Approach"
+title: "Unlocking Perioperative Outcomes with Data-Driven Approach"
 subtitle: "How It Works"
 bg_pattern_image: "/images/line-pattern.svg"
 
 list:
-  - title: "Deep Dive - Market & Competitive Analysis"
+  - title: "Analysis of Perioperative Processes, Outcomes and Economic Potential"
     description: |
-      We begin by thoroughly analyzing your target market and understanding its size, demographics, trends, and growth potential.
+      We begin by thoroughly analyzing your perioperative processes, current outcomes, and economic potential.
 
-      We conduct a comprehensive competitive analysis to identify your key competitors, their strengths and weaknesses, and their market share.
+      We conduct a comprehensive assessment to identify key performance indicators, efficiency gaps, and opportunities for improvement.
     images:
       src:
         - "/images/how-it-works/1.png"
       background: "/images/how-it-works/bg.svg"
-      alt: "Image explaing Market & Competitive Analysis"
+      alt: "Image explaining Perioperative Analysis"
     number: "01"
 
-  - title: "Collaborative Strategy Session"
+  - title: "Collaborative Strategy Session: Plan for change"
     description: |
-      We work closely with you to understand your business goals, vision, and resources.
+      We work closely with your team to understand your perioperative goals and challenges.
 
-      Leveraging the insights from the market and competitive analysis, we facilitate a collaborative workshop to brainstorm and develop winning strategies.
+      Leveraging the insights from our analysis, we facilitate a collaborative workshop to develop a comprehensive change management strategy.
     images:
       src:
         - "/images/how-it-works/2.png"
       background: "/images/how-it-works/bg.svg"
-      alt: "Image explaing Market & Competitive Analysis"
+      alt: "Image explaining Strategy Session"
     number: "02"
 
-  - title: "Crafting Your Action Plan"
+  - title: "Projekt Setup: Transform perioperative care and digital solutions"
     description: |
-      Based on the collaborative session, we translate strategies into a clear and actionable roadmap.
+      Based on the collaborative session, we implement a tailored plan to transform your perioperative care.
 
-      This plan outlines specific steps, timelines, and performance metrics to track progress.
+      This includes setting up digital solutions, defining success metrics, and establishing a clear timeline for implementation.
     images:
       src:
         - "/images/how-it-works/3.png"
       background: "/images/how-it-works/bg.svg"
-      alt: "Image explaing Market & Competitive Analysis"
+      alt: "Image explaining Project Setup"
     number: "03"
 ---

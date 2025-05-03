@@ -6,7 +6,7 @@ meta_description: "This is a example description"
 # Uncomment key values that you wan to override
 services_section:
   # enable: true # Control the visibility of this section across all services single
-  title: "Additional Services to Maximize Your Business Potential"
+  title: "Additional Services to Maximize Your Perioperative Outcome"
   # subtitle: "Our Services"
 
   creative_shape: # Background shape
@@ -18,12 +18,12 @@ services_section:
   show_services_as: "slider" # "slider" | "static"; (default "slider"); weather to show services as slider or static list
   # limit: 3 # number / false (default "3"); Limit the number of services to be displayed (Only work if show_services_as is static)
 
-  # cta_btn:
-  #   enable: true
-  #   label: "View All Services"
-  #   url: "/services"
-  #   rel: ""
-  #   target: ""
+  cta_btn:
+    enable: true
+    label: "View All Solutions"
+    url: "/services"
+    rel: ""
+    target: ""
 
 # Override Default Content of `/sections/call-to-action.md`
 # Uncomment key values that you wan to override
@@ -32,7 +32,7 @@ call_to_action_section:
   # title: "Ready to Transform Your Business?"
   # subtitle: "Business Goals"
   # description: |
-  #   Partner with our team of experts to unlock your business’s full potential. Schedule your free consultation and discover how we can help you.
+  #   Partner with our team of experts to unlock your business's full potential. Schedule your free consultation and discover how we can help you.
 
   # cta_btn:
   #   enable: true

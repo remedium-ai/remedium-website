@@ -23,21 +23,21 @@
               "name": "Data Collection",
               "url": "/products/ecrf/",
               "icon": "/src/assets/images/icons/svg/documentation.svg",
-              "description": "Streamlined data collection and management for clinical trials"
+              "description": "Streamlined data collection and management for perioperative, precision care"
             },
             {
               "enable": true,
               "name": "Dashboard",
               "url": "/products/dashboard/",
               "icon": "/src/assets/images/icons/svg/analytics.svg",
-              "description": "Real-time analytics and insights for surgical performance"
+              "description": "Real-time analytics and insights for perioperative care"
             },
             {
               "enable": true,
               "name": "Learning",
               "url": "/products/elearning/",
               "icon": "/src/assets/images/icons/svg/expertise.svg",
-              "description": "Interactive learning platform for surgical excellence"
+              "description": "Interactive learning platform for clinical excellence"
             }
           ]
         },
@@ -64,7 +64,7 @@
               "name": "SBI Certification",
               "url": "/services/sbi-certification/",
               "icon": "/src/assets/images/icons/svg/services/leader-board.svg",
-              "description": "Official certification for Surgical Business Intelligence"
+              "description": "Official certification for Perioperative Business Intelligence"
             }
           ]
         },

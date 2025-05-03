@@ -1,9 +1,45 @@
 ---
 enable: true
-title: "Expert Services for Clinical Research Excellence"
-subtitle: "Our Services"
+title: "Our Solutions"
+subtitle: "Our Solutions"
 
-# Services data comes from "/content/services"
+# Services data comes from the Solutions Menu
+services:
+  - title: "Data Collection"
+    description: "Streamlined data collection and management for perioperative, precision care."
+    icon: "/images/icons/svg/documentation.svg"
+    image: "/images/services/1.jpg"
+    link: "/products/ecrf/"
+  - title: "Dashboard"
+    description: "Real-time analytics and insights for perioperative care."
+    icon: "/images/icons/svg/analytics.svg"
+    image: "/images/services/2.jpg"
+    link: "/products/dashboard/"
+  - title: "Learning"
+    description: "Interactive learning platform for clinical excellence."
+    icon: "/images/icons/svg/expertise.svg"
+    image: "/images/services/3.jpg"
+    link: "/products/elearning/"
+  - title: "Consulting"
+    description: "Expert guidance for optimizing your clinical operations."
+    icon: "/images/icons/svg/services/insights.svg"
+    image: "/images/services/4.jpg"
+    link: "/services/consulting/"
+  - title: "Training"
+    description: "Comprehensive training programs for your team."
+    icon: "/images/icons/svg/services/task.svg"
+    image: "/images/services/5.jpg"
+    link: "/services/training/"
+  - title: "SBI Certification"
+    description: "Official certification for Perioperative Business Intelligence."
+    icon: "/images/icons/svg/services/leader-board.svg"
+    image: "/images/services/6.jpg"
+    link: "/services/sbi-certification/"
+  - title: "Perioperative Value"
+    description: "Maximize value and efficiency in perioperative care."
+    icon: "/images/icons/svg/revenue.svg"
+    image: "/images/services/1.jpg"
+    link: "/economics/perioperative-value/"
 
 # If you enable this button, the slider navigation buttons will be hidden, and this button will be displayed.
 cta_btn:

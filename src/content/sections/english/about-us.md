@@ -11,18 +11,18 @@ cta_btn:
 achievements:
   enable: true
   list:
-    - value: "500"
-      prepend_value: ""
-      append_value: "+"
-      description: "We have a proven track record of delivering outstanding results for over 500 projects across various industries"
     - value: "20"
       prepend_value: ""
       append_value: "+"
-      description: "With over two decades of experience, our certified consultants bring unparalleled expertise and a proven track record of success"
+      description: "We have a proven track record of our team members of delivering outstanding results for over 50 health care providers"
+    - value: "40"
+      prepend_value: ""
+      append_value: "+"
+      description: "With over three decades of experience, our certified consultants bring unparalleled expertise and a proven track record of success"
     - value: "1"
-      prepend_value: "$"
-      append_value: "B+"
-      description: "We have helped our clients generate over $1 billion in revenue, driving significant growth and sustainable success"
+      prepend_value: "€"
+      append_value: "M+"
+      description: "We can help our clients generate over €1 million in revenue annually, driving significant perioperative improvements"
 
 banner:
   enable: true
