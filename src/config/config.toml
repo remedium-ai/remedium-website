@@ -1,8 +1,8 @@
 # Site Configuration
 [site]
   title             = "ReMediumAI" # Shared title for SEO and OpenGraph
-  description       = "Innovative solutions for clinical research and healthcare education. Streamline clinical trials and enhance medical training with our digital platform." # Shared description for SEO and OpenGraph
-  tagline           = "Transforming Clinical Research and Healthcare Education"
+  description       = "Transforming Perioperative Care for Better Outcomes. Innovative solutions for clinical care, research and healthcare education." # Shared description for SEO and OpenGraph
+  tagline           = "Data for Healing. Healing with AI."
   tagline_separator = "" # default is " - "
   base_url          = "https://remedium.ai" # Base URL for the site and used in OpenGraph meta tags.
   logo              = "/images/logo.svg" # Path to the site's logo
