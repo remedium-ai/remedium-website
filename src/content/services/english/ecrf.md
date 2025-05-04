@@ -1,10 +1,146 @@
 ---
-title: "eCRF Platform"
+title: "Clinical Data Collection Platform"
+description: "Optimize your usage of clinical data for perioperative processes."
+
+image: "/images/services/1.jpg"
+icon: "/images/icons/svg/services/rank.svg"
+
+# Short intro about this service
+intro:
+  enable: true
+  image: "" # set value to override default service image
+  title: "Optimize your usage of clinical data for perioperative processes"
+  description: "Streamline your clinical processes with our comprehensive digital data collection platform: Our solution provide optimized data collection and usage in your perioperative processes ensuring compliance, efficiency, and accessability."
+  cta_btn:
+    enable: true
+    label: "Schedule Consultation"
+    url: "/contact"
+    rel: ""
+    target: ""
+
+# How This Service Help Customer
+details:
+  enable: true
+  title: "Comprehensive Support for Data Driven Decisions"
+  description: "We provide end-to-end solutions to help you streamline your clinical data."
+  list:
+    - enable: true
+      image: "/images/services/service-details/1.jpg"
+      title: "Perioperative Process Control - SBI, ERAS, ..."
+      description: "Expert guidance in developing robust clinical trial protocols that meet regulatory requirements."
+      cta_btn:
+        enable: true
+        label: "Learn More"
+        url: "/contact"
+        rel: ""
+        target: ""
+    - enable: true
+      image: "/images/services/service-details/2.jpg"
+      title: "Data Compliance"
+      description: "Ensure your clinical trials meet all regulatory requirements and industry standards."
+      cta_btn:
+        enable: true
+        label: "Learn More"
+        url: "/contact"
+        rel: ""
+        target: ""
+    - enable: true
+      image: "/images/services/service-details/3.jpg"
+      title: "Data Management"
+      description: "Optimize your data collection and management processes for better research outcomes."
+      cta_btn:
+        enable: true
+        label: "Learn More"
+        url: "/contact"
+        rel: ""
+        target: ""
+    - enable: true
+      image: "/images/services/service-details/4.jpg"
+      title: "Quality Improvement"
+      description: "Implement comprehensive quality control measures throughout your clinical trials."
+      cta_btn:
+        enable: true
+        label: "Learn More"
+        url: "/contact"
+        rel: ""
+        target: ""
+    - enable: true
+      image: "/images/services/service-details/5.jpg"
+      title: "Clinical Risk Management"
+      description: "Identify and mitigate potential risks in your clinical research processes."
+      cta_btn:
+        enable: true
+        label: "Learn More"
+        url: "/contact"
+        rel: ""
+        target: ""
+
+# Impact of this service
+impact:
+  enable: true
+  title: "The Impact of Data Driven Decisions"
+  description: "Our data driven approach helps you achieve better outcomes, reduce costs, and accelerate your adaptation to newly generated evidence."
+  list:
+    - Improved Efficiency
+    - Enhanced Data Quality
+    - Reduced Compliance Risks
+    - Faster Report Completion
+    - Better Resource Utilization
+    - Increased Patient Outcomes
+
+  stats_block:
+    enable: true
+    lg:
+      - background:
+          type: "light-color"
+          image: ""
+        title:
+          prepend_value: ""
+          value: "30"
+          append_value: "%"
+        description: "Average reduction of documentation time"
+    md:
+      - background:
+          type: "light-color"
+          image: ""
+        title:
+          prepend_value: ""
+          value: "95"
+          append_value: "%"
+        description: "Data Compliance Rate"
+    sm:
+      - background:
+          type: "light-color"
+          image: ""
+        title:
+          prepend_value: ""
+          value: "25%"
+          append_value: "%"
+        description: "Cost Reduction"
+      - background:
+          type: "light-color"
+          image: ""
+        title:
+          prepend_value: ""
+          value: "50"
+          append_value: "%"
+        description: "Reduction of Complications"
+
+  cta_btn:
+    enable: true
+    label: "Schedule Consultation"
+    url: "/contact"
+    rel: ""
+    target: ""
+---
+
+<!-- ---
+title: "Data Collection Platform"
 description: "Streamline your clinical trials with our comprehensive Electronic Case Report Form platform"
 pubDate: 2024-05-02
 hero:
   title: "eCRF Platform"
-  subtitle: "Streamline your clinical trials with our comprehensive Electronic Case Report Form platform"
+  subtitle: "Streamline your clinical processes with our comprehensive digital data collection platform"
 features:
   - title: "Intuitive Data Entry"
     description: "User-friendly interface, customizable forms, real-time validation, mobile-responsive design, and offline data collection"
@@ -166,4 +302,4 @@ Ready to transform your clinical trials? Contact us today to:
 1. Schedule a demo
 2. Discuss your specific needs
 3. Get a customized quote
-4. Start your implementation 
+4. Start your implementation  -->

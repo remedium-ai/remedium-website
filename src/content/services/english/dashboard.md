@@ -1,4 +1,144 @@
 ---
+title: "Dashboards: Perioperative Intelligence at the Bedside"
+description: "Gain insights into perioperative performance, and potential opportunities to make better clinical decisions."
+
+image: "/images/services/5.jpg"
+icon: "/images/icons/svg/services/insights.svg"
+
+# Short intro about this service
+intro:
+  enable: true
+  image: "" # set value to override default service image
+  title: "Real-time Clinical Dashboards - Anywhere, anytime, anything"
+  description: "Gain insights into perioperative performance, and potential opportunities to make better clinical decisions."
+ 
+  cta_btn:
+    enable: true
+    label: "Get A Free Consultation"
+    url: "/contact"
+    rel: ""
+    target: ""
+
+# How This Service Help Customer
+details:
+  enable: true
+  title: "Unleash the Power of Smart Data Analysis"
+  description: "We help you unlock the power of your data to gain a deeper understanding of who your bottlenecks are, what remediates them, and how they drive your hospital performance. Through sophisticated multi-level analytics we bring proven methodologies to the bedside."
+  # Check "services/-index.md" file for animation settings of below list
+  list:
+    - enable: true
+      image: "/images/services/service-details/1.jpg"
+      title: "Brand Discovery Workshop"
+      description: "Through collaborative workshops, we'll uncover your brand's core values, target audience."
+      cta_btn:
+        enable: true
+        label: "Start Now"
+        url: "/contact"
+        rel: ""
+        target: ""
+    - enable: true
+      image: "/images/services/service-details/2.jpg"
+      title: "Competitive Analysis"
+      description: "We'll analyze your competitors' positioning to differentiate your brand."
+      cta_btn:
+        enable: true
+        label: "Start Now"
+        url: "/contact"
+        rel: ""
+        target: ""
+    - enable: true
+      image: "/images/services/service-details/3.jpg"
+      title: "Brand Positioning Statement"
+      description: "We'll develop a concise statement that captures the essence of your brand."
+      cta_btn:
+        enable: true
+        label: "Start Now"
+        url: "/contact"
+        rel: ""
+        target: ""
+    - enable: true
+      image: "/images/services/service-details/4.jpg"
+      title: "Messaging Framework"
+      description: "We'll create a messaging framework from your website to social media."
+      cta_btn:
+        enable: true
+        label: "Start Now"
+        url: "/contact"
+        rel: ""
+        target: ""
+    - enable: true
+      image: "/images/services/service-details/5.jpg"
+      title: "Brand Voice & Tone Guide"
+      description: "We'll define your brand voice and tone, ensuring your communication resonates."
+      cta_btn:
+        enable: true
+        label: "Start Now"
+        url: "/contact"
+        rel: ""
+        target: ""
+
+# Impact of this service
+impact:
+  enable: true
+  title: "The Impact of a Clear Brand Message"
+  description: "Effective messaging resonates with your customers, fostering trust and emotional connections. It's about speaking their language and understanding their needs."
+  list:
+    - Increased Brand Awareness
+    - Improved Marketing ROI
+    - Stronger Employee Engagement
+    - Identify customer trends
+    - Improve customer lifetime value
+    - Competitive Advantage
+
+  stats_block:
+    enable: true
+    lg:
+      - background:
+          type: "light-color" # "light-color" | "image-overlay"
+          image: ""
+        title:
+          prepend_value: ""
+          value: "71"
+          append_value: "%"
+        description: "Studies show that consistent brand messaging can lead to a 71% increase in brand recognition"
+    md:
+      - background:
+          type: "image-overlay" # "light-color" | ""
+          image: "/images/services/service-impact-stats-bg.jpg"
+        title:
+          prepend_value: ""
+          value: "7 Times More"
+          append_value: ""
+        description: "Customer Retention Rate"
+    sm:
+      - background:
+          type: "light-color" # "light-color" | "image-overlay"
+          image: ""
+        title:
+          prepend_value: ""
+          value: "306"
+          append_value: "%"
+        description: "Customer Retention Rate"
+      - background:
+          type: "light-color" # "light-color" | "image-overlay"
+          image: ""
+        title:
+          prepend_value: ""
+          value: "500"
+          append_value: "%"
+        description: "Target Your Messaging"
+
+  cta_btn:
+    enable: true
+    label: "Get A Free Consultation"
+    url: "/contact"
+    rel: ""
+    target: ""
+---
+
+
+
+<!-- ---
 title: "Clinical Dashboard"
 description: "Transform your clinical data into actionable insights with our powerful analytics platform"
 pubDate: 2024-05-02
@@ -166,4 +306,4 @@ Ready to transform your clinical data into actionable insights? Contact us today
 1. Schedule a demo
 2. Discuss your specific needs
 3. Get a customized quote
-4. Start your implementation 
+4. Start your implementation  -->

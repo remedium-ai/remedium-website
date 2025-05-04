@@ -1,4 +1,132 @@
 ---
+title: "Business Case: Transform perioperative Process for more Efficiency"
+description: "Gain insights into  trends, and potential opportunities to make better perioperative and business decisions."
+
+image: "/images/services/4.jpg"
+icon: "/images/icons/svg/services/infographic.svg"
+
+# Short intro about this service
+intro:
+  enable: true
+  image: "" # set value to override default service image
+  title: "Unify Your Approach to Business Success."
+  description: "In today's competitive market, a strong brand is your most valuable asset. We help you craft a clear and compelling brand positioning and messaging strategy that sets you apart from the competition and resonates deeply with your target audience."
+  cta_btn:
+    enable: true
+    label: "Get A Free Consultation"
+    url: "/contact"
+    rel: ""
+    target: ""
+
+# How This Service Help Customer
+details:
+  enable: true
+  title: "Unleash the Power of Perioperative Efficiency for better Economics"
+  description: "We help you unlock the power of your perioperative data to gain a deeper understanding of your process performance, what drives efficiency, through sophisticated analytics and proven methodologies"
+  # Check "services/-index.md" file for animation settings of below list
+  list:
+    - enable: true
+      image: "/images/services/service-details/1.jpg"
+      title: "Discovery Workshop"
+      description: "Through collaborative workshops, we'll uncover your core values and targets."
+      cta_btn:
+        enable: true
+        label: "Start Now"
+        url: "/contact"
+        rel: ""
+        target: ""
+    - enable: true
+      image: "/images/services/service-details/2.jpg"
+      title: "Competitive Analysis"
+      description: "We'll analyze your competitors' positioning to differentiate your brand."
+      cta_btn:
+        enable: true
+        label: "Start Now"
+        url: "/contact"
+        rel: ""
+        target: ""
+    - enable: true
+      image: "/images/services/service-details/3.jpg"
+      title: "Strategic Positioning and Goals"
+      description: "We'll develop a concise statement that captures the essence of your brand."
+      cta_btn:
+        enable: true
+        label: "Start Now"
+        url: "/contact"
+        rel: ""
+        target: ""
+    - enable: true
+      image: "/images/services/service-details/5.jpg"
+      title: "Project Planning"
+      description: "We'll define your perioperative transformation project ensuring your strategy resonates."
+      cta_btn:
+        enable: true
+        label: "Start Now"
+        url: "/contact"
+        rel: ""
+        target: ""
+
+# Impact of this service
+impact:
+  enable: true
+  title: "The Impact of a Clear Strategy for Perioperative Value."
+  description: "Effective perioperative management."
+  list:
+    - Increased Awareness
+    - Improved ROI
+    - Stronger Employee Engagement
+    - Identify clinical trends
+    - Improve customer value
+    - Competitive Advantage
+
+  stats_block:
+    enable: true
+    lg:
+      - background:
+          type: "light-color" # "light-color" | "image-overlay"
+          image: ""
+        title:
+          prepend_value: ""
+          value: "71"
+          append_value: "%"
+        description: "Studies show that consistent brand messaging can lead to a 71% increase in brand recognition"
+    md:
+      - background:
+          type: "image-overlay" # "light-color" | ""
+          image: "/images/services/service-impact-stats-bg.jpg"
+        title:
+          prepend_value: ""
+          value: "7 Times More"
+          append_value: ""
+        description: "Customer Retention Rate"
+    sm:
+      - background:
+          type: "light-color" # "light-color" | "image-overlay"
+          image: ""
+        title:
+          prepend_value: ""
+          value: "306"
+          append_value: "%"
+        description: "Customer Retention Rate"
+      - background:
+          type: "light-color" # "light-color" | "image-overlay"
+          image: ""
+        title:
+          prepend_value: ""
+          value: "500"
+          append_value: "%"
+        description: "Target Your Messaging"
+
+  cta_btn:
+    enable: true
+    label: "Get A Free Consultation"
+    url: "/contact"
+    rel: ""
+    target: ""
+---
+
+
+<!-- ---
 title: "Perioperative Value"
 description: "Maximize value and efficiency in perioperative care"
 pubDate: 2024-05-03
@@ -138,4 +266,4 @@ Ready to maximize value in your perioperative care? Contact us today to:
 1. Schedule a value assessment
 2. Develop your improvement plan
 3. Begin implementation
-4. Measure your success 
+4. Measure your success  -->

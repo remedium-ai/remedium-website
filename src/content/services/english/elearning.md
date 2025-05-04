@@ -1,4 +1,140 @@
 ---
+title: "eLearning: Learning Management System"
+description: "Comprehensive digital learning programs for health care professionals."
+
+image: "/images/services/2.jpg"
+icon: "/images/icons/svg/services/insights.svg"
+
+# Short intro about this service
+intro:
+  enable: true
+  image: "" # set value to override default service image
+  title: "Empowering Clinical Professionals - Anywhere, anytime, anything"
+  description: "Our comprehensive digital training programs equip clinical professionals with the knowledge and skills needed to excel in their roles. From SBI certification to advanced data management techniques, we provide practical, hands-on training that makes a difference."
+  cta_btn:
+    enable: true
+    label: "View Learning Management System"
+    url: "/contact"
+    rel: ""
+    target: ""
+
+# How This Service Help Customer
+details:
+  enable: true
+  title: "Comprehensive Digital Learning Solutions"
+  description: "We offer a range of digital learning programs designed to meet the needs of clinical and health care management professionals at all levels."
+  list:
+    - enable: true
+      image: "/images/services/service-details/1.jpg"
+      title: "GCP Training"
+      description: "Comprehensive Good Clinical Practice training for health care professionals."
+      cta_btn:
+        enable: true
+        label: "Learn More"
+        url: "/contact"
+        rel: ""
+        target: ""
+    - enable: true
+      image: "/images/services/service-details/2.jpg"
+      title: "Perioperative Protocol Training"
+      description: "In-depth training on perioperative protocol development and implementation."
+      cta_btn:
+        enable: true
+        label: "Learn More"
+        url: "/contact"
+        rel: ""
+        target: ""
+    - enable: true
+      image: "/images/services/service-details/3.jpg"
+      title: "Data Driven Decisions"
+      description: "Training on the use of clinical data for perioperative decisions."
+      cta_btn:
+        enable: true
+        label: "Learn More"
+        url: "/contact"
+        rel: ""
+        target: ""
+    - enable: true
+      image: "/images/services/service-details/4.jpg"
+      title: "Adherence and Compliance Management"
+      description: "Training on adherence and regulatory compliance procedures."
+      cta_btn:
+        enable: true
+        label: "Learn More"
+        url: "/contact"
+        rel: ""
+        target: ""
+    - enable: true
+      image: "/images/services/service-details/5.jpg"
+      title: "Team-based learning approach"
+      description: "Training for health care teams to work, communicate and care together."
+      cta_btn:
+        enable: true
+        label: "Learn More"
+        url: "/contact"
+        rel: ""
+        target: ""
+
+# Impact of this service
+impact:
+  enable: true
+  title: "The Impact of Learning Management System"
+  description: "Our training programs help organizations build knowledge for clinical teams in REALTIME that deliver better patient-centered results."
+  list:
+    - Improved Access to Learning Content
+    - Enhanced Learning Quality
+    - Reduced Time-to-Knowledge
+    - Better Team Performance
+    - Increased Learning Efficiency (Costs)
+    - Better Applied Knowledge 
+
+  stats_block:
+    enable: true
+    lg:
+      - background:
+          type: "light-color"
+          image: ""
+        title:
+          prepend_value: ""
+          value: "90"
+          append_value: "%"
+        description: "Training Completion Rate"
+    md:
+      - background:
+          type: "light-color"
+          image: ""
+        title:
+          prepend_value: ""
+          value: "85"
+          append_value: "%"
+        description: "Knowledge Recall"
+    sm:
+      - background:
+          type: "light-color"
+          image: ""
+        title:
+          prepend_value: ""
+          value: "50"
+          append_value: "%"
+        description: "Faster Onboarding"
+      - background:
+          type: "light-color"
+          image: ""
+        title:
+          prepend_value: ""
+          value: "25"
+          append_value: "%"
+        description: "Performance Improvement"
+
+  cta_btn:
+    enable: true
+    label: "View Training Programs"
+    url: "/contact"
+    rel: ""
+    target: ""
+---
+
+<!-- ---
 title: "eLearning Platform"
 description: "Transform healthcare education with our interactive learning management system"
 pubDate: 2024-05-02
@@ -166,4 +302,4 @@ Ready to transform your healthcare education program? Contact us today to:
 1. Schedule a demo
 2. Discuss your specific needs
 3. Get a customized quote
-4. Start your implementation 
+4. Start your implementation  -->

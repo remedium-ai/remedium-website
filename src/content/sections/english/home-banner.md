@@ -25,7 +25,7 @@ main_block:
       button:
         enable: true
         label: "Learn More"
-        url: "/products/ecrf"
+        url: "/services/ecrf"
         rel: ""
         target: ""
     - title: "Intelligent Clinical Dashboards"
@@ -34,7 +34,7 @@ main_block:
       button:
         enable: true
         label: "Explore Dashboard"
-        url: "/products/dashboard"
+        url: "/services/dashboard"
         rel: ""
         target: ""
     - title: "Advanced eLearning Solutions"
@@ -43,7 +43,7 @@ main_block:
       button:
         enable: true
         label: "Discover eLearning"
-        url: "/products/elearning"
+        url: "/services/elearning"
         rel: ""
         target: ""
 ---
