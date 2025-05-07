@@ -26,7 +26,7 @@
 # -----------------------------------------------------------------------------------------------------------------------------------
 [seo]
   author   = "ReMediumAI"
-  keywords = ["clinical care, education, research, healthcare professional education, decision intelligence, eCRF, clinical trials, medical training"] # SEO keywords
+  keywords = ["perioperative clinical care, education, research, healthcare professional education, decision intelligence, eCRF, clinical trials, medical training"] # SEO keywords
   robots   = "index, follow" # Instructs search engines on how to crawl and index the pages.
 
   [seo.robots_txt]
