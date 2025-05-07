@@ -26,7 +26,7 @@
 # -----------------------------------------------------------------------------------------------------------------------------------
 [seo]
   author   = "ReMediumAI"
-  keywords = ["clinical research, healthcare education, eCRF, clinical trials, medical training"] # SEO keywords
+  keywords = ["clinical care, education, research, healthcare professional education, decision intelligence, eCRF, clinical trials, medical training"] # SEO keywords
   robots   = "index, follow" # Instructs search engines on how to crawl and index the pages.
 
   [seo.robots_txt]
@@ -83,7 +83,7 @@
   [settings.multilingual]
     # Set `enable` to `true` for enabling the multilingual feature or `false` for disabling it.
     # Run `npm run remove-multilingual` for removing multilingual content files after disabling the feature.
-    enable                   = true
+    enable                   = false
     default_language         = "en"
     disable_languages        = [""] # List of languages to disable (eg: ["fr", "es"])
     show_default_lang_in_url = false # Show default language in URL (eg: https://getastrothemes.com/en/)

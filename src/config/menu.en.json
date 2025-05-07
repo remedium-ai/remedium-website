@@ -85,13 +85,13 @@
     },
     {
       "enable": true,
-      "name": "Contact",
-      "url": "/contact/"
+      "name": "About us",
+      "url": "/about/"
     },
     {
       "enable": true,
-      "name": "About us",
-      "url": "/about/"
+      "name": "Contact",
+      "url": "/contact/"
     }
   ],
   "footer_menu": [
