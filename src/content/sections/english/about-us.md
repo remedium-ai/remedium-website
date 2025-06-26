@@ -25,7 +25,7 @@ achievements:
       description: "Our team has over two decades of experience delivering better outcomes at reduced costs"
 
 banner:
-  enable: true
+  enable: false
   image:
     src: "/images/about-us-banner.jpg"
     alt: "Example Alt Text"

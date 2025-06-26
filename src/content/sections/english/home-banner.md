@@ -24,26 +24,26 @@ main_block:
       background_image: "/images/banner/1.jpg"
       button:
         enable: true
-        label: "Learn More"
-        url: "/services/ecrf"
+        label: "More on Perioperative Solutions."
+        url: "/services/pc2"
         rel: ""
         target: ""
-    - title: "Intelligent Clinical Dashboards"
-      description: "Gain real-time insights into your clinical care. <br/> Make data-driven decisions with our comprehensive analytics platform."
+    - title: "Solutions for the Safe-Brain-Initiative"
+      description: "Empowering your clinic with innovative, patient-focused digital solutions for sustainable integration of the safe-brain, perioperative care bundesl and enhance patient-centered precision care."
       background_image: "/images/banner/2.jpg"
       button:
         enable: true
-        label: "Explore Dashboard"
-        url: "/services/dashboard"
+        label: "Book a meeting!"
+        url: "/services/sbi"
         rel: ""
         target: ""
-    - title: "Advanced eLearning Solutions"
-      description: "Transform healthcare education with our interactive eLearning platform. <br/> Deliver engaging, effective training for medical professionals."
+    - title: "Advanced AI-Driven Solutions"
+      description: "Our AI-powered technologies enhance perioperative care with smart tools and intelligent systems for better outcomes."
       background_image: "/images/banner/3.jpg"
       button:
         enable: true
-        label: "Discover eLearning"
-        url: "/services/elearning"
+        label: "Meet our NeuroPilot."
+        url: "/services/ai"
         rel: ""
         target: ""
 ---
