@@ -130,6 +130,11 @@
   "footer_menu_quick_link": [
     {
       "enable": true,
+      "name": "Home",
+      "url": "/"
+    },
+    {
+      "enable": true,
       "name": "About Us",
       "url": "/about/"
     },
@@ -137,28 +142,28 @@
       "enable": true,
       "name": "Contact Us",
       "url": "/contact/"
-    },
-    {
-      "enable": true,
-      "name": "SBI Business Case",
-      "url": "/services/packages/"
     }
   ],
   "footer_menu_resources": [
     {
       "enable": true,
-      "name": "eCRF",
+      "name": "Data:pipe",
       "url": "/services/products/"
     },
     {
       "enable": true,
-      "name": "Dashboard",
+      "name": "Analyt:ix",
       "url": "/services/products/"
     },
     {
       "enable": true,
-      "name": "eLearning",
+      "name": "eLea:rn",
       "url": "/services/products/"
+    },
+    {
+      "enable": true,
+      "name": "Discovery Workshop",
+      "url": "/services/"
     }
   ],
   "footer_menu_legal": [

@@ -1,6 +1,6 @@
 ---
-title: "Blog - Mise en Page Moderne"
-draft: false
+title: "Blog - Layout Moderne"
+draft: true
 
 # Settings related to blog list page
 settings:

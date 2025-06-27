@@ -106,6 +106,11 @@
   "footer_menu_quick_link": [
     {
       "enable": true,
+      "name": "Accueil",
+      "url": "/"
+    },
+    {
+      "enable": true,
       "name": "À propos de nous",
       "url": "/about/"
     },
@@ -113,28 +118,28 @@
       "enable": true,
       "name": "Contactez-nous",
       "url": "/contact/"
-    },
-    {
-      "enable": true,
-      "name": "Cas d'Affaires SBI",
-      "url": "/services/packages/"
     }
   ],
   "footer_menu_resources": [
     {
       "enable": true,
-      "name": "eCRF",
+      "name": "Data:pipe",
       "url": "/services/products/"
     },
     {
       "enable": true,
-      "name": "Tableau de Bord",
+      "name": "Analyt:ix",
       "url": "/services/products/"
     },
     {
       "enable": true,
-      "name": "eLearning",
+      "name": "eLea:rn",
       "url": "/services/products/"
+    },
+    {
+      "enable": true,
+      "name": "Atelier de Découverte",
+      "url": "/services/"
     }
   ],
   "footer_menu_legal": [

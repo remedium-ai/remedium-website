@@ -2,7 +2,7 @@
   "common": {
     "read_more": "Lire la suite",
     "read_more_about": "En savoir plus sur",
-    "learn_more_about": "En savoir plus",
+    "learn_more_about": "En savoir plus sur",
     "email_placeholder": "Adresse e-mail",
     "monthly_plan": "Mensuel",
     "pagination_next": "Suivant",
@@ -10,17 +10,17 @@
   },
   "widgets": {
     "post_search_title": "Rechercher un article",
-    "post_search_form_placeholder": "Rechercher...",
+    "post_search_form_placeholder": "Rechercher ...",
     "categories_title": "Catégorie",
     "recent_posts_title": "Articles récents"
   },
   "career": {
-    "location": "Emplacement",
-    "deadline": "Date de clôture des candidatures",
-    "job_type": "Type de poste"
+    "location": "Localisation",
+    "deadline": "Date limite de candidature",
+    "job_type": "Type d'emploi"
   },
   "blog": {
-    "written_by": "Rédigé par",
+    "written_by": "Écrit par",
     "published_on": "Publié le",
     "category": "Catégorie"
   },
@@ -30,17 +30,17 @@
     "solutions": "Solutions",
     "products": "Produits",
     "services": "Services",
-    "economics": "Économie",
+    "packages": "Packages",
     "contact": "Contact",
     "about": "À propos"
   },
   "subscription": {
-    "label": "Abonnez-vous à notre newsletter pour obtenir les dernières mises à jour"
+    "label": "Abonnez-vous à notre newsletter pour les dernières mises à jour"
   },
   "footer": {
     "quick_links": "Liens rapides",
     "legal": "Légal",
-    "resources": "Produits",
+    "resources": "Solutions",
     "description": "ReMediumAI révolutionne la recherche clinique et l'éducation en santé grâce à des solutions numériques innovantes. Notre plateforme simplifie les essais cliniques et améliore la formation médicale, rendant les soins de santé plus accessibles et efficaces.",
     "copyright": "© 2024 ReMediumAI. Tous droits réservés.",
     "footer_menu_quick_link": [
@@ -48,11 +48,6 @@
         "enable": true,
         "name": "Accueil",
         "url": "/"
-      },
-      {
-        "enable": true,
-        "name": "Cas d'Affaires",
-        "url": "/business-case/"
       },
       {
         "enable": true,
@@ -68,18 +63,23 @@
     "footer_menu_resources": [
       {
         "enable": true,
-        "name": "eCRF",
-        "url": "/products/ecrf/"
+        "name": "Data:pipe",
+        "url": "/services/products/"
       },
       {
         "enable": true,
-        "name": "Tableau de Bord",
-        "url": "/products/dashboard/"
+        "name": "Analyt:ix",
+        "url": "/services/products/"
       },
       {
         "enable": true,
-        "name": "eLearning",
-        "url": "/products/elearning/"
+        "name": "eLea:rn",
+        "url": "/services/products/"
+      },
+      {
+        "enable": true,
+        "name": "Atelier de Découverte",
+        "url": "/services/"
       }
     ],
     "footer_menu_legal": [
@@ -115,11 +115,11 @@
     },
     "case-studies": {
       "title": "Histoires de réussite",
-      "subtitle": "Découvrez comment nos solutions font la différence dans les soins de santé"
+      "subtitle": "Découvrez comment nos solutions font une différence dans les soins de santé"
     },
     "blog": {
       "title": "Dernières actualités",
-      "subtitle": "Restez informé des dernières tendances en recherche clinique et éducation en santé"
+      "subtitle": "Restez à jour avec les dernières tendances en recherche clinique et éducation en santé"
     }
   },
   "about": {
@@ -130,7 +130,7 @@
   },
   "contact": {
     "title": "Contactez-nous",
-    "subtitle": "Vous avez des questions ? Nous serions ravis d'avoir de vos nouvelles.",
+    "subtitle": "Des questions ? Nous aimerions avoir de vos nouvelles.",
     "form": {
       "name": "Nom",
       "email": "Email",

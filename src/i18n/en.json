@@ -30,7 +30,7 @@
     "solutions": "Solutions",
     "products": "Products",
     "services": "Services",
-    "economics": "Economics",
+    "packages": "Packages",
     "contact": "Contact",
     "about": "About us"
   },
@@ -40,7 +40,7 @@
   "footer": {
     "quick_links": "Quick Links",
     "legal": "Legal",
-    "resources": "Products",
+    "resources": "Solutions",
     "description": "ReMediumAI empowers perioperative care teams with precision medicine, AI-driven insights, and digital solutions for sustainable, patient-centered outcomes. Our platform advances perioperative safety, optimizes workflows, and delivers measurable improvements for healthcare professionals and patients alike.",
     "copyright": "© 2025 ReMediumAI. All rights reserved.",
     "footer_menu_quick_link": [
@@ -48,11 +48,6 @@
         "enable": true,
         "name": "Home",
         "url": "/"
-      },
-      {
-        "enable": true,
-        "name": "Business Case",
-        "url": "/business-case/"
       },
       {
         "enable": true,
@@ -68,18 +63,23 @@
     "footer_menu_resources": [
       {
         "enable": true,
-        "name": "eCRF",
-        "url": "/products/ecrf/"
+        "name": "Data:pipe",
+        "url": "/services/products/"
       },
       {
         "enable": true,
-        "name": "Dashboard",
-        "url": "/products/dashboard/"
+        "name": "Analyt:ix",
+        "url": "/services/products/"
       },
       {
         "enable": true,
-        "name": "eLearning",
-        "url": "/products/elearning/"
+        "name": "eLea:rn",
+        "url": "/services/products/"
+      },
+      {
+        "enable": true,
+        "name": "Discovery Workshop",
+        "url": "/services/"
       }
     ],
     "footer_menu_legal": [

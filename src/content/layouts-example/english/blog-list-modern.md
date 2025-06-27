@@ -1,6 +1,6 @@
 ---
 title: "Blog - Modern Layout"
-draft: false
+draft: true
 
 # Settings related to blog list page
 settings:
