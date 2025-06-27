@@ -16,17 +16,22 @@
           "children": [
             {
               "enable": true,
-              "name": "Collecte de Données",
+              "name": "Data:pipe",
               "url": "/services/products/"
                 },
                 {
                   "enable": true,
-              "name": "Tableau de Bord",
+              "name": "Analyt:ix",
               "url": "/services/products/"
                 },
                 {
               "enable": true,
-              "name": "Apprentissage",
+              "name": "eLea:rn",
+              "url": "/services/products/"
+            },
+            {
+              "enable": true,
+              "name": "Pre:dict",
               "url": "/services/products/"
             }
           ]
@@ -37,11 +42,16 @@
           "children": [
             {
               "enable": true,
-              "name": "Consultation",
+              "name": "Atelier de Découverte Stratégique",
               "url": "/services/services/"
                 },
                 {
                   "enable": true,
+              "name": "Consultation",
+              "url": "/services/services/"
+            },
+            {
+              "enable": true,
               "name": "Formation",
               "url": "/services/services/"
             },
@@ -54,12 +64,17 @@
         },
         {
           "enable": true,
-          "name": "Économie",
+          "name": "Packages",
           "children": [
             {
               "enable": true,
-              "name": "Valeur Périopératoire",
-              "url": "/services/services/"
+              "name": "SBI Care KIT",
+              "url": "/services/packages/"
+            },
+            {
+              "enable": true,
+              "name": "SBI Research KIT",
+              "url": "/services/packages/"
             }
           ]
         }

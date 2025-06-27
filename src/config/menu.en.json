@@ -20,24 +20,31 @@
           "children": [
             {
               "enable": true,
-              "name": "Data Collection",
+              "name": "Data:pipe",
               "url": "/services/products/",
               "icon": "/src/assets/images/icons/svg/documentation.svg",
-              "description": "Streamlined data collection and management for perioperative, precision care"
+              "description": "Data management platform for perioperative data and information management"
                 },
                 {
                   "enable": true,
-              "name": "Dashboard",
+              "name": "Analyt:ix",
               "url": "/services/products/",
               "icon": "/src/assets/images/icons/svg/analytics.svg",
-              "description": "Real-time analytics and insights for perioperative care"
+              "description": "Analytics and Dashboard for perioperative insights and visualization"
             },
             {
               "enable": true,
-              "name": "Learning",
+              "name": "eLea:rn",
               "url": "/services/products/",
               "icon": "/src/assets/images/icons/svg/expertise.svg",
-              "description": "Interactive learning platform for clinical excellence"
+              "description": "Teach and train your staff for perioperative excellence"
+            },
+            {
+              "enable": true,
+              "name": "Pre:dict",
+              "url": "/services/products/",
+              "icon": "/src/assets/images/icons/svg/services/insights.svg",
+              "description": "AI platform for perioperative care and predictive analytics"
             }
           ]
         },
@@ -47,17 +54,24 @@
           "children": [
             {
               "enable": true,
+              "name": "Strategic Discovery Workshop",
+              "url": "/services/services/",
+              "icon": "/src/assets/images/icons/svg/services/infographic.svg",
+              "description": "Collaborative workshops to uncover your brand's core values and target audience"
+                },
+                {
+                  "enable": true,
               "name": "Consulting",
               "url": "/services/services/",
               "icon": "/src/assets/images/icons/svg/services/insights.svg",
               "description": "Expert guidance for optimizing your clinical operations"
-                },
-                {
-                  "enable": true,
+            },
+            {
+              "enable": true,
               "name": "Training",
               "url": "/services/services/",
               "icon": "/src/assets/images/icons/svg/services/task.svg",
-              "description": "Comprehensive training programs for your team"
+              "description": "Masterclasses for your teams in clinical care, SBI or AI"
             },
             {
               "enable": true,
@@ -70,14 +84,21 @@
         },
         {
           "enable": true,
-          "name": "Economics",
+          "name": "Packages",
           "children": [
             {
               "enable": true,
-              "name": "Perioperative Value",
-              "url": "/services/services/",
-              "icon": "/src/assets/images/icons/svg/revenue.svg",
-              "description": "Maximize value and efficiency in perioperative care"
+              "name": "SBI Care KIT",
+              "url": "/services/packages/",
+              "icon": "/src/assets/images/icons/svg/services/rank.svg",
+              "description": "Comprehensive platform for Good Clinical Practice using SBI in perioperative care"
+            },
+            {
+              "enable": true,
+              "name": "SBI Research KIT",
+              "url": "/services/packages/",
+              "icon": "/src/assets/images/icons/svg/services/path.svg",
+              "description": "Enable research through integrated consent, anonymization and data storage technologies"
             }
           ]
         }
