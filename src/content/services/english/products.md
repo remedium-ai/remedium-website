@@ -2,7 +2,7 @@
 title: "Products: Technologies for Intelligent Clinical Data"
 description: "Optimize your usage of clinical data management with out products."
 
-image: "/images/services/1.jpg"
+image: "/images/services/7.jpg"
 icon: "/images/icons/svg/services/rank.svg"
 
 # Short intro about this service
@@ -10,10 +10,10 @@ intro:
   enable: true
   image: "" # set value to override default service image
   title: "Products: Your Patient. Your Data. Your Technologies."
-  description: "Streamline your clinical processes with our comprehensive digital data collection platform: Our solution provide optimized data collection and usage in your perioperative processes ensuring compliance, efficiency, and accessability."
+  description: "Streamline your clinical processes with our comprehensive digital data collection and intelligence platform: Our solution provide optimized data collection and usage in your perioperative processes ensuring compliance, efficiency, and accessability. The analytics product allows for smart benchmarking and learning for clinical teams"
   cta_btn:
     enable: true
-    label: "Schedule Consultation"
+    label: "More about our products"
     url: "/contact"
     rel: ""
     target: ""
@@ -21,13 +21,13 @@ intro:
 # How This Service Help Customer
 details:
   enable: true
-  title: "Comprehensive Support for Data Driven Decisions"
-  description: "We provide end-to-end solutions to help you streamline your clinical data."
+  title: "Comprehensive Suite of Perioperative Digital Products"
+  description: "We provide end-to-end solutions to help you streamline your clinical care."
   list:
     - enable: true
-      image: "/images/services/service-details/1.jpg"
-      title: "Perioperative Process Control - SBI, ERAS, ..."
-      description: "Expert guidance in developing robust clinical trial protocols that meet regulatory requirements."
+      image: "/images/services/service-details/AdobeStock_1355063547_Preview.jpg"
+      title: "Data:pipe - Do more with your Clinical Data"
+      description: "Data:pipe ​- Data management plattform for perioperative data and information management"
       cta_btn:
         enable: true
         label: "Learn More"
@@ -35,9 +35,9 @@ details:
         rel: ""
         target: ""
     - enable: true
-      image: "/images/services/service-details/2.jpg"
-      title: "Data Compliance"
-      description: "Ensure your clinical trials meet all regulatory requirements and industry standards."
+      image: "/images/services/service-details/AdobeStock_426885098_Preview.jpg"
+      title: "Analyt:ix​ - Get smarter with every datapoint."
+      description: "Analyt:ix​ - Analytics and Dashboard for perioperative insights and visualization."
       cta_btn:
         enable: true
         label: "Learn More"
@@ -45,9 +45,9 @@ details:
         rel: ""
         target: ""
     - enable: true
-      image: "/images/services/service-details/3.jpg"
-      title: "Data Management"
-      description: "Optimize your data collection and management processes for better research outcomes."
+      image: "/images/services/service-details/AdobeStock_1277238414_Preview.jpg"
+      title: "eLea:rn​ - Grow your teams' expertise"
+      description: "eLea:rn​ - Teach and train your staff for perioperative excellence. "
       cta_btn:
         enable: true
         label: "Learn More"
@@ -55,19 +55,9 @@ details:
         rel: ""
         target: ""
     - enable: true
-      image: "/images/services/service-details/4.jpg"
-      title: "Quality Improvement"
-      description: "Implement comprehensive quality control measures throughout your clinical trials."
-      cta_btn:
-        enable: true
-        label: "Learn More"
-        url: "/contact"
-        rel: ""
-        target: ""
-    - enable: true
-      image: "/images/services/service-details/5.jpg"
-      title: "Clinical Risk Management"
-      description: "Identify and mitigate potential risks in your clinical research processes."
+      image: "/images/services/service-details/AdobeStock_1286473890_Preview.jpg"
+      title: "Pre:dict - When your data predict future patient outcomes."
+      description: "Pre:dict ​- AI  platform for perioperative care"
       cta_btn:
         enable: true
         label: "Learn More"

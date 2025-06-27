@@ -23,7 +23,7 @@ main_block:
       button:
         enable: true
         label: "Demander une consultation"
-        url: "/contact"
+        url: "/services/services"
         rel: ""
         target: ""
     - title: "Solutions stratégiques pour une croissance dynamique"
@@ -32,7 +32,7 @@ main_block:
       button:
         enable: true
         label: "Demander une consultation"
-        url: "/contact"
+        url: "/services/packages"
         rel: ""
         target: ""
     - title: "Transformer les défis en opportunités"
@@ -41,7 +41,7 @@ main_block:
       button:
         enable: true
         label: "Demander une consultation"
-        url: "/contact"
+        url: "/services/products"
         rel: ""
         target: ""
 ---

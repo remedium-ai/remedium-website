@@ -1,6 +1,6 @@
 ---
 title: "Packages: SBI Care KIT and SBI Research KIT."
-description: "Perioperative care technologies for health service delivery and research organizations."
+description: "Perioperative care technologies for health service delivery and research organizations using the safe-brain-initiative methodology."
 
 image: "/images/services/2.jpg"
 icon: "/images/icons/svg/services/insights.svg"
@@ -9,25 +9,25 @@ icon: "/images/icons/svg/services/insights.svg"
 intro:
   enable: true
   image: "" # set value to override default service image
-  title: "Certified Performance for Clinical Professionals"
-  description: "Our certification programs enable clinical professionals to show their excellence of perioperative care. The institutions can use SBI certification to advanced peer-reviewed processes, data management techniques, and practical, hands-on advice that makes a difference."
+  title: "SBI Care and Research KIT"
+  description: "As an official service provider of the Safe Brain Initiative (SBI), we combine technical expertise with medical know-how to drive meaningful change in perioperative anesthesia.​ Our solutions are specifically tailored to meet SBI requirements, offering a comprehensive framework for successfully implementing its principles in your hospital.​ This creates a solid foundation for sustainably improving anesthesia quality – evidence-based, digital, and practice-oriented."
   cta_btn:
     enable: true
-    label: "View Training Programs"
-    url: "/contact"
+    label: "View also Training Programs for our KITs"
+    url: "https://lms.remedium.ai"
     rel: ""
     target: ""
 
 # How This Service Help Customer
 details:
   enable: true
-  title: "Comprehensive Certification Program"
-  description: "We offer multi-step certification programs designed to meet the needs of clinical institutions and health care professionals at all levels."
+  title: "SBI Care and Research KITs."
+  description: "We offer technologies designed to meet the needs of clinical institutions and health care professionals for clinical care and research teams. Out SBI technology platform enables the smooth integration of SBI into the health care organization."
   list:
     - enable: true
       image: "/images/services/service-details/1.jpg"
-      title: "GCP Training"
-      description: "Comprehensive Good Clinical Practice training for health care professionals."
+      title: "SBI Care KIT"
+      description: "Comprehensive platform for Good Clinical Practice using SBI in perioperative care."
       cta_btn:
         enable: true
         label: "Learn More"
@@ -36,38 +36,8 @@ details:
         target: ""
     - enable: true
       image: "/images/services/service-details/2.jpg"
-      title: "Protocol Training"
-      description: "In-depth training on perioperative protocol development and implementation."
-      cta_btn:
-        enable: true
-        label: "Learn More"
-        url: "/contact"
-        rel: ""
-        target: ""
-    - enable: true
-      image: "/images/services/service-details/3.jpg"
-      title: "Data Management"
-      description: "Training in clinical data collection, management, and analysis."
-      cta_btn:
-        enable: true
-        label: "Learn More"
-        url: "/contact"
-        rel: ""
-        target: ""
-    - enable: true
-      image: "/images/services/service-details/4.jpg"
-      title: "Adherence and Compliance Management"
-      description: "Training on adherence and regulatory compliance procedures."
-      cta_btn:
-        enable: true
-        label: "Learn More"
-        url: "/contact"
-        rel: ""
-        target: ""
-    - enable: true
-      image: "/images/services/service-details/5.jpg"
-      title: "Institution-wide Management"
-      description: "Training for hospital management, coordinators and managers."
+      title: "SBI Research KIT"
+      description: "Enable research through integrated consent, anonymization and data storage technologies. Thereby fullfilling the needs for Real-World Data Research."
       cta_btn:
         enable: true
         label: "Learn More"
@@ -75,18 +45,19 @@ details:
         rel: ""
         target: ""
 
+
 # Impact of this service
 impact:
   enable: true
-  title: "The Impact of Certificaation"
-  description: "Our training programs help organizations build competent, confident clinical teams that deliver better patient-centered results."
+  title: "The Impact of the technology driven SBI"
+  description: "Our SBI technologies help organizations build confidential clinical decision systems for care and research. We enable clinical teams to deliver better patient-centered results."
   list:
     - Improved Perioperative Processes
     - Enhanced Data Quality
     - Reduced Training Time
     - Better Team Performance
     - Increased Clinical Efficiency (Costs)
-    - Better Patient Outcomes 
+    - Proven Patient Outcomes through research insights
 
   stats_block:
     enable: true
@@ -96,39 +67,39 @@ impact:
           image: ""
         title:
           prepend_value: ""
-          value: "90"
+          value: "99"
           append_value: "%"
-        description: "Training Completion Rate"
+        description: "Data Quality Rate"
     md:
       - background:
           type: "light-color"
           image: ""
         title:
           prepend_value: ""
-          value: "85"
+          value: "90"
           append_value: "%"
-        description: "Knowledge Recall"
+        description: "Decision Enablement"
     sm:
       - background:
           type: "light-color"
           image: ""
         title:
           prepend_value: ""
-          value: "50"
+          value: "80"
           append_value: "%"
-        description: "Faster Onboarding"
+        description: "Faster Patient Recovery"
       - background:
           type: "light-color"
           image: ""
         title:
           prepend_value: ""
-          value: "25"
+          value: "75"
           append_value: "%"
-        description: "Performance Improvement"
+        description: "Clinical Performance Improvement"
 
   cta_btn:
     enable: true
-    label: "Get Certification Programs"
+    label: "Get an Offer for the SBI Kits"
     url: "/contact"
     rel: ""
     target: ""

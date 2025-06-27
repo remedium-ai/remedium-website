@@ -21,21 +21,21 @@
             {
               "enable": true,
               "name": "Data Collection",
-              "url": "/services/ecrf/",
+              "url": "/services/products/",
               "icon": "/src/assets/images/icons/svg/documentation.svg",
               "description": "Streamlined data collection and management for perioperative, precision care"
                 },
                 {
                   "enable": true,
               "name": "Dashboard",
-              "url": "/services/dashboard/",
+              "url": "/services/products/",
               "icon": "/src/assets/images/icons/svg/analytics.svg",
               "description": "Real-time analytics and insights for perioperative care"
             },
             {
               "enable": true,
               "name": "Learning",
-              "url": "/services/elearning/",
+              "url": "/services/products/",
               "icon": "/src/assets/images/icons/svg/expertise.svg",
               "description": "Interactive learning platform for clinical excellence"
             }
@@ -48,21 +48,21 @@
             {
               "enable": true,
               "name": "Consulting",
-              "url": "/services/consulting/",
+              "url": "/services/services/",
               "icon": "/src/assets/images/icons/svg/services/insights.svg",
               "description": "Expert guidance for optimizing your clinical operations"
                 },
                 {
                   "enable": true,
               "name": "Training",
-              "url": "/services/training/",
+              "url": "/services/services/",
               "icon": "/src/assets/images/icons/svg/services/task.svg",
               "description": "Comprehensive training programs for your team"
             },
             {
               "enable": true,
               "name": "SBI Certification",
-              "url": "/services/sbi-certification/",
+              "url": "/services/packages/",
               "icon": "/src/assets/images/icons/svg/services/leader-board.svg",
               "description": "Official certification for Perioperative Business Intelligence"
             }
@@ -75,7 +75,7 @@
             {
               "enable": true,
               "name": "Perioperative Value",
-              "url": "/services/perioperative-value/",
+              "url": "/services/services/",
               "icon": "/src/assets/images/icons/svg/revenue.svg",
               "description": "Maximize value and efficiency in perioperative care"
             }
@@ -120,24 +120,24 @@
     {
       "enable": true,
       "name": "SBI Business Case",
-      "url": "/services/perioperative-value/"
+      "url": "/services/packages/"
     }
   ],
   "footer_menu_resources": [
     {
       "enable": true,
       "name": "eCRF",
-      "url": "/services/ecrf/"
+      "url": "/services/products/"
     },
     {
       "enable": true,
       "name": "Dashboard",
-      "url": "/services/dashboard/"
+      "url": "/services/products/"
     },
     {
       "enable": true,
       "name": "eLearning",
-      "url": "/services/elearning/"
+      "url": "/services/products/"
     }
   ],
   "footer_menu_legal": [

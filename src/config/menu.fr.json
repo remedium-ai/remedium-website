@@ -17,17 +17,17 @@
             {
               "enable": true,
               "name": "Collecte de Données",
-              "url": "/products/ecrf/"
+              "url": "/services/products/"
                 },
                 {
                   "enable": true,
               "name": "Tableau de Bord",
-              "url": "/products/dashboard/"
+              "url": "/services/products/"
                 },
                 {
               "enable": true,
               "name": "Apprentissage",
-              "url": "/products/elearning/"
+              "url": "/services/products/"
             }
           ]
         },
@@ -38,17 +38,17 @@
             {
               "enable": true,
               "name": "Consultation",
-              "url": "/services/consulting/"
+              "url": "/services/services/"
                 },
                 {
                   "enable": true,
               "name": "Formation",
-              "url": "/services/training/"
+              "url": "/services/services/"
             },
             {
               "enable": true,
               "name": "Certification SBI",
-              "url": "/services/sbi-certification/"
+              "url": "/services/packages/"
             }
           ]
         },
@@ -59,7 +59,7 @@
             {
               "enable": true,
               "name": "Valeur Périopératoire",
-              "url": "/economics/perioperative-value/"
+              "url": "/services/services/"
             }
           ]
         }
@@ -102,24 +102,24 @@
     {
       "enable": true,
       "name": "Cas d'Affaires SBI",
-      "url": "/services/perioperative-value/"
+      "url": "/services/packages/"
     }
   ],
   "footer_menu_resources": [
     {
       "enable": true,
       "name": "eCRF",
-      "url": "/products/ecrf/"
+      "url": "/services/products/"
     },
     {
       "enable": true,
       "name": "Tableau de Bord",
-      "url": "/products/dashboard/"
+      "url": "/services/products/"
     },
     {
       "enable": true,
       "name": "eLearning",
-      "url": "/products/elearning/"
+      "url": "/services/products/"
     }
   ],
   "footer_menu_legal": [

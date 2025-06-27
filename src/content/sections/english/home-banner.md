@@ -25,7 +25,7 @@ main_block:
       button:
         enable: true
         label: "More on Perioperative Solutions."
-        url: "/services/pc2"
+        url: "/services/services"
         rel: ""
         target: ""
     - title: "Solutions for the Safe-Brain-Initiative"
@@ -34,7 +34,7 @@ main_block:
       button:
         enable: true
         label: "Book a meeting!"
-        url: "/services/sbi"
+        url: "/services/packages"
         rel: ""
         target: ""
     - title: "Advanced AI-Driven Solutions"
@@ -43,7 +43,7 @@ main_block:
       button:
         enable: true
         label: "Meet our NeuroPilot."
-        url: "/services/ai"
+        url: "/services/products"
         rel: ""
         target: ""
 ---
