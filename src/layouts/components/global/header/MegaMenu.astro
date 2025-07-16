@@ -98,10 +98,8 @@ const has_enable_menu = menu.menus?.filter((menu) => menu.enable) || [];
           </div>
 
 <style>
-  /* Override SVG colors for specific icons that need the blueish filter */
-  .hs-dropdown-menu img[src*="insights.svg"],
-  .hs-dropdown-menu img[src*="revenue.svg"],
-  .hs-dropdown-menu img[src*="infographic.svg"] {
+  /* Override SVG colors for all menu icons to ensure consistent blueish color */
+  .hs-dropdown-menu .text-primary img {
     filter: invert(39%) sepia(57%) saturate(2000%) hue-rotate(202deg) brightness(97%) contrast(96%);
   }
 </style>
