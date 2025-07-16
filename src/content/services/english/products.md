@@ -1,6 +1,6 @@
 ---
 title: "Products: Technologies for Intelligent Clinical Data"
-description: "Optimize your usage of clinical data management with out products."
+description: "Optimize your usage of clinical data management with our products."
 
 image: "/images/services/7.jpg"
 icon: "/images/icons/svg/services/rank.svg"

@@ -1,6 +1,6 @@
 ---
 enable: true # Contrôler la visibilité de cette section sur toutes les pages où elle est utilisée
-title: "Expertise, Intégrité et Solutions Transformables"
+title: "Notre expertise et votre valeur"
 cta_btn:
   enable: true
   label: "En savoir plus sur nous"
@@ -18,11 +18,11 @@ achievements:
     - value: "20"
       prepend_value: ""
       append_value: "+"
-      description: "Avec plus de deux décennies d'expérience, nos consultants certifiés offrent une expertise inégalée et un historique de succès."
+      description: "L'optimisation des flux de travail périopératoires a le potentiel d'économiser jusqu'à 1 million d'euros par an."
     - value: "1"
       prepend_value: "$"
       append_value: "M+"
-      description: "Nous avons aidé nos clients à générer plus d'un milliard de dollars de revenus, favorisant une croissance significative et un succès durable."
+      description: "Notre équipe apporte plus de deux décennies d'expérience dans l'amélioration des résultats des patients grâce aux données et à l'intelligence artificielle."
 
 banner:
   enable: true
