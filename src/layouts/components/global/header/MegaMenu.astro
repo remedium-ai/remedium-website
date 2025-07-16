@@ -66,11 +66,11 @@ const has_enable_menu = menu.menus?.filter((menu) => menu.enable) || [];
                     class="group flex items-start gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200"
                   >
                     {child.icon && (
-                      <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gray-50 transition duration-300 group-hover:bg-gray-100">
+                      <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gray-50 transition duration-300 group-hover:bg-gray-100 text-primary">
                         <Image
                           src={iconMap[child.icon as keyof typeof iconMap]}
                           alt={`${child.name} icon`}
-                          class="h-7 w-7 text-primary transition duration-300"
+                          class="h-7 w-7 transition duration-300"
                           width={28}
                           height={28}
                         />
@@ -97,10 +97,4 @@ const has_enable_menu = menu.menus?.filter((menu) => menu.enable) || [];
             </div>
           </div>
 
-<style>
-  /* Override SVG colors */
-  .hs-dropdown-menu img[src*="insights.svg"],
-  .hs-dropdown-menu img[src*="revenue.svg"] {
-    filter: invert(39%) sepia(57%) saturate(2000%) hue-rotate(202deg) brightness(97%) contrast(96%);
-    }
-</style>
+
