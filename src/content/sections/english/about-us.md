@@ -1,6 +1,6 @@
 ---
 enable: true # Control the visibility of this section across all pages where it is used
-title: "Expertise, Integrity, and Transformable Solutions"
+title: "Our expertise and your value"
 cta_btn:
   enable: true
   label: "Learn More About Us"
@@ -18,11 +18,11 @@ achievements:
     - value: "1"
       prepend_value: "€"
       append_value: "Mio."
-      description: "Hospitals have saved over 1 million euros annually by optimizing perioperative workflows"
+      description: "Optimizing perioperative workflows has the potential to save up to €1 million annually"
     - value: "20"
       prepend_value: ""
       append_value: "+"
-      description: "Our team has over two decades of experience delivering better outcomes at reduced costs"
+      description: "Our team brings over two decades of experience in improving patient outcomes through data and artificial intelligence"
 
 banner:
   enable: false

@@ -12,7 +12,7 @@ import { getLocaleUrlCTM } from "@/lib/utils/languageParser.ts";
 type cta_section_type = Section & {
   cta_shape_one?: string;
   cta_shape_two?: string;
-  stats_block: StatsBlock;
+  stats_block?: StatsBlock;
   right_content: "image" | "stats";
   image_block: {
     enable: boolean;
@@ -191,7 +191,7 @@ let {
               <div class="bg-primary pointer-events-none absolute top-[calc(50%_-_42px)] left-1/2 h-[35.875rem] w-[35.875rem] -translate-x-1/2 rounded-full opacity-80" />
             </div>
           ) : (
-            right_content === "stats" && (
+            right_content === "stats" && stats_block && (
               <CreativeStatsBlock
                 content={stats_block}
                 data-aos="fade-down-sm"
