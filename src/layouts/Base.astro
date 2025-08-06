@@ -33,12 +33,21 @@ className =
   status !== 404 && fitToScreen
     ? (className ? className + " " : "") + "fit-to-screen"
     : className;
+
+// Check if the current page is the home page
+const isHomepage =
+  Astro.url.pathname === "/" ||
+  Astro.url.pathname === "/" + Astro.currentLocale ||
+  Astro.url.pathname === "/" + Astro.currentLocale + "/";
+
+// Add pure white background class for non-homepage pages
+const bodyClasses = isHomepage ? "" : "!bg-white";
 ---
 
 <!doctype html>
 <html lang="en">
   <Head {...props} structuredData={structuredData} />
-  <body>
+  <body class={bodyClasses}>
     <Header {...props} />
     <main {...className ? { class: className } : {}}>
       <slot />

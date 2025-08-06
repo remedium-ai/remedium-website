@@ -3,7 +3,7 @@
   @apply relative z-30 w-full;
 
   &:not(.header-dark) {
-    @apply bg-none #{!important}; 
+    @apply bg-white #{!important}; 
   }
 
   &.sticky-header {
