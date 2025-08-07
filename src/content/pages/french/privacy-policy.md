@@ -4,9 +4,9 @@ description: "Ceci est un exemple de description m ta"
 draft: false
 ---
 
-**Effective Date: July, 2022**
+**Effective Date: March, 2025**
 
-Welcome to Looka ("we," "our," or "us"). Your privacy is important to us, and we are committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website, https://www.looka.com ("Website").
+Welcome to ReMediumAI ("we," "our," or "us"). Your privacy is important to us, and we are committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website, https://dev-web.remedium.ai ("Website").
 
 ### Information We Collect
 
@@ -87,8 +87,8 @@ We may update this Privacy Policy from time to time. Any changes will be posted 
 
 If you have any questions or concerns about this Privacy Policy, please contact us at:
 
-Looka
-Email: privacy@looka.com
-Address: 123 Looka Lane, Imaginary City, IC 12345, USA
+ReMediumAI UG
+Franz-Volhard-Straße 5, 68167 Mannheim, Germany
+Email: datenschutz@remedium.ai
 
-Thank you for trusting Looka with your personal information!
+Thank you for trusting ReMediumAI with your personal information!

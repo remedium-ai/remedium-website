@@ -16,11 +16,10 @@ By means of this privacy information (also “privacy policy,” “data protect
 ## 1.2. Controller’s Contact Details  
 The controller for the processing of data on this website within the meaning of the GDPR, other data protection laws applicable in the Member States of the European Union, and other provisions with data protection character is:
 
-**remedium.ai GmbH**  
+**ReMediumAI UG**  
 Franz-Volhard-Straße 5  
 68167 Mannheim  
 Germany  
-Phone: +49 177 331-1269  
 E-Mail: info@remedium.ai  
 
 You can contact us at any time if you have questions about these data protection notices or want to assert your rights.
@@ -184,9 +183,8 @@ We may update this privacy policy from time to time. Changes will be posted on t
 ## 6. Contact
 If you have any questions or concerns about this privacy policy, please contact us at:
 
-Remedium AI GmbH  
+ReMediumAI UG  
 Franz-Volhard-Straße 5, 68167 Mannheim, Germany  
-Email: datenschutz@remedium.ai  
-Phone: +49 177 331-1269
+Email: datenschutz@remedium.ai
 
 Thank you for trusting ReMediumAI with your personal information!
