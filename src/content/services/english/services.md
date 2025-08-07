@@ -31,8 +31,8 @@ details:
       description: "Through collaborative workshops, we'll uncover your brand's core values, target audience."
       cta_btn:
         enable: true
-        label: "Start Now"
-        url: "/contact"
+        label: "Learn More"
+        url: "#strategic-workshop"
         rel: ""
         target: ""
     - enable: true
@@ -41,8 +41,8 @@ details:
       description: "We'll analyze your competitors' positioning to differentiate your brand."
       cta_btn:
         enable: true
-        label: "Start Now"
-        url: "/contact"
+        label: "Learn More"
+        url: "#consulting"
         rel: ""
         target: ""
     - enable: true
@@ -51,8 +51,8 @@ details:
       description: "Masterclasses for your teams in clinical care, SBI or AI."
       cta_btn:
         enable: true
-        label: "Start Now"
-        url: "/contact"
+        label: "Learn More"
+        url: "#training"
         rel: ""
         target: ""
     - enable: true
@@ -61,8 +61,8 @@ details:
       description: "SBI Certification."
       cta_btn:
         enable: true
-        label: "Start Now"
-        url: "/contact"
+        label: "Learn More"
+        url: "#sbi-certification"
         rel: ""
         target: ""
 

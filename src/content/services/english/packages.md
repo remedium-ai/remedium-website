@@ -31,7 +31,7 @@ details:
       cta_btn:
         enable: true
         label: "Learn More"
-        url: "/contact"
+        url: "#sbi-care-kit"
         rel: ""
         target: ""
     - enable: true
@@ -41,7 +41,7 @@ details:
       cta_btn:
         enable: true
         label: "Learn More"
-        url: "/contact"
+        url: "#sbi-research-kit"
         rel: ""
         target: ""
 
