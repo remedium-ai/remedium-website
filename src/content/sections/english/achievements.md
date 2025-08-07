@@ -1,9 +1,13 @@
 ---
 enable: true # Control the visibility of this section across all pages where it is used
-title: "Our Impact in Numbers Proven Success in Perioperative Care"
-subtitle: "Achievements"
+title: "Our Impact on Perioperative Precision Care"
+subtitle: "Our Motivation"
 description: |
-  At ReMediumAI, we are committed to transforming perioperative care through precision medicine and AI-driven solutions. Our team of healthcare professionals brings extensive experience in optimizing clinical workflows and improving patient outcomes.
+  Digitalization in healthcare offers enormous potential – yet particularly in hospitals, this potential has not been sufficiently exploited. We are convinced: Digital solutions can not only make processes more efficient, but also fundamentally improve the quality of medical care.
+  
+  Our motivation stems from the desire to provide targeted support to medical personnel and enable patients to receive more individualized, precise treatment. Because when medical data is available and usable in real time, information becomes real decision-making power – for better, modern and more humane healthcare.
+  
+  As ReMediumAI, we want to contribute to ensuring that data-based medicine does not remain just a buzzword, but becomes more humane, effective and future-ready healthcare.
 
 cta_btn:
   enable: false
@@ -20,8 +24,9 @@ feature_list:
     title: "Clinical Expertise"
     description: "Our team brings deep knowledge in perioperative care and precision medicine"
 
+# Statistics/numbers section disabled - removed to focus on motivation content
 stats_block:
-  enable: true
+  enable: false
   list:
     - prepend_value: ""
       value: "50"
