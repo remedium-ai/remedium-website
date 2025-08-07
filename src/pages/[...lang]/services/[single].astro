@@ -5,6 +5,7 @@ import ServiceDetailsSection from "@/components/sections/ServiceDetailsSection.a
 import ServiceImpact from "@/components/sections/ServiceImpact.astro";
 import ServiceSingleIntro from "@/components/sections/PageIntroSection.astro";
 import ServicesSection from "@/components/sections/ServicesSection.astro";
+import ProductDetailsSection from "@/components/sections/ProductDetailsSection.astro";
 import PageHeader from "@/components/widgets/PageHeader.astro";
 import Base from "@/layouts/Base.astro";
 import { getCollectionCTM } from "@/lib/contentParser.astro";
@@ -63,6 +64,7 @@ const { service, serviceIndex: entry } = Astro.props;
     service_image={service.data.image}
   />
   <ServiceDetailsSection content={service.data.details} />
+  <ProductDetailsSection content={service.data.product_details} />
   <ServiceImpact content={service.data.impact} />
   <ServicesSection content={entry?.data.services_section} />
   <FaqSection content={entry?.data.faq_section} />

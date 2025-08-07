@@ -1,0 +1,161 @@
+---
+import type { Section } from "@/types";
+import { markdownify } from "@/lib/utils/textConverter";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import overrideObjects from "@/lib/utils/overrideObjects.ts";
+
+// Type for product details section data
+type product_details_section_type = Section & {
+  products?: Array<{
+    enable: boolean;
+    id: string;
+    name: string;
+    tagline: string;
+    icon: string;
+    image?: string;
+    content: Array<{
+      type: "paragraph" | "subheading";
+      content: string;
+    }>;
+  }>;
+};
+
+type Props = {
+  content?: product_details_section_type;
+};
+
+// Fetching the default content (if applicable)
+let default_content = {} as product_details_section_type;
+
+// Enables content customization with fallback to default_content
+let actual_content = overrideObjects(
+  { ...default_content },
+  Astro.props.content,
+) as product_details_section_type;
+
+// Extracting required values from content object
+let { enable = true, title, description, products } = actual_content;
+---
+
+{
+  enable && products && (
+    <section class="section-md">
+      <div class="container">
+        {(title || description) && (
+          <div class="row justify-center pb-12 md:pb-16">
+            <div class="md:col-10 lg:col-8 xl:col-6 text-center">
+              {title && (
+                <h2 
+                  class="text-h2 mb-4"
+                  set:html={markdownify(title)}
+                />
+              )}
+              {description && (
+                <p 
+                  class="text-lg opacity-80"
+                  set:html={markdownify(description)}
+                />
+              )}
+            </div>
+          </div>
+        )}
+
+        <div class="space-y-20 md:space-y-32">
+          {products.map((product, index) => (
+            product.enable && (
+              <div 
+                id={product.id}
+                class:list={[
+                  "product-section",
+                  { "scroll-mt-24": true }
+                ]}
+                data-aos="fade-up-sm"
+                data-aos-delay={index * 100}
+              >
+                {/* Product Header */}
+                <div class="row items-center justify-between gap-8 lg:gap-12">
+                  <div class="md:col-6 lg:col-7">
+                    <div class="flex items-center gap-4 mb-4">
+                      {product.icon && (
+                        <div class="flex-shrink-0">
+                          <OptimizedImage
+                            src={product.icon}
+                            alt={`${product.name} icon`}
+                            class="h-12 w-12 object-contain"
+                            inlineSvg={true}
+                          />
+                        </div>
+                      )}
+                      <div>
+                        <h2 
+                          class="text-h3 text-primary mb-2"
+                          set:html={markdownify(product.name)}
+                        />
+                        <p 
+                          class="text-lg font-medium opacity-90"
+                          set:html={markdownify(product.tagline)}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {product.image && (
+                    <div class="md:col-6 lg:col-5">
+                      <OptimizedImage
+                        src={product.image}
+                        alt={`${product.name} illustration`}
+                        class="h-64 w-full rounded-lg object-cover shadow-lg"
+                      />
+                    </div>
+                  )}
+                </div>
+
+                {/* Product Content */}
+                <div class="row justify-center mt-8">
+                  <div class="md:col-10 lg:col-8">
+                    <div class="prose prose-lg max-w-none">
+                      {product.content.map((contentItem) => (
+                        contentItem.type === "subheading" ? (
+                          <h3 
+                            class="text-h4 text-dark mt-8 mb-4 first:mt-0"
+                            set:html={markdownify(contentItem.content)}
+                          />
+                        ) : (
+                          <p 
+                            class="text-lg leading-relaxed opacity-85 mb-6"
+                            set:html={markdownify(contentItem.content)}
+                          />
+                        )
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Divider (except for last item) */}
+                {index < products.length - 1 && (
+                  <div class="mt-20 md:mt-32">
+                    <hr class="border-border/20" />
+                  </div>
+                )}
+              </div>
+            )
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .product-section {
+    scroll-behavior: smooth;
+  }
+  
+  .prose h3 {
+    @apply text-h4 text-dark mt-8 mb-4 first:mt-0;
+  }
+  
+  .prose p {
+    @apply text-lg leading-relaxed opacity-85 mb-6;
+  }
+</style> 

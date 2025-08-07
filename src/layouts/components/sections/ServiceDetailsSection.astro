@@ -112,10 +112,13 @@ const { service_details_marquee: marquee } = (
                     {item.cta_btn.enable && (
                       <a
                         class="absolute inset-0 z-30"
-                        href={getLocaleUrlCTM(
-                          item.cta_btn.url,
-                          Astro.currentLocale,
-                        )}
+                        href={item.cta_btn.url.startsWith('#') 
+                          ? item.cta_btn.url 
+                          : getLocaleUrlCTM(
+                              item.cta_btn.url,
+                              Astro.currentLocale,
+                            )
+                        }
                         title={toSentenceCase(
                           t("common.learn_more_about") + " " + item.title,
                         )}
@@ -167,10 +170,13 @@ const { service_details_marquee: marquee } = (
                       <a
                         tabindex="-1"
                         class="absolute inset-0 z-30"
-                        href={getLocaleUrlCTM(
-                          item.cta_btn.url,
-                          Astro.currentLocale,
-                        )}
+                        href={item.cta_btn.url.startsWith('#') 
+                          ? item.cta_btn.url 
+                          : getLocaleUrlCTM(
+                              item.cta_btn.url,
+                              Astro.currentLocale,
+                            )
+                        }
                         title={toSentenceCase(
                           t("common.learn_more_about") + " " + item.title,
                         )}

@@ -111,6 +111,29 @@ const service_collection = defineCollection({
           ),
         })
         .optional(),
+      product_details: z
+        .object({
+          enable: z.boolean().optional(),
+          title: z.string().optional(),
+          description: z.string().optional(),
+          products: z.array(
+            z.object({
+              enable: z.boolean(),
+              id: z.string(),
+              name: z.string(),
+              tagline: z.string(),
+              icon: z.string(),
+              image: z.string().optional(),
+              content: z.array(
+                z.object({
+                  type: z.enum(["paragraph", "subheading"]),
+                  content: z.string(),
+                }),
+              ),
+            }),
+          ).optional(),
+        })
+        .optional(),
       impact: z
         .object({
           enable: z.boolean(),

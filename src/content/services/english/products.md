@@ -8,11 +8,11 @@ icon: "/images/icons/svg/services/rank.svg"
 # Short intro about this service
 intro:
   enable: true
-  image: "" # set value to override default service image
-  title: "Products: Your Patient. Your Data. Your Technologies."
-  description: "Streamline your clinical processes with our comprehensive digital data collection and intelligence platform: Our solution provide optimized data collection and usage in your perioperative processes ensuring compliance, efficiency, and accessability. The analytics product allows for smart benchmarking and learning for clinical teams"
+  image: "/images/services/datapipe-intro.jpg" # set value to override default service image
+  title: "Our Products: Your Patient. Your Data. Your Technologies."
+  description: "Streamline your clinical processes with our comprehensive digital data collection and intelligence platform. Our solution provides optimized data collection and usage of clinical data in your perioperative decision processes ensuring efficiency, compliance and real-time accessability. The analytics product allows smart intra- and interorganisational benchmarking and learning for clinical teams."
   cta_btn:
-    enable: true
+    enable: false
     label: "More about our products"
     url: "/contact"
     rel: ""
@@ -25,45 +25,151 @@ details:
   description: "We provide end-to-end solutions to help you streamline your clinical care."
   list:
     - enable: true
-      image: "/images/services/service-details/AdobeStock_1355063547_Preview.jpg"
+      image: "/images/services/service-details/datapipe-medical-banner-with-doctor-using-pc.jpg"
       title: "Data:pipe - Do more with your Clinical Data"
       description: "Data:pipe ​- Data management plattform for perioperative data and information management"
       cta_btn:
         enable: true
         label: "Learn More"
-        url: "/contact"
+        url: "#datapipe"
         rel: ""
         target: ""
     - enable: true
-      image: "/images/services/service-details/AdobeStock_426885098_Preview.jpg"
+      image: "/images/services/service-details/analytix-medical-banner-with-doctor-holding-tablet.jpg"
       title: "Analyt:ix​ - Get smarter with every datapoint."
-      description: "Analyt:ix​ - Analytics and Dashboard for perioperative insights and visualization."
+      description: "Analyt:ix​ - Analytics and Dashboard for perioperative insights and visualization for better data insights."
       cta_btn:
         enable: true
         label: "Learn More"
-        url: "/contact"
+        url: "#analytix"
         rel: ""
         target: ""
     - enable: true
-      image: "/images/services/service-details/AdobeStock_1277238414_Preview.jpg"
+      image: "/images/services/service-details/learning-medical-banner-elearning.jpg"
       title: "eLea:rn​ - Grow your teams' expertise"
-      description: "eLea:rn​ - Teach and train your staff for perioperative excellence. "
+      description: "eLea:rn​ - Teach and train your staff for perioperative excellence."
       cta_btn:
         enable: true
         label: "Learn More"
-        url: "/contact"
+        url: "#elearn"
         rel: ""
         target: ""
     - enable: true
-      image: "/images/services/service-details/AdobeStock_1286473890_Preview.jpg"
+      image: "/images/services/service-details/predict-medical-banner-with-eeg.jpg"
       title: "Pre:dict - When your data predict future patient outcomes."
-      description: "Pre:dict ​- AI  platform for perioperative care"
+      description: "Pre:dict ​- AI platform for perioperative care: Your Perioperative Assistant."
       cta_btn:
         enable: true
         label: "Learn More"
-        url: "/contact"
+        url: "#predict"
         rel: ""
         target: ""
+
+# Detailed Product Information
+product_details:
+  enable: true
+  title: "Explore Our Product Suite"
+  description: "Discover the comprehensive capabilities of each product in our perioperative intelligence platform"
+  products:
+    - enable: true
+      id: "datapipe"
+      name: "Data:pipe"
+      tagline: "Data management plattform for perioperative data and information management."
+      icon: "/images/icons/svg/documentation-blue.svg"
+      image: "/images/services/service-details/datapipe-medical-banner-with-doctor-using-pc.jpg"
+      content:
+        - type: "subheading"
+          content: "Optimize your usage of clinical data for perioperative processes"
+        - type: "paragraph"
+          content: "Streamline your clinical processes with our comprehensive digital data collection platform: Our solution provide optimized data collection and usage in your perioperative processes ensuring compliance, efficiency, and accessability."
+        - type: "subheading"
+          content: "The Electronics Case Form Report (e-CRF):"
+        - type: "paragraph"
+          content: "With our electronic Case Report Form (e-CRF), patient-related questionnaires can be completed directly on-site – together with the patient and entirely digitally. The collected data is seamlessly integrated into the system, eliminating the need for manual entry, media disruptions, or delays. This not only saves valuable resources but also significantly improves data quality and process reliability."
+        - type: "subheading"
+          content: "Facts about the e-CRF:"
+        - type: "paragraph"
+          content: "- Fast and digital data entry – all information is captured in a structured and seamless way.<br/>- Secure access with two-factor authentication – because data protection is our top priority.<br/>- Intuitive user interface – designed to be self-explanatory and easy to use.<br/>- Basis for real-time feedback - Enables a real-time data flow for direct feedback"
+        - type: "subheading"
+          content: "The integrated data aggregation system:"
+        - type: "paragraph"
+          content: "The Data Aggregation System from ReMediumAI is your central integration platform for everyday clinical operations. It automatically connects relevant information from existing systems—ranging from medical data and administrative processes to sustainability and financial information—and seamlessly consolidates it within the ReMediumAI platform."
+        - type: "paragraph"
+          content: "By automating data integration, it not only provides a comprehensive overview but also reveals how information from different areas is interrelated. Complex dependencies become visible—without the need to manually gather individual data sets. This saves valuable time, reduces the burden on your staff from labor-intensive research and data preparation, and lays the foundation for real-time, data-driven decision-making."
+        - type: "paragraph"
+          content: "Data security is our top priority: Access is granted only to information you explicitly authorize—GDPR-compliant, encrypted, and fully controllable."
+    
+    - enable: true
+      id: "analytix"
+      name: "Analyt:ix"
+      tagline: "Analytics and Dashboard for perioperative insights and visualization for better data insights."
+      icon: "/images/icons/svg/analytics-blue.svg"
+      image: "/images/services/service-details/analytix-medical-banner-with-doctor-holding-tablet.jpg"
+      content:
+        - type: "subheading"
+          content: "Real-time Clinical Dashboards - Anywhere, anytime, anything"
+        - type: "paragraph"
+          content: "Gain insights into perioperative performance, and potential opportunities to make better clinical decisions. Unleash the power of smart data analysis to drive better outcomes in your hospital. Our data-driven approach delivers actionable insights directly to the point of care—empowering your teams to make more informed clinical decisions and improve perioperative efficiency."
+        - type: "subheading"
+          content: "Individualized Feedback in Real Time – with the ReMediumAI Dashboard"
+        - type: "paragraph"
+          content: "One of the key elements for continuous improvement is targeted, data-driven feedback. With the ReMediumAI Dashboard, we offer a powerful and flexibly configurable analytics tool that can be tailored to the specific needs of your facility."
+        - type: "paragraph"
+          content: "Whether medical or economic KPIs, trend analyses, process indicators, patient throughput times, or resource-related evaluations – all relevant information is clearly presented and can be intuitively analyzed."
+        - type: "paragraph"
+          content: "What makes the ReMediumAI Dashboard truly unique: Thanks to our fully integrated system architecture, analyses from various levels and areas can be combined. For example:"
+        - type: "paragraph"
+          content: "- Medical: Analysis of complication rates, length of stay, or surgery durations<br/>- Economic: Evaluation of cost structures, revenue trends, or resource utilization<br/>- Process-related: Visualization of throughput times, bottlenecks, or staffing requirements<br/>- Sustainability-related: Analysis of consumption, waste generation, or energy balances"
+        - type: "paragraph"
+          content: "Through digital and automated data collection combined with our powerful analytics engine, you receive real-time feedback – clear, reliable, and always accessible."
+        - type: "paragraph"
+          content: "Stop making decisions based on assumptions – start making them based on valid, up-to-date data."
+    
+    - enable: true
+      id: "elearn"
+      name: "eLea:rn"
+      tagline: "Teach and train your staff for perioperative excellence."
+      icon: "/images/icons/svg/expertise-blue.svg"
+      image: "/images/services/service-details/learning-medical-banner-elearning.jpg"
+      content:
+        - type: "subheading"
+          content: "Empowering Clinical Professionals"
+        - type: "paragraph"
+          content: "Our comprehensive digital training programs equip clinical professionals with the knowledge and skills needed to excel in their roles. From SBI certification to advanced data management techniques, we provide practical, hands-on training that makes a difference."
+        - type: "subheading"
+          content: "Knowledge as the Key to Success – Training and E-Learning for Sustainable Change"
+        - type: "paragraph"
+          content: "Beyond data collection, targeted training and education of staff are critical success factors for the effective implementation of any quality or improvement initiative."
+        - type: "paragraph"
+          content: "It is essential that everyone involved understands the background and objectives of the respective processes. Only those who grasp the context and its significance can apply it correctly and effectively. At the same time, personalized training and supportive learning content enable targeted feedback and lasting behavioral change – directly at the workplace."
+        - type: "paragraph"
+          content: "That's why we offer a flexible and practical training program through our ReMediumAI E-Learning Platform:"
+        - type: "paragraph"
+          content: "- Modular structure – for a structured and flexible learning journey<br/>- Diverse learning videos and content – tailored to different target groups and topic areas<br/>- Individually accessible content – for organization-specific questions and personal learning needs"
+        - type: "paragraph"
+          content: "This approach not only enhances understanding but also builds the foundation for long-term quality in practice – regardless of shift schedules or staff turnover."
+    
+    - enable: true
+      id: "predict"
+      name: "Pre:dict"
+      tagline: "AI platform for perioperative care: Your Perioperative Assistant."
+      icon: "/images/icons/svg/services/insights-blue.svg"
+      image: "/images/services/service-details/predict-medical-banner-with-eeg.jpg"
+      content:
+        - type: "subheading"
+          content: "Prepare for the future of perioperative process"
+        - type: "paragraph"
+          content: "Enhance the power of AI driven medical precision care"
+        - type: "subheading"
+          content: "Ready for the Future: Unlocking AI Potential in the Perioperative Process"
+        - type: "paragraph"
+          content: "The perioperative phase is one of the most complex and critical areas in clinical practice. From preoperative planning to intraoperative coordination and postoperative care, vast amounts of data are generated every day—data that often remains underutilized."
+        - type: "paragraph"
+          content: "ReMediumAI offers the potential to transform this process by laying the groundwork for AI-driven solutions. With deep technical expertise and comprehensive digital data integration, we provide the ideal foundation for developing intelligent tools that could support perioperative teams throughout the entire surgical journey."
+        - type: "paragraph"
+          content: "Future applications might include systems that detect risks early, deliver personalized recommendations, or act as real-time co-pilots—enhancing decision-making with precision, speed, and patient-centered focus."
+        - type: "paragraph"
+          content: "ReMediumAI stands for connected, forward-thinking, and adaptive healthcare. With robust digital infrastructure and a clear understanding of perioperative challenges, we are well-positioned to explore the full potential of artificial intelligence in making surgical care smarter, safer, and more efficient."
 
 # Impact of this service
 impact:
@@ -117,7 +223,7 @@ impact:
         description: "Reduction of Complications"
 
   cta_btn:
-    enable: true
+    enable: false
     label: "Schedule Consultation"
     url: "/contact"
     rel: ""
