@@ -33,7 +33,7 @@ main_block:
       background_image: "/images/banner/2.jpg"
       button:
         enable: true
-        label: "Book a meeting!"
+        label: "More on SBI KITs"
         url: "/services/packages"
         rel: ""
         target: ""
