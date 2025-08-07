@@ -9,9 +9,9 @@ info_block:
     ReMediumAI transforms clinical care and healthcare education through innovative digital solutions. Our platform streamlines perioperative processes and enhances medical training.
 
   video:
-    src: "YOUR_VIDEO_ID" # Replace with your video ID
-    type: "" # If video is stored locally in `public/videos`, set to video file type (e.g., "video/mp4")
-    provider: "youtube" # Options: "youtube", "vimeo", or "html5"
+    src: "/videos/your-video-file.mp4" # Replace "your-video-file.mp4" with your actual video filename
+    type: "video/mp4" # Set to the video file type
+    provider: "html5" # Changed from "youtube" to "html5" for local videos
     poster: "/images/video-thumbnail.jpg" # Path to thumbnail image for the video
     autoplay: true # Set to true to autoplay; false for manual start (default: false)
     id: "banner-video"
@@ -42,7 +42,7 @@ main_block:
       background_image: "/images/banner/3.jpg"
       button:
         enable: true
-        label: "Meet our NeuroPilot."
+        label: "Experience our Perioperative AI Assistant"
         url: "/services/products"
         rel: ""
         target: ""
