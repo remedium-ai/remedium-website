@@ -7,18 +7,15 @@ subtitle: "Contact"
 contact_list:
   enable: true
   list:
-    - icon: "/images/icons/svg/phone.svg"
-      label: "Appelez-nous maintenant"
-      value: "+1-202-555-0190"
     - icon: "/images/icons/svg/email.svg"
       label: "Envoyez-nous un e-mail"
-      value: "example@gmail.com"
-    - icon: "/images/icons/svg/whatsapp.svg"
-      label: "Discutez avec nous"
-      value: "@example"
+      value: "mailto:info@remedium.ai?subject=Demande depuis le site ReMedium.ai&body=Bonjour l'équipe ReMedium.ai,%0D%0A%0D%0AJe suis intéressé(e) à en savoir plus sur vos solutions.%0D%0A%0D%0AVeuillez trouver mes coordonnées ci-dessous:%0D%0A%0D%0ANom complet: %0D%0AAdresse e-mail: %0D%0ANuméro de téléphone: %0D%0AEntreprise: %0D%0ASujet: %0D%0A%0D%0AMessage:%0D%0A%0D%0A%0D%0AComment avez-vous entendu parler de nous: %0D%0A☐ Recherche Google%0D%0A☐ Médias sociaux%0D%0A☐ Parrainage%0D%0A☐ Autre%0D%0A%0D%0AMerci pour votre temps.%0D%0A%0D%0ACordialement"
+    - icon: "/images/icons/svg/linkedin.svg"
+      label: "Suivez-nous"
+      value: "https://www.linkedin.com/company/remediumai/"
 
 social:
-  enable: true
+  enable: false
   title: "Suivez-nous sur les réseaux sociaux"
   # # uncomment below list if you want to override `src/config/social.json` data
   # list:
@@ -29,6 +26,7 @@ social:
 
 # Check config.toml file for form action related settings
 form:
+  enable: false
   email_subject: "Nouvelle soumission de formulaire du site web Looka" # Customized email subject (applicable when anyone submit form, form submission may receive by email depend on provider)
   submit_button:
     label: "Envoyer votre réponse"

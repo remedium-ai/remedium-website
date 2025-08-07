@@ -160,7 +160,31 @@ form = {
                       {item.label && (
                         <div class="text-sm opacity-70" set:html={item.label} />
                       )}
-                      {item.value && <p set:html={markdownify(item.value)} />}
+                      {item.value && (
+                        item.value.startsWith('http') ? (
+                          <p>
+                            <a
+                              href={item.value}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              class="text-primary hover:text-primary/80 transition-colors duration-200"
+                            >
+                              {item.value.replace('https://www.linkedin.com/company/', '@').replace('/', '')}
+                            </a>
+                          </p>
+                        ) : item.value.startsWith('mailto:') ? (
+                          <p>
+                            <a
+                              href={item.value}
+                              class="text-primary hover:text-primary/80 transition-colors duration-200"
+                            >
+                              {item.value.split('?')[0].replace('mailto:', '')}
+                            </a>
+                          </p>
+                        ) : (
+                          <p set:html={markdownify(item.value)} />
+                        )
+                      )}
                     </div>
                   </div>
                 ))}
@@ -187,7 +211,7 @@ form = {
                 </div>
               )}
           </div>
-          {form && (
+          {form && form.enable !== false && (
             <div
               data-aos="fade-up-sm"
               data-aos-delay="200"

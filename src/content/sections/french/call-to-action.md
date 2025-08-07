@@ -15,15 +15,16 @@ cta_btn:
 cta_shape_one: "/images/shapes/cta-shape-one.svg"
 cta_shape_two: "/images/shapes/cta-shape-two.svg"
 
-right_content: "image" # Choisir entre "image" ou "stats" pour le contenu du côté droit de la section
+right_content: "none" # Choisir entre "image" ou "stats" pour le contenu du côté droit de la section - défini sur "none" pour supprimer l'image
 
-image_block:
-  image: "/images/call-to-action/image.png"
-  experience:
-    label: "Années d'Expérience"
-    prepend_value: ""
-    value: "12"
-    append_value: "+"
+# Bloc d'image désactivé - aucune image de personne ne sera affichée
+# image_block:
+#   image: "/images/call-to-action/image.png"
+#   experience:
+#     label: "Années d'Expérience"
+#     prepend_value: ""
+#     value: "12"
+#     append_value: "+"
 
 stats_block:
   list:

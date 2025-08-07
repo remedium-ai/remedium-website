@@ -20,8 +20,6 @@ list:
       68167 Mannheim,
       Deutschland
 
-      Phone: +49(177) 331-1269
-
       Email: info@remedium.ai
 
       Business Hours: Monday - Friday: 9:00 AM - 4:00 PM
@@ -34,8 +32,6 @@ list:
       68167 Mannheim,
       Deutschland
 
-      Phone: +49(177) 331-1269
-
       Email: info@remedium.ai
 
       Business Hours: Monday - Friday: 9:00 AM - 4:00 PM
@@ -47,8 +43,6 @@ list:
       Franz-Volhard-Straße 5,
       68167 Mannheim,
       Deutschland
-
-      Phone: +49(177) 331-1269
 
       Email: info@remedium.ai
 

@@ -7,15 +7,15 @@ subtitle: "Contact"
 contact_list:
   enable: true
   list:
-    - icon: "/images/icons/svg/phone.svg"
-      label: "Call us now"
-      value: "+49-177-331-2169"
     - icon: "/images/icons/svg/email.svg"
       label: "Email us"
-      value: "info@remedium.ai"
+      value: "mailto:info@remedium.ai?subject=Inquiry from ReMedium.ai Website&body=Hello ReMedium.ai Team,%0D%0A%0D%0AI am interested in learning more about your solutions.%0D%0A%0D%0APlease find my details below:%0D%0A%0D%0AFull Name: %0D%0AEmail Address: %0D%0APhone Number: %0D%0ACompany: %0D%0ASubject: %0D%0A%0D%0AMessage:%0D%0A%0D%0A%0D%0AHow did you hear about us: %0D%0A☐ Google Search%0D%0A☐ Social Media%0D%0A☐ Referral%0D%0A☐ Other%0D%0A%0D%0AThank you for your time.%0D%0A%0D%0ABest regards"
+    - icon: "/images/icons/svg/linkedin.svg"
+      label: "Follow us"
+      value: "https://www.linkedin.com/company/remediumai/"
 
 social:
-  enable: true
+  enable: false
   title: "Follow us on social media"
   list:
     - enable: true
@@ -25,6 +25,7 @@ social:
 
 # Check config.toml file for form action related settings
 form:
+  enable: false
   email_subject: "New form submission from remedium.ai website"
   submit_button:
     label: "Submit Your Response"

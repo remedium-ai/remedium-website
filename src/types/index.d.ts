@@ -224,6 +224,7 @@ interface SubmitButtonConfig {
 }
 
 export interface ContactFormConfig {
+  enable?: boolean;
   action: string;
   email_subject: string;
   submit_button: SubmitButtonConfig;

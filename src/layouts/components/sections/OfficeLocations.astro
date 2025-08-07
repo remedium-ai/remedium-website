@@ -137,8 +137,13 @@ let { title, enable, cta_btn, subtitle, list } =
                       )}
                       {item.content && (
                         <div
-                          class="prose-styles prose-a:hover:text-white prose-p:mb-0 prose-p:mt-1.5 [&_*]:text-white"
-                          set:html={markdownify(item.content, true)}
+                          class="prose-styles prose-a:hover:text-white prose-p:mb-0 prose-p:mt-1.5 [&_*]:text-white prose-a:text-white prose-a:underline"
+                          set:html={(markdownify(item.content, true) as string).replace(
+                            /Email: info@remedium\.ai/g,
+                            Astro.currentLocale === 'fr' 
+                              ? 'Email: <a href="mailto:info@remedium.ai?subject=Demande depuis le site ReMedium.ai&body=Bonjour l\'équipe ReMedium.ai,%0D%0A%0D%0AJe suis intéressé(e) à en savoir plus sur vos solutions.%0D%0A%0D%0AVeuillez trouver mes coordonnées ci-dessous:%0D%0A%0D%0ANom complet: %0D%0AAdresse e-mail: %0D%0ANuméro de téléphone: %0D%0AEntreprise: %0D%0ASujet: %0D%0A%0D%0AMessage:%0D%0A%0D%0A%0D%0AComment avez-vous entendu parler de nous: %0D%0A☐ Recherche Google%0D%0A☐ Médias sociaux%0D%0A☐ Parrainage%0D%0A☐ Autre%0D%0A%0D%0AMerci pour votre temps.%0D%0A%0D%0ACordialement" class="text-white hover:text-white/80 underline">info@remedium.ai</a>'
+                              : 'Email: <a href="mailto:info@remedium.ai?subject=Inquiry from ReMedium.ai Website&body=Hello ReMedium.ai Team,%0D%0A%0D%0AI am interested in learning more about your solutions.%0D%0A%0D%0APlease find my details below:%0D%0A%0D%0AFull Name: %0D%0AEmail Address: %0D%0APhone Number: %0D%0ACompany: %0D%0ASubject: %0D%0A%0D%0AMessage:%0D%0A%0D%0A%0D%0AHow did you hear about us: %0D%0A☐ Google Search%0D%0A☐ Social Media%0D%0A☐ Referral%0D%0A☐ Other%0D%0A%0D%0AThank you for your time.%0D%0A%0D%0ABest regards" class="text-white hover:text-white/80 underline">info@remedium.ai</a>'
+                          )}
                         />
                       )}
                       {item.image && (
