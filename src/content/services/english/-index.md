@@ -1,6 +1,6 @@
 ---
 title: "Services"
-meta_description: "This is a example description"
+meta_description: "Discover ReMediumAI's comprehensive perioperative solutions including Data:pipe, Analyt:ix, eLea:rn, and SBI certification programs for healthcare excellence."
 draft: false
 has_custom_line_animation_bg: true
 

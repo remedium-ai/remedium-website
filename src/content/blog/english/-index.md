@@ -1,6 +1,6 @@
 ---
 title: "Tutorials & Guides"
-meta_description: "This is a example description"
+meta_description: "Read ReMediumAI's latest insights on perioperative care innovation, AI-driven medicine, and digital transformation in healthcare technology."
 
 disable_tagline: true
 draft: false
