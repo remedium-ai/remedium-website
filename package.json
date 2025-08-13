@@ -1,9 +1,9 @@
 {
-  "name": "looka-astro",
+  "name": "Remedium-Website",
   "type": "module",
   "version": "2.1.0",
-  "author": "getastrothemes",
-  "license": "UNLICENSED",
+  "author": "ReMediumAI",
+  "license": "ReMedium LICENSED",
   "packageManager": "yarn@1.22.19",
   "scripts": {
     "dev": "astro dev",
