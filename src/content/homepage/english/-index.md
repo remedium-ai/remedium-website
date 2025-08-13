@@ -1,6 +1,6 @@
 ---
-title: "ReMediumAI - Transforming Perioperative Care"
-meta_description: "ReMediumAI empowers perioperative care teams with precision medicine, AI-driven insights, and digital solutions for sustainable, patient-centered outcomes."
+title: ""
+meta_description: "This is a example description"
 
 # Override Default Content of `/sections/services-section.md`
 # Uncomment key values that you wan to override

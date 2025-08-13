@@ -1,6 +1,6 @@
 ---
 title: "Client Success Stories"
-meta_description: "Explore ReMediumAI case studies showcasing successful implementations of perioperative care solutions and measurable healthcare outcomes."
+meta_description: "This is a example description"
 
 # Override "Portfolio Section" data located in Portfolio list page
 index_portfolio_section:

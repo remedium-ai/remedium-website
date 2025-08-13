@@ -1,6 +1,6 @@
 ---
 title: "Pricing"
-meta_description: "Discover ReMediumAI's flexible pricing options for perioperative care solutions, SBI certification programs, and healthcare technology services."
+meta_description: "This is a example description"
 draft: false
 has_custom_line_animation_bg: true
 

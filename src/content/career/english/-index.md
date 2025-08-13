@@ -1,6 +1,6 @@
 ---
 title: "Careers at Looka"
-meta_description: "Join ReMediumAI's team in transforming perioperative care. Explore career opportunities in healthcare technology and digital innovation."
+meta_description: "This is a example description"
 has_custom_line_animation_bg: true
 draft: false
 
