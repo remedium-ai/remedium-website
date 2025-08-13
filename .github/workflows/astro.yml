@@ -7,7 +7,8 @@ name: Deploy ReMediumAI site to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["master", "release-1.0"]
+    branches: ["release-1.0"]
+  #  branches: ["master", "release-1.0"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
