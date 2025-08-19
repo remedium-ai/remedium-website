@@ -1,5 +1,5 @@
 ---
 title: "About"
-meta_description: "This is a example description"
+meta_description: "Who is transforming perioperative precision care."
 draft: false
 ---
